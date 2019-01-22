@@ -1,0 +1,512 @@
+/*--------------- 1ra Area: Codigo de Usuario -----------------------*/
+//-------> importaciones, paquetes
+package Models;
+import java_cup.runtime.Symbol;
+
+
+//------> Codigo para el parser,variables, metodos
+parser code
+{:
+    public String result="";
+    String temporal = "" ; 
+    String temporal2="";
+    String temporal3="";
+    String temporalvalor="";
+    String envget="false";
+    String enviaset="false";
+    String hereda="";
+    String guardo="";
+    String consulta="";
+    String valorsigno="";
+    String valoracceder="";
+    String valoraccederid="";
+    String serialcondicion="";
+    String insertarvalores="";
+
+    //Metodo al que se llama automaticamente ante algun error sintactico
+    public void syntax_error(Symbol s)
+    {        
+        String lexema = s.value.toString();
+        int fila = s.right;
+        int columna = s.left;
+        result +="\n!!!!!!! Error Sintactico Recuperado !!!!!!!\t\tLexema: "+lexema+"\t\tFila: "+fila+"\t\tColumna: "+columna;
+        System.out.println("!!!!!!! Error Sintactico Recuperado !!!!!!!");
+        System.out.println("\t\tLexema: "+lexema);
+        System.out.println("\t\tFila: "+fila);
+        System.out.println("\t\tColumna: "+columna);
+        
+       
+        
+    }
+
+    //Metodo al que se llama en el momento en que ya no es posible una recuperacion de errores
+    public void unrecovered_syntax_error(Symbol s) throws java.lang.Exception
+    {        
+        String lexema = s.value.toString();
+        int fila = s.right;
+        int columna = s.left;
+        result +="\n!!!!!!! Error Sintactico, Panic Mode !!!!!!!\t\tLexema: "+lexema+"\t\tFila: "+fila+"\t\tColumna: "+columna;
+        System.out.println("!!!!!!! Error Sintactico, Panic Mode !!!!!!! ");
+        System.out.println("\t\tLexema: "+lexema);
+        System.out.println("\t\tFila: "+fila);
+        System.out.println("\t\tColumna: "+columna);
+     
+    }
+:}
+
+//------> Codigo para las acciones gramaticales
+action code
+{:
+:}
+
+/*--------------- 2da Area: Declaraciones -----------------------*/
+//------> declaracion de terminales 
+terminal object , automatico , parentesisabre , parentesiscierra , puntoycoma , herencia , insertar ,valores ;
+terminal composicion , t_cadena , t_boolean , t_numeric , t_date , set , get , verdad , falso ;
+terminal menor , mayor , mayorigual , menorigual , igual ; 
+terminal seleccionar , from , punto , re , asterisco ; 
+terminal String digito;
+terminal String letra;
+terminal String numero;
+terminal String entero;
+terminal String id ;
+
+
+
+
+
+
+
+//------> declaracion de no terminales object casa automatico  ( pisos t_numeric ;pisos2 t_numeric ; ( 14  ; ) ) ; ;   
+
+
+non terminal S, CUERPO , DECLARAR , VALOR , ASIGNAR , SIGNOS , FIN , ACCEDER , BUSCAR , P , ACCEDERID , ACCEDERCONDICIONES ,ING ;
+
+start with S;
+
+
+
+
+
+
+/*--------------- 3ra Area: Reglas Semanticas -----------------------*/
+
+S ::= P | P S;
+
+P ::= object id:nombret automatico parentesisabre CUERPO parentesiscierra  puntoycoma  
+{:envget="true";enviaset="true";result += "\n create table " + nombret + "(" + temporal+"\n get BOOLEAN ,"+"\n set BOOLEAN,"+"\n llave SERIAL PRIMARY KEY"+"  );\n insert into "+nombret+" values ("+temporalvalor+envget+","+enviaset+")"+"; \n"+consulta; consulta=""; guardo+=temporalvalor;       hereda+=temporal+","; temporal=""; temporalvalor="";envget="false";enviaset="false";
+:}
+
+
+
+| object id:nombret parentesisabre CUERPO parentesiscierra  puntoycoma FIN 
+{:result += "\n create table " + nombret + "(" + temporal+"\n get BOOLEAN ,"+"\n set BOOLEAN,"+"\n llave SERIAL PRIMARY KEY"+"  );\n insert into "+nombret+" values ("+temporalvalor+envget+","+enviaset+")"+"; \n"+consulta;consulta=""; guardo+=temporalvalor;    hereda+=temporal+",";envget="false";enviaset="false";temporal=""; temporalvalor="";:}
+
+
+
+| object id:nombret herencia parentesisabre CUERPO parentesiscierra  puntoycoma FIN 
+{: hereda = hereda.substring(0, hereda.length()-1);   result += "\n create table " + nombret + "(" + temporal+""+hereda+"\n get BOOLEAN ,"+"\n set BOOLEAN,"+"\n llave SERIAL PRIMARY KEY"+"  );\n insert into "+nombret+" values ("+temporalvalor+guardo+envget+","+enviaset+")"+"; \n"+consulta;consulta=""; hereda+=temporal+",";envget="false";enviaset="false";temporal=""; temporalvalor="";:}
+
+
+
+| object id:nombret composicion id:comp parentesisabre CUERPO parentesiscierra  puntoycoma FIN 
+{:result += "\n create table " + nombret + "(" + temporal+"\n get BOOLEAN ,"+"\n set BOOLEAN,"+"\n llave SERIAL PRIMARY KEY"+"  );\n insert into "+nombret+" values ("+temporalvalor+envget+","+enviaset+")"+";"+"\n  alter table "+nombret+" add constraint restriccion foreign key (llave) references "+comp+"(llave); \n"+consulta ;consulta=""; hereda+=temporal+",";envget="false";enviaset="false";temporal=""; temporalvalor="";:}
+
+; 
+
+
+CUERPO ::= DECLARAR parentesisabre parentesiscierra ; 
+
+
+
+
+
+///////////////////////////////////////////////////////ASIGNAR TIPO DE DATO ////////////////////////////////////////////////////////////
+DECLARAR ::= id:nombrevar t_cadena puntoycoma  
+{:
+
+temporal+= "\n  " + nombrevar+" "+"VARCHAR,";
+ 
+:} 
+|
+
+id:nombrevar t_boolean puntoycoma  
+{:
+
+temporal+= "\n  " + nombrevar+" "+"BOOLEAN,";
+ 
+:} 
+
+|
+
+id:nombrevar t_numeric puntoycoma  
+{:
+
+temporal+= "\n  " + nombrevar+" "+"NUMERIC,";
+ 
+:} 
+|
+ id:nombrevar t_date  puntoycoma 
+{:
+temporal+= "\n  " + nombrevar+" "+"DATE,";
+ 
+:}   
+
+
+| id:nombrevar t_cadena  puntoycoma DECLARAR
+{:
+temporal+= "\n  " + nombrevar+" "+"VARCHAR,";
+ 
+:}
+|
+id:nombrevar t_numeric  puntoycoma DECLARAR
+{:
+temporal+= "\n  " + nombrevar+" "+"NUMERIC,";
+ 
+:}
+|
+id:nombrevar t_boolean  puntoycoma DECLARAR
+{:
+temporal+= "\n  " + nombrevar+" "+ "BOOLEAN,";
+ 
+:}
+  
+
+|
+id:nombrevar t_date  puntoycoma DECLARAR
+{:
+temporal+= "\n  " + nombrevar+" "+ "DATE," ;
+ 
+:}
+; 
+////////////////////////////////////////////////////////FIN ASIGNACION TIPO DE DATO//////////////////////////////////////////////////
+
+
+
+
+///////////////////////////////////////////////////////ASIGNAR VALOR A VARIABLES//////////////////////////////////////////////////////
+
+VALOR ::= 
+id:nombrevar 
+{:
+temporalvalor+="'"+nombrevar+"',";
+:}
+| 
+
+numero:nombrevar 
+{:
+temporalvalor+=nombrevar+",";
+:}
+|
+
+entero:nombrevar 
+{:
+temporalvalor+=nombrevar+",";
+:}
+
+|
+set
+{:
+enviaset="true";
+:}
+| 
+
+get 
+{:
+envget="true";
+:}
+
+| 
+
+verdad
+{:
+temporalvalor+="true,";
+:}
+|
+
+falso
+{:
+temporalvalor+="false,";
+:}
+; 
+
+
+
+
+ASIGNAR ::= VALOR puntoycoma | VALOR puntoycoma ASIGNAR; 
+
+////////////////////////////////////////// final asignacion ////////////////////////////////////////////////////////
+
+
+
+/////////////////////////////////////////Consulta////////////////////////////////////////////////////////////////
+FIN ::= seleccionar id:variable from id:tabla puntoycoma
+{:
+consulta="select "+variable+" from "+tabla+" where (get='true');" ;
+:}
+
+|
+
+seleccionar asterisco:var from id:tabla puntoycoma
+{:
+consulta="select " +var+ " from "+tabla+" where (get='true');" ;
+:}
+
+|
+
+seleccionar id:ide from id:idee  parentesisabre id:pp SIGNOS id:ppp parentesiscierra puntoycoma 
+{:
+
+consulta="select " +ide+ " from "+idee+" where ("+pp+" "+valorsigno+"'"+ppp+"' and get='true');" ; valorsigno="";
+
+:}
+
+|
+seleccionar id:ide from id:idee  parentesisabre id:pp SIGNOS entero:ppp parentesiscierra puntoycoma 
+{:
+
+consulta="select " +ide+ " from "+idee+" where ("+pp+" "+valorsigno+"'"+ppp+"' and get='true');" ; valorsigno="";
+
+:}
+
+|
+seleccionar id:ide from id:idee  parentesisabre id:pp SIGNOS numero:ppp parentesiscierra puntoycoma 
+{:
+consulta="select " +ide+ " from "+idee+" where ("+pp+" "+valorsigno+"'"+ppp+"' and get='true');" ; valorsigno="";
+:}
+
+|
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+seleccionar ACCEDER from ACCEDERID parentesisabre ACCEDERCONDICIONES parentesiscierra puntoycoma 
+{:
+
+serialcondicion = serialcondicion.substring(0, serialcondicion.length()-4);
+
+consulta="select "+ valoracceder+" from \n "+valoraccederid+" where  ("+serialcondicion+" );";
+
+///consulta=valoracceder+" id --"+valoraccederid+"condicionallllessss--> "+serialcondicion;
+
+serialcondicion="";
+valoracceder="";
+valoraccederid="";
+:}
+
+
+| insertar object id:var valores ING puntoycoma{:
+
+insertarvalores = insertarvalores.substring(0, insertarvalores.length()-1);
+consulta="insert into "+var+" values("+insertarvalores+");";
+
+
+:}
+
+
+| puntoycoma ;
+
+
+
+ING ::= entero:ee {:
+insertarvalores+="'"+ee+"'"+" ,"; :}
+
+|entero:ee ING {:
+insertarvalores+="'"+ee+"'"+" ,"; :}
+
+| numero:ee {:
+insertarvalores+="'"+ee+"'"+" ,"; :}
+
+| numero:ee ING {:
+insertarvalores+="'"+ee+"'"+" ,"; :}
+
+| id:ee  {:
+insertarvalores+="'"+ee+"'"+" ,"; :}
+
+| id:ee ING } {:
+insertarvalores+="'"+ee+"'"+" ,"; :}
+
+ ;
+
+
+
+
+
+
+        
+
+ACCEDER ::= id:var re id:varr puntoycoma {:
+valoracceder+=var+"."+varr+" ";
+:}
+|
+
+ id:var re id:varr puntoycoma ACCEDER 
+{:
+valoracceder+=var+"."+varr+" ";
+:}
+;
+
+
+ACCEDERID::=id:var  id:varr  {:
+valoraccederid+=var+" "+varr+" ";
+:}
+|
+
+ id:var  id:varr  ACCEDERID
+{:
+valoraccederid+=var+" "+varr+" ";
+:}
+;
+
+
+
+
+
+
+
+
+
+
+
+
+////////////////////////////////////condiciones importantes////////////////////////////////////////////
+ACCEDERCONDICIONES::= 
+id:var igual id:varr{:
+serialcondicion+=" "+var+" = '"+varr+"' and "; :}
+
+
+|
+id:var igual id:varr ACCEDERCONDICIONES {:
+serialcondicion+=" "+var+" = '"+varr+"' and "; :}
+
+
+|
+
+id:var igual entero:varr{:
+serialcondicion+=" "+var+" = '"+varr+"' and "; :}
+
+|
+id:var igual entero:varr ACCEDERCONDICIONES{:
+serialcondicion+=" "+var+" = '"+varr+"' and "; :}
+
+|
+id:var igual numero:varr{:
+serialcondicion+=" "+var+" = '"+varr+"' and "; :}
+
+
+|
+id:var igual numero:varr ACCEDERCONDICIONES{:
+
+serialcondicion+=" "+var+" = '"+varr+"' and "; :}
+
+|
+////////////////////////////segundo/////////////////////////////////////////
+
+id:var menor entero:varr{:
+serialcondicion+=" "+var+" < '"+varr+"' and "; :}
+
+|
+id:var menor entero:varr ACCEDERCONDICIONES{:
+serialcondicion+=" "+var+" < '"+varr+"' and "; :}
+
+|
+id:var menor numero:varr{:
+serialcondicion+=" "+var+" < '"+varr+"' and "; :}
+
+
+|
+id:var menor numero:varr ACCEDERCONDICIONES{:
+
+serialcondicion+=" "+var+" < '"+varr+"' and "; :}
+
+//////////////////////////////////////////tercero//////////////////////////////////////////////////
+|
+
+id:var mayor entero:varr{:
+serialcondicion+=" "+var+" > '"+varr+"' and "; :}
+
+|
+id:var mayor entero:varr ACCEDERCONDICIONES{:
+serialcondicion+=" "+var+" > '"+varr+"' and "; :}
+
+|
+id:var mayor numero:varr{:
+serialcondicion+=" "+var+" > '"+varr+"' and "; :}
+
+
+|
+id:var mayor numero:varr ACCEDERCONDICIONES{:
+
+serialcondicion+=" "+var+" > '"+varr+"' and "; :}
+
+
+//////////////////////////////////////////cuarto //////////////////////////////////////////////////
+
+|
+
+
+id:var mayorigual entero:varr{:
+serialcondicion+=" "+var+" >= '"+varr+"' and "; :}
+
+|
+id:var mayorigual entero:varr ACCEDERCONDICIONES{:
+serialcondicion+=" "+var+" >= '"+varr+"' and "; :}
+
+|
+id:var mayorigual numero:varr{:
+serialcondicion+=" "+var+" >= '"+varr+"' and "; :}
+
+
+|
+id:var mayorigual numero:varr ACCEDERCONDICIONES{:
+
+serialcondicion+=" "+var+" >= '"+varr+"' and "; :}
+
+
+//////////////////////////////////////////cuarto //////////////////////////////////////////////////
+|
+
+
+id:var menorigual entero:varr{:
+serialcondicion+=" "+var+" <= '"+varr+"' and "; :}
+
+|
+id:var menorigual entero:varr ACCEDERCONDICIONES{:
+serialcondicion+=" "+var+" <= '"+varr+"' and "; :}
+
+|
+id:var menorigual numero:varr{:
+serialcondicion+=" "+var+" <= '"+varr+"' and "; :}
+
+
+|
+id:var menorigual numero:varr ACCEDERCONDICIONES{:
+
+serialcondicion+=" "+var+" <= '"+varr+"' and "; :}
+
+
+
+;
+
+
+
+
+
+
+
+
+
+SIGNOS ::= mayorigual {:valorsigno=">="; :} 
+|
+ menorigual 
+{:valorsigno="<="; :} 
+| igual 
+
+{:valorsigno="="; :} 
+| mayor
+{:valorsigno=">"; :} 
+|  menor 
+{:valorsigno="<"; :} 
+
+; 
+
+
+BUSCAR ::= id | id SIGNOS BUSCAR ; 
