@@ -61,28 +61,25 @@ action code
 
 /*--------------- 2da Area: Declaraciones -----------------------*/
 //------> declaracion de terminales 
-terminal object , automatico , parentesisabre , parentesiscierra , puntoycoma , herencia , insertar ,valores ;
-terminal composicion , t_cadena , t_boolean , t_numeric , t_date , set , get , verdad , falso ;
-terminal menor , mayor , mayorigual , menorigual , igual ; 
-terminal seleccionar , from , punto , re , asterisco ; 
-terminal String digito;
-terminal String letra;
-terminal String numero;
-terminal String entero;
-terminal String id ;
+terminal function, procedure, boolean_type , int_type , float_type , char_type , string_type , retorno , verdadero , falso ;
+terminal parametro_entrada , parametro_salida , parametro_entada_salida , ciclo_for , ciclo_while , ciclo_repeat , condicional_if ;
+terminal condicional_switch , condicional_until , then , else_if  , end_if , case_of , end_case , array , list , stack , queve ;
+terminal tree , graph , set , suma , resta , multiplicacion , division , potencia , menor  , mayor , comparacion , menor_igual ;
+terminal mayor_igual , division_entera , modulo , diferente , or , and , not , comentario , asignacion , parentesis_abierto ;
+terminal parentesis_cerrado , llave_abierta , llave_cerrada , corchete_abierto , corchete_cerrado , coma , hasta , hacer , incremento ;
+terminal decremento , descenso , imprimir , digito , letra , entero , numero , id , comilla ;
 
 
 
 
 
 
+//------> declaracion de no terminales   
 
-//------> declaracion de no terminales object casa automatico  ( pisos t_numeric ;pisos2 t_numeric ; ( 14  ; ) ) ; ;   
 
+non terminal INICIO, ARGUMENTOS , DEFVARIABLES , CUERPITO , REFERENCIA , TIPODATO , VECTOR ,  ESTRUCTURA ,  ELEMENTOS , MATRIZ       ;
 
-non terminal S, CUERPO , DECLARAR , VALOR , ASIGNAR , SIGNOS , FIN , ACCEDER , BUSCAR , P , ACCEDERID , ACCEDERCONDICIONES ,ING ;
-
-start with S;
+start with INICIO;
 
 
 
@@ -91,422 +88,47 @@ start with S;
 
 /*--------------- 3ra Area: Reglas Semanticas -----------------------*/
 
-S ::= P | P S;
+INICIO ::=    procedure id parentesis_abierto ARGUMENTOS parentesis_cerrado DEFVARIABLES llave_abierta CUERPITO llave_cerrada 
+            | function id parentesis_abierto ARGUMENTOS parentesis_cerrado DEFVARIABLES llave_abierta CUERPITO llave_cerrada
+            | procedure id parentesis_abierto  parentesis_cerrado DEFVARIABLES llave_abierta CUERPITO llave_cerrada
+            | function id parentesis_abierto  parentesis_cerrado DEFVARIABLES llave_abierta CUERPITO llave_cerrada
+            | procedure id parentesis_abierto ARGUMENTOS parentesis_cerrado  llave_abierta CUERPITO llave_cerrada
+            | function id parentesis_abierto ARGUMENTOS parentesis_cerrado  llave_abierta CUERPITO llave_cerrada
+            | procedure id parentesis_abierto  parentesis_cerrado  llave_abierta CUERPITO llave_cerrada
+            | function id parentesis_abierto  parentesis_cerrado  llave_abierta CUERPITO llave_cerrada 
+            | procedure id parentesis_abierto ARGUMENTOS parentesis_cerrado DEFVARIABLES llave_abierta CUERPITO llave_cerrada INICIO
+            | function id parentesis_abierto ARGUMENTOS parentesis_cerrado DEFVARIABLES llave_abierta CUERPITO llave_cerrada INICIO
+            | procedure id parentesis_abierto  parentesis_cerrado DEFVARIABLES llave_abierta CUERPITO llave_cerrada INICIO
+            | function id parentesis_abierto  parentesis_cerrado DEFVARIABLES llave_abierta CUERPITO llave_cerrada INICIO
+            | procedure id parentesis_abierto ARGUMENTOS parentesis_cerrado  llave_abierta CUERPITO llave_cerrada INICIO
+            | function id parentesis_abierto ARGUMENTOS parentesis_cerrado  llave_abierta CUERPITO llave_cerrada INICIO
+            | procedure id parentesis_abierto  parentesis_cerrado  llave_abierta CUERPITO llave_cerrada INICIO
+            | function id parentesis_abierto  parentesis_cerrado  llave_abierta CUERPITO llave_cerrada INICIO ;
 
-P ::= object id:nombret automatico parentesisabre CUERPO parentesiscierra  puntoycoma  
-{:envget="true";enviaset="true";result += "\n create table " + nombret + "(" + temporal+"\n get BOOLEAN ,"+"\n set BOOLEAN,"+"\n llave SERIAL PRIMARY KEY"+"  );\n insert into "+nombret+" values ("+temporalvalor+envget+","+enviaset+")"+"; \n"+consulta; consulta=""; guardo+=temporalvalor;       hereda+=temporal+","; temporal=""; temporalvalor="";envget="false";enviaset="false";
-:}
+ARGUMENTOS ::= REFERENCIA TIPODATO id coma ARGUMENTOS 
+              | REFERENCIA TIPODATO id ;
 
+REFERENCIA ::= parametro_entrada | parametro_salida | parametro_entada_salida ; 
 
 
-| object id:nombret parentesisabre CUERPO parentesiscierra  puntoycoma FIN 
-{:result += "\n create table " + nombret + "(" + temporal+"\n get BOOLEAN ,"+"\n set BOOLEAN,"+"\n llave SERIAL PRIMARY KEY"+"  );\n insert into "+nombret+" values ("+temporalvalor+envget+","+enviaset+")"+"; \n"+consulta;consulta=""; guardo+=temporalvalor;    hereda+=temporal+",";envget="false";enviaset="false";temporal=""; temporalvalor="";:}
 
+ELEMENTOS ::= entero coma ELEMENTOS | entero |  comilla id comilla | comilla id comilla coma ELEMENTOS | id coma ELEMENTOS ;
 
+ESTRUCTURA ::= VECTOR | MATRIZ ;
 
-| object id:nombret herencia parentesisabre CUERPO parentesiscierra  puntoycoma FIN 
-{: hereda = hereda.substring(0, hereda.length()-1);   result += "\n create table " + nombret + "(" + temporal+""+hereda+"\n get BOOLEAN ,"+"\n set BOOLEAN,"+"\n llave SERIAL PRIMARY KEY"+"  );\n insert into "+nombret+" values ("+temporalvalor+guardo+envget+","+enviaset+")"+"; \n"+consulta;consulta=""; hereda+=temporal+",";envget="false";enviaset="false";temporal=""; temporalvalor="";:}
+TIPODATO ::= int_type | char_type | float_type | boolean_type | string_type | ESTRUCTURA ;
 
 
 
-| object id:nombret composicion id:comp parentesisabre CUERPO parentesiscierra  puntoycoma FIN 
-{:result += "\n create table " + nombret + "(" + temporal+"\n get BOOLEAN ,"+"\n set BOOLEAN,"+"\n llave SERIAL PRIMARY KEY"+"  );\n insert into "+nombret+" values ("+temporalvalor+envget+","+enviaset+")"+";"+"\n  alter table "+nombret+" add constraint restriccion foreign key (llave) references "+comp+"(llave); \n"+consulta ;consulta=""; hereda+=temporal+",";envget="false";enviaset="false";temporal=""; temporalvalor="";:}
+VECTOR ::=   TIPODATO id corchete_abierto corchete_cerrado 
+           | TIPODATO id corchete_abierto entero corchete_cerrado 
+           | TIPODATO id corchete_abierto id corchete_cerrado 
+           | TIPODATO id corchete_abierto  corchete_cerrado asignacion llave_abierta ELEMENTOS llave_cerrada  ;
 
-; 
+MATRIZ ::=id ;
 
+DEFVARIABLES ::=id ;
 
-CUERPO ::= DECLARAR parentesisabre parentesiscierra ; 
 
+CUERPITO ::= id id ;
 
-
-
-
-///////////////////////////////////////////////////////ASIGNAR TIPO DE DATO ////////////////////////////////////////////////////////////
-DECLARAR ::= id:nombrevar t_cadena puntoycoma  
-{:
-
-temporal+= "\n  " + nombrevar+" "+"VARCHAR,";
- 
-:} 
-|
-
-id:nombrevar t_boolean puntoycoma  
-{:
-
-temporal+= "\n  " + nombrevar+" "+"BOOLEAN,";
- 
-:} 
-
-|
-
-id:nombrevar t_numeric puntoycoma  
-{:
-
-temporal+= "\n  " + nombrevar+" "+"NUMERIC,";
- 
-:} 
-|
- id:nombrevar t_date  puntoycoma 
-{:
-temporal+= "\n  " + nombrevar+" "+"DATE,";
- 
-:}   
-
-
-| id:nombrevar t_cadena  puntoycoma DECLARAR
-{:
-temporal+= "\n  " + nombrevar+" "+"VARCHAR,";
- 
-:}
-|
-id:nombrevar t_numeric  puntoycoma DECLARAR
-{:
-temporal+= "\n  " + nombrevar+" "+"NUMERIC,";
- 
-:}
-|
-id:nombrevar t_boolean  puntoycoma DECLARAR
-{:
-temporal+= "\n  " + nombrevar+" "+ "BOOLEAN,";
- 
-:}
-  
-
-|
-id:nombrevar t_date  puntoycoma DECLARAR
-{:
-temporal+= "\n  " + nombrevar+" "+ "DATE," ;
- 
-:}
-; 
-////////////////////////////////////////////////////////FIN ASIGNACION TIPO DE DATO//////////////////////////////////////////////////
-
-
-
-
-///////////////////////////////////////////////////////ASIGNAR VALOR A VARIABLES//////////////////////////////////////////////////////
-
-VALOR ::= 
-id:nombrevar 
-{:
-temporalvalor+="'"+nombrevar+"',";
-:}
-| 
-
-numero:nombrevar 
-{:
-temporalvalor+=nombrevar+",";
-:}
-|
-
-entero:nombrevar 
-{:
-temporalvalor+=nombrevar+",";
-:}
-
-|
-set
-{:
-enviaset="true";
-:}
-| 
-
-get 
-{:
-envget="true";
-:}
-
-| 
-
-verdad
-{:
-temporalvalor+="true,";
-:}
-|
-
-falso
-{:
-temporalvalor+="false,";
-:}
-; 
-
-
-
-
-ASIGNAR ::= VALOR puntoycoma | VALOR puntoycoma ASIGNAR; 
-
-////////////////////////////////////////// final asignacion ////////////////////////////////////////////////////////
-
-
-
-/////////////////////////////////////////Consulta////////////////////////////////////////////////////////////////
-FIN ::= seleccionar id:variable from id:tabla puntoycoma
-{:
-consulta="select "+variable+" from "+tabla+" where (get='true');" ;
-:}
-
-|
-
-seleccionar asterisco:var from id:tabla puntoycoma
-{:
-consulta="select " +var+ " from "+tabla+" where (get='true');" ;
-:}
-
-|
-
-seleccionar id:ide from id:idee  parentesisabre id:pp SIGNOS id:ppp parentesiscierra puntoycoma 
-{:
-
-consulta="select " +ide+ " from "+idee+" where ("+pp+" "+valorsigno+"'"+ppp+"' and get='true');" ; valorsigno="";
-
-:}
-
-|
-seleccionar id:ide from id:idee  parentesisabre id:pp SIGNOS entero:ppp parentesiscierra puntoycoma 
-{:
-
-consulta="select " +ide+ " from "+idee+" where ("+pp+" "+valorsigno+"'"+ppp+"' and get='true');" ; valorsigno="";
-
-:}
-
-|
-seleccionar id:ide from id:idee  parentesisabre id:pp SIGNOS numero:ppp parentesiscierra puntoycoma 
-{:
-consulta="select " +ide+ " from "+idee+" where ("+pp+" "+valorsigno+"'"+ppp+"' and get='true');" ; valorsigno="";
-:}
-
-|
-
-//////////////////////////////////////////////////////////////////////////////////////////////////////
-seleccionar ACCEDER from ACCEDERID parentesisabre ACCEDERCONDICIONES parentesiscierra puntoycoma 
-{:
-
-serialcondicion = serialcondicion.substring(0, serialcondicion.length()-4);
-
-consulta="select "+ valoracceder+" from \n "+valoraccederid+" where  ("+serialcondicion+" );";
-
-///consulta=valoracceder+" id --"+valoraccederid+"condicionallllessss--> "+serialcondicion;
-
-serialcondicion="";
-valoracceder="";
-valoraccederid="";
-:}
-
-
-| insertar object id:var valores ING puntoycoma{:
-
-insertarvalores = insertarvalores.substring(0, insertarvalores.length()-1);
-consulta="insert into "+var+" values("+insertarvalores+");";
-
-
-:}
-
-
-| puntoycoma ;
-
-
-
-ING ::= entero:ee {:
-insertarvalores+="'"+ee+"'"+" ,"; :}
-
-|entero:ee ING {:
-insertarvalores+="'"+ee+"'"+" ,"; :}
-
-| numero:ee {:
-insertarvalores+="'"+ee+"'"+" ,"; :}
-
-| numero:ee ING {:
-insertarvalores+="'"+ee+"'"+" ,"; :}
-
-| id:ee  {:
-insertarvalores+="'"+ee+"'"+" ,"; :}
-
-| id:ee ING } {:
-insertarvalores+="'"+ee+"'"+" ,"; :}
-
- ;
-
-
-
-
-
-
-        
-
-ACCEDER ::= id:var re id:varr puntoycoma {:
-valoracceder+=var+"."+varr+" ";
-:}
-|
-
- id:var re id:varr puntoycoma ACCEDER 
-{:
-valoracceder+=var+"."+varr+" ";
-:}
-;
-
-
-ACCEDERID::=id:var  id:varr  {:
-valoraccederid+=var+" "+varr+" ";
-:}
-|
-
- id:var  id:varr  ACCEDERID
-{:
-valoraccederid+=var+" "+varr+" ";
-:}
-;
-
-
-
-
-
-
-
-
-
-
-
-
-////////////////////////////////////condiciones importantes////////////////////////////////////////////
-ACCEDERCONDICIONES::= 
-id:var igual id:varr{:
-serialcondicion+=" "+var+" = '"+varr+"' and "; :}
-
-
-|
-id:var igual id:varr ACCEDERCONDICIONES {:
-serialcondicion+=" "+var+" = '"+varr+"' and "; :}
-
-
-|
-
-id:var igual entero:varr{:
-serialcondicion+=" "+var+" = '"+varr+"' and "; :}
-
-|
-id:var igual entero:varr ACCEDERCONDICIONES{:
-serialcondicion+=" "+var+" = '"+varr+"' and "; :}
-
-|
-id:var igual numero:varr{:
-serialcondicion+=" "+var+" = '"+varr+"' and "; :}
-
-
-|
-id:var igual numero:varr ACCEDERCONDICIONES{:
-
-serialcondicion+=" "+var+" = '"+varr+"' and "; :}
-
-|
-////////////////////////////segundo/////////////////////////////////////////
-
-id:var menor entero:varr{:
-serialcondicion+=" "+var+" < '"+varr+"' and "; :}
-
-|
-id:var menor entero:varr ACCEDERCONDICIONES{:
-serialcondicion+=" "+var+" < '"+varr+"' and "; :}
-
-|
-id:var menor numero:varr{:
-serialcondicion+=" "+var+" < '"+varr+"' and "; :}
-
-
-|
-id:var menor numero:varr ACCEDERCONDICIONES{:
-
-serialcondicion+=" "+var+" < '"+varr+"' and "; :}
-
-//////////////////////////////////////////tercero//////////////////////////////////////////////////
-|
-
-id:var mayor entero:varr{:
-serialcondicion+=" "+var+" > '"+varr+"' and "; :}
-
-|
-id:var mayor entero:varr ACCEDERCONDICIONES{:
-serialcondicion+=" "+var+" > '"+varr+"' and "; :}
-
-|
-id:var mayor numero:varr{:
-serialcondicion+=" "+var+" > '"+varr+"' and "; :}
-
-
-|
-id:var mayor numero:varr ACCEDERCONDICIONES{:
-
-serialcondicion+=" "+var+" > '"+varr+"' and "; :}
-
-
-//////////////////////////////////////////cuarto //////////////////////////////////////////////////
-
-|
-
-
-id:var mayorigual entero:varr{:
-serialcondicion+=" "+var+" >= '"+varr+"' and "; :}
-
-|
-id:var mayorigual entero:varr ACCEDERCONDICIONES{:
-serialcondicion+=" "+var+" >= '"+varr+"' and "; :}
-
-|
-id:var mayorigual numero:varr{:
-serialcondicion+=" "+var+" >= '"+varr+"' and "; :}
-
-
-|
-id:var mayorigual numero:varr ACCEDERCONDICIONES{:
-
-serialcondicion+=" "+var+" >= '"+varr+"' and "; :}
-
-
-//////////////////////////////////////////cuarto //////////////////////////////////////////////////
-|
-
-
-id:var menorigual entero:varr{:
-serialcondicion+=" "+var+" <= '"+varr+"' and "; :}
-
-|
-id:var menorigual entero:varr ACCEDERCONDICIONES{:
-serialcondicion+=" "+var+" <= '"+varr+"' and "; :}
-
-|
-id:var menorigual numero:varr{:
-serialcondicion+=" "+var+" <= '"+varr+"' and "; :}
-
-
-|
-id:var menorigual numero:varr ACCEDERCONDICIONES{:
-
-serialcondicion+=" "+var+" <= '"+varr+"' and "; :}
-
-
-
-;
-
-
-
-
-
-
-
-
-
-SIGNOS ::= mayorigual {:valorsigno=">="; :} 
-|
- menorigual 
-{:valorsigno="<="; :} 
-| igual 
-
-{:valorsigno="="; :} 
-| mayor
-{:valorsigno=">"; :} 
-|  menor 
-{:valorsigno="<"; :} 
-
-; 
-
-
-BUSCAR ::= id | id SIGNOS BUSCAR ; 

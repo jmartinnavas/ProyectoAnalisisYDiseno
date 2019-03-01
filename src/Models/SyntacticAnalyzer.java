@@ -31,29 +31,20 @@ public class SyntacticAnalyzer extends java_cup.runtime.lr_parser {
   /** Production table. */
   protected static final short _production_table[][] = 
     unpackFromStrings(new String[] {
-    "\000\110\000\002\002\004\000\002\002\003\000\002\002" +
-    "\004\000\002\013\011\000\002\013\011\000\002\013\012" +
-    "\000\002\013\013\000\002\003\005\000\002\004\005\000" +
-    "\002\004\005\000\002\004\005\000\002\004\005\000\002" +
-    "\004\006\000\002\004\006\000\002\004\006\000\002\004" +
-    "\006\000\002\005\003\000\002\005\003\000\002\005\003" +
-    "\000\002\005\003\000\002\005\003\000\002\005\003\000" +
-    "\002\005\003\000\002\006\004\000\002\006\005\000\002" +
-    "\010\007\000\002\010\007\000\002\010\014\000\002\010" +
-    "\014\000\002\010\014\000\002\010\012\000\002\010\010" +
-    "\000\002\010\003\000\002\016\003\000\002\016\004\000" +
-    "\002\016\003\000\002\016\004\000\002\016\003\000\002" +
-    "\016\004\000\002\011\006\000\002\011\007\000\002\014" +
-    "\004\000\002\014\005\000\002\015\005\000\002\015\006" +
-    "\000\002\015\005\000\002\015\006\000\002\015\005\000" +
-    "\002\015\006\000\002\015\005\000\002\015\006\000\002" +
-    "\015\005\000\002\015\006\000\002\015\005\000\002\015" +
-    "\006\000\002\015\005\000\002\015\006\000\002\015\005" +
-    "\000\002\015\006\000\002\015\005\000\002\015\006\000" +
-    "\002\015\005\000\002\015\006\000\002\015\005\000\002" +
-    "\015\006\000\002\007\003\000\002\007\003\000\002\007" +
-    "\003\000\002\007\003\000\002\007\003\000\002\012\003" +
-    "\000\002\012\005" });
+    "\000\052\000\002\002\004\000\002\002\013\000\002\002" +
+    "\013\000\002\002\012\000\002\002\012\000\002\002\012" +
+    "\000\002\002\012\000\002\002\011\000\002\002\011\000" +
+    "\002\002\014\000\002\002\014\000\002\002\013\000\002" +
+    "\002\013\000\002\002\013\000\002\002\013\000\002\002" +
+    "\012\000\002\002\012\000\002\003\007\000\002\003\005" +
+    "\000\002\006\003\000\002\006\003\000\002\006\003\000" +
+    "\002\012\005\000\002\012\003\000\002\012\005\000\002" +
+    "\012\007\000\002\012\005\000\002\011\003\000\002\011" +
+    "\003\000\002\007\003\000\002\007\003\000\002\007\003" +
+    "\000\002\007\003\000\002\007\003\000\002\007\003\000" +
+    "\002\010\006\000\002\010\007\000\002\010\007\000\002" +
+    "\010\012\000\002\013\003\000\002\004\003\000\002\005" +
+    "\004" });
 
   /** Access to production table. */
   public short[][] production_table() {return _production_table;}
@@ -61,78 +52,59 @@ public class SyntacticAnalyzer extends java_cup.runtime.lr_parser {
   /** Parse-action table. */
   protected static final short[][] _action_table = 
     unpackFromStrings(new String[] {
-    "\000\200\000\004\004\004\001\002\000\004\043\011\001" +
-    "\002\000\004\002\010\001\002\000\006\002\000\004\004" +
-    "\001\002\000\004\002\uffff\001\002\000\004\002\001\001" +
-    "\002\000\012\005\015\006\014\011\013\014\012\001\002" +
-    "\000\004\043\175\001\002\000\004\006\170\001\002\000" +
-    "\004\043\021\001\002\000\004\006\016\001\002\000\004" +
-    "\043\021\001\002\000\004\006\040\001\002\000\004\007" +
-    "\036\001\002\000\012\015\022\016\023\017\025\020\024" +
-    "\001\002\000\004\010\034\001\002\000\004\010\032\001" +
-    "\002\000\004\010\030\001\002\000\004\010\026\001\002" +
-    "\000\006\006\ufff7\043\021\001\002\000\004\006\ufff4\001" +
-    "\002\000\006\006\ufff6\043\021\001\002\000\004\006\ufff2" +
-    "\001\002\000\006\006\ufff8\043\021\001\002\000\004\006" +
-    "\ufff3\001\002\000\006\006\ufff9\043\021\001\002\000\004" +
-    "\006\ufff5\001\002\000\004\010\037\001\002\000\006\002" +
-    "\ufffe\004\ufffe\001\002\000\004\007\041\001\002\000\004" +
-    "\007\ufffa\001\002\000\004\007\043\001\002\000\004\010" +
-    "\044\001\002\000\010\010\047\012\045\032\050\001\002" +
-    "\000\004\004\155\001\002\000\006\002\ufffd\004\ufffd\001" +
-    "\002\000\006\002\uffe1\004\uffe1\001\002\000\006\036\051" +
-    "\043\053\001\002\000\004\033\152\001\002\000\004\033" +
-    "\105\001\002\000\006\033\055\035\054\001\002\000\004" +
-    "\043\101\001\002\000\004\043\056\001\002\000\006\006" +
-    "\057\010\060\001\002\000\004\043\061\001\002\000\006" +
-    "\002\uffe8\004\uffe8\001\002\000\014\025\064\026\067\027" +
-    "\066\030\065\031\062\001\002\000\010\041\uffbe\042\uffbe" +
-    "\043\uffbe\001\002\000\010\041\070\042\071\043\072\001" +
-    "\002\000\010\041\uffbc\042\uffbc\043\uffbc\001\002\000\010" +
-    "\041\uffbf\042\uffbf\043\uffbf\001\002\000\010\041\uffc0\042" +
-    "\uffc0\043\uffc0\001\002\000\010\041\uffbd\042\uffbd\043\uffbd" +
-    "\001\002\000\004\007\077\001\002\000\004\007\075\001" +
-    "\002\000\004\007\073\001\002\000\004\010\074\001\002" +
-    "\000\006\002\uffe6\004\uffe6\001\002\000\004\010\076\001" +
-    "\002\000\006\002\uffe5\004\uffe5\001\002\000\004\010\100" +
-    "\001\002\000\006\002\uffe4\004\uffe4\001\002\000\004\010" +
-    "\102\001\002\000\006\033\uffda\043\104\001\002\000\004" +
-    "\033\uffd9\001\002\000\004\035\054\001\002\000\004\043" +
-    "\107\001\002\000\004\006\112\001\002\000\004\043\110" +
-    "\001\002\000\006\006\uffd8\043\107\001\002\000\004\006" +
-    "\uffd7\001\002\000\004\043\114\001\002\000\004\007\150" +
-    "\001\002\000\014\025\116\026\117\027\121\030\120\031" +
-    "\115\001\002\000\010\041\142\042\143\043\144\001\002" +
-    "\000\006\041\136\042\137\001\002\000\006\041\132\042" +
-    "\133\001\002\000\006\041\126\042\127\001\002\000\006" +
-    "\041\122\042\123\001\002\000\006\007\uffc6\043\114\001" +
-    "\002\000\006\007\uffc8\043\114\001\002\000\004\007\uffc7" +
-    "\001\002\000\004\007\uffc5\001\002\000\006\007\uffc2\043" +
-    "\114\001\002\000\006\007\uffc4\043\114\001\002\000\004" +
-    "\007\uffc3\001\002\000\004\007\uffc1\001\002\000\006\007" +
-    "\uffca\043\114\001\002\000\006\007\uffcc\043\114\001\002" +
-    "\000\004\007\uffcb\001\002\000\004\007\uffc9\001\002\000" +
-    "\006\007\uffce\043\114\001\002\000\006\007\uffd0\043\114" +
-    "\001\002\000\004\007\uffcf\001\002\000\004\007\uffcd\001" +
-    "\002\000\006\007\uffd2\043\114\001\002\000\006\007\uffd4" +
-    "\043\114\001\002\000\006\007\uffd6\043\114\001\002\000" +
-    "\004\007\uffd5\001\002\000\004\007\uffd3\001\002\000\004" +
-    "\007\uffd1\001\002\000\004\010\151\001\002\000\006\002" +
-    "\uffe3\004\uffe3\001\002\000\004\043\153\001\002\000\004" +
-    "\010\154\001\002\000\006\002\uffe7\004\uffe7\001\002\000" +
-    "\004\043\156\001\002\000\004\013\157\001\002\000\010" +
-    "\041\161\042\162\043\163\001\002\000\004\010\167\001" +
-    "\002\000\012\010\uffde\041\161\042\162\043\163\001\002" +
-    "\000\012\010\uffe0\041\161\042\162\043\163\001\002\000" +
-    "\012\010\uffdc\041\161\042\162\043\163\001\002\000\004" +
-    "\010\uffdb\001\002\000\004\010\uffdf\001\002\000\004\010" +
-    "\uffdd\001\002\000\006\002\uffe2\004\uffe2\001\002\000\004" +
-    "\043\021\001\002\000\004\007\172\001\002\000\004\010" +
-    "\173\001\002\000\010\010\047\012\045\032\050\001\002" +
-    "\000\006\002\ufffc\004\ufffc\001\002\000\004\006\176\001" +
-    "\002\000\004\043\021\001\002\000\004\007\200\001\002" +
-    "\000\004\010\201\001\002\000\010\010\047\012\045\032" +
-    "\050\001\002\000\006\002\ufffb\004\ufffb\001\002" });
+    "\000\134\000\006\004\004\005\005\001\002\000\004\106" +
+    "\110\001\002\000\004\106\010\001\002\000\004\002\007" +
+    "\001\002\000\004\002\001\001\002\000\004\065\011\001" +
+    "\002\000\012\016\013\017\014\020\015\066\017\001\002" +
+    "\000\016\006\054\007\056\010\052\011\047\012\055\106" +
+    "\046\001\002\000\016\006\uffee\007\uffee\010\uffee\011\uffee" +
+    "\012\uffee\106\uffee\001\002\000\016\006\uffed\007\uffed\010" +
+    "\uffed\011\uffed\012\uffed\106\uffed\001\002\000\016\006\uffec" +
+    "\007\uffec\010\uffec\011\uffec\012\uffec\106\uffec\001\002\000" +
+    "\004\066\034\001\002\000\006\067\021\106\022\001\002" +
+    "\000\004\067\030\001\002\000\004\106\024\001\002\000" +
+    "\004\067\uffd9\001\002\000\004\070\026\001\002\000\004" +
+    "\106\025\001\002\000\004\070\uffd8\001\002\000\010\002" +
+    "\ufffa\004\004\005\005\001\002\000\004\002\ufff2\001\002" +
+    "\000\004\106\024\001\002\000\004\070\032\001\002\000" +
+    "\010\002\ufffe\004\004\005\005\001\002\000\004\002\ufff6" +
+    "\001\002\000\006\067\036\106\022\001\002\000\004\067" +
+    "\042\001\002\000\004\106\024\001\002\000\004\070\040" +
+    "\001\002\000\010\002\ufffc\004\004\005\005\001\002\000" +
+    "\004\002\ufff4\001\002\000\004\106\024\001\002\000\004" +
+    "\070\044\001\002\000\010\002\000\004\004\005\005\001" +
+    "\002\000\004\002\ufff8\001\002\000\004\106\uffda\001\002" +
+    "\000\004\106\uffe3\001\002\000\004\106\uffe6\001\002\000" +
+    "\004\106\uffdf\001\002\000\004\106\uffe2\001\002\000\004" +
+    "\106\uffe5\001\002\000\004\106\uffe1\001\002\000\004\106" +
+    "\uffe0\001\002\000\004\106\uffe4\001\002\000\004\106\060" +
+    "\001\002\000\010\066\uffef\071\061\073\062\001\002\000" +
+    "\010\072\065\104\064\106\066\001\002\000\010\016\013" +
+    "\017\014\020\015\001\002\000\004\066\ufff0\001\002\000" +
+    "\004\072\107\001\002\000\006\064\070\106\uffde\001\002" +
+    "\000\004\072\067\001\002\000\004\106\uffdc\001\002\000" +
+    "\004\067\071\001\002\000\010\104\072\106\075\107\074" +
+    "\001\002\000\006\070\uffea\073\105\001\002\000\004\070" +
+    "\104\001\002\000\004\106\100\001\002\000\004\073\076" +
+    "\001\002\000\010\104\072\106\075\107\074\001\002\000" +
+    "\004\070\uffe7\001\002\000\004\107\101\001\002\000\006" +
+    "\070\uffe9\073\102\001\002\000\010\104\072\106\075\107" +
+    "\074\001\002\000\004\070\uffe8\001\002\000\004\106\uffdb" +
+    "\001\002\000\010\104\072\106\075\107\074\001\002\000" +
+    "\004\070\uffeb\001\002\000\004\106\uffdd\001\002\000\004" +
+    "\065\111\001\002\000\012\016\013\017\014\020\015\066" +
+    "\113\001\002\000\004\066\125\001\002\000\006\067\115" +
+    "\106\022\001\002\000\004\067\121\001\002\000\004\106" +
+    "\024\001\002\000\004\070\117\001\002\000\010\002\ufff9" +
+    "\004\004\005\005\001\002\000\004\002\ufff1\001\002\000" +
+    "\004\106\024\001\002\000\004\070\123\001\002\000\010" +
+    "\002\ufffd\004\004\005\005\001\002\000\004\002\ufff5\001" +
+    "\002\000\006\067\127\106\022\001\002\000\004\067\133" +
+    "\001\002\000\004\106\024\001\002\000\004\070\131\001" +
+    "\002\000\010\002\ufffb\004\004\005\005\001\002\000\004" +
+    "\002\ufff3\001\002\000\004\106\024\001\002\000\004\070" +
+    "\135\001\002\000\010\002\uffff\004\004\005\005\001\002" +
+    "\000\004\002\ufff7\001\002" });
 
   /** Access to parse-action table. */
   public short[][] action_table() {return _action_table;}
@@ -140,52 +112,40 @@ public class SyntacticAnalyzer extends java_cup.runtime.lr_parser {
   /** <code>reduce_goto</code> table. */
   protected static final short[][] _reduce_table = 
     unpackFromStrings(new String[] {
-    "\000\200\000\006\002\004\013\005\001\001\000\002\001" +
-    "\001\000\002\001\001\000\006\002\006\013\005\001\001" +
-    "\000\002\001\001\000\002\001\001\000\002\001\001\000" +
-    "\002\001\001\000\002\001\001\000\006\003\041\004\016" +
-    "\001\001\000\002\001\001\000\006\003\017\004\016\001" +
-    "\001\000\002\001\001\000\002\001\001\000\002\001\001" +
-    "\000\002\001\001\000\002\001\001\000\002\001\001\000" +
-    "\002\001\001\000\004\004\026\001\001\000\002\001\001" +
-    "\000\004\004\030\001\001\000\002\001\001\000\004\004" +
-    "\032\001\001\000\002\001\001\000\004\004\034\001\001" +
-    "\000\002\001\001\000\002\001\001\000\002\001\001\000" +
+    "\000\134\000\004\002\005\001\001\000\002\001\001\000" +
     "\002\001\001\000\002\001\001\000\002\001\001\000\002" +
-    "\001\001\000\004\010\045\001\001\000\002\001\001\000" +
-    "\002\001\001\000\002\001\001\000\004\011\051\001\001" +
+    "\001\001\000\006\003\015\006\011\001\001\000\012\007" +
+    "\056\010\047\011\050\013\052\001\001\000\002\001\001" +
     "\000\002\001\001\000\002\001\001\000\002\001\001\000" +
-    "\002\001\001\000\002\001\001\000\002\001\001\000\002" +
-    "\001\001\000\002\001\001\000\004\007\062\001\001\000" +
-    "\002\001\001\000\002\001\001\000\002\001\001\000\002" +
+    "\004\004\017\001\001\000\002\001\001\000\004\005\022" +
+    "\001\001\000\002\001\001\000\002\001\001\000\002\001" +
+    "\001\000\002\001\001\000\004\002\026\001\001\000\002" +
+    "\001\001\000\004\005\030\001\001\000\002\001\001\000" +
+    "\004\002\032\001\001\000\002\001\001\000\004\004\034" +
+    "\001\001\000\002\001\001\000\004\005\036\001\001\000" +
+    "\002\001\001\000\004\002\040\001\001\000\002\001\001" +
+    "\000\004\005\042\001\001\000\002\001\001\000\004\002" +
+    "\044\001\001\000\002\001\001\000\002\001\001\000\002" +
     "\001\001\000\002\001\001\000\002\001\001\000\002\001" +
     "\001\000\002\001\001\000\002\001\001\000\002\001\001" +
     "\000\002\001\001\000\002\001\001\000\002\001\001\000" +
-    "\002\001\001\000\002\001\001\000\002\001\001\000\004" +
-    "\011\102\001\001\000\002\001\001\000\002\001\001\000" +
-    "\004\014\105\001\001\000\002\001\001\000\002\001\001" +
-    "\000\004\014\110\001\001\000\002\001\001\000\004\015" +
-    "\112\001\001\000\002\001\001\000\002\001\001\000\002" +
+    "\002\001\001\000\006\003\062\006\011\001\001\000\002" +
     "\001\001\000\002\001\001\000\002\001\001\000\002\001" +
-    "\001\000\002\001\001\000\004\015\124\001\001\000\004" +
-    "\015\123\001\001\000\002\001\001\000\002\001\001\000" +
-    "\004\015\130\001\001\000\004\015\127\001\001\000\002" +
-    "\001\001\000\002\001\001\000\004\015\134\001\001\000" +
-    "\004\015\133\001\001\000\002\001\001\000\002\001\001" +
-    "\000\004\015\140\001\001\000\004\015\137\001\001\000" +
-    "\002\001\001\000\002\001\001\000\004\015\146\001\001" +
-    "\000\004\015\145\001\001\000\004\015\144\001\001\000" +
-    "\002\001\001\000\002\001\001\000\002\001\001\000\002" +
+    "\001\000\002\001\001\000\002\001\001\000\004\012\072" +
     "\001\001\000\002\001\001\000\002\001\001\000\002\001" +
-    "\001\000\002\001\001\000\002\001\001\000\002\001\001" +
-    "\000\004\016\157\001\001\000\002\001\001\000\004\016" +
-    "\165\001\001\000\004\016\164\001\001\000\004\016\163" +
-    "\001\001\000\002\001\001\000\002\001\001\000\002\001" +
-    "\001\000\002\001\001\000\006\003\170\004\016\001\001" +
-    "\000\002\001\001\000\002\001\001\000\004\010\173\001" +
-    "\001\000\002\001\001\000\002\001\001\000\006\003\176" +
-    "\004\016\001\001\000\002\001\001\000\002\001\001\000" +
-    "\004\010\201\001\001\000\002\001\001" });
+    "\001\000\002\001\001\000\004\012\076\001\001\000\002" +
+    "\001\001\000\002\001\001\000\002\001\001\000\004\012" +
+    "\102\001\001\000\002\001\001\000\002\001\001\000\004" +
+    "\012\105\001\001\000\002\001\001\000\002\001\001\000" +
+    "\002\001\001\000\006\003\111\006\011\001\001\000\002" +
+    "\001\001\000\004\004\113\001\001\000\002\001\001\000" +
+    "\004\005\115\001\001\000\002\001\001\000\004\002\117" +
+    "\001\001\000\002\001\001\000\004\005\121\001\001\000" +
+    "\002\001\001\000\004\002\123\001\001\000\002\001\001" +
+    "\000\004\004\125\001\001\000\002\001\001\000\004\005" +
+    "\127\001\001\000\002\001\001\000\004\002\131\001\001" +
+    "\000\002\001\001\000\004\005\133\001\001\000\002\001" +
+    "\001\000\004\002\135\001\001\000\002\001\001" });
 
   /** Access to <code>reduce_goto</code> table. */
   public short[][] reduce_table() {return _reduce_table;}
@@ -299,7 +259,7 @@ class CUP$SyntacticAnalyzer$actions {
       switch (CUP$SyntacticAnalyzer$act_num)
         {
           /*. . . . . . . . . . . . . . . . . . . .*/
-          case 0: // $START ::= S EOF 
+          case 0: // $START ::= INICIO EOF 
             {
               Object RESULT =null;
 		int start_valleft = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-1)).left;
@@ -313,1028 +273,371 @@ class CUP$SyntacticAnalyzer$actions {
           return CUP$SyntacticAnalyzer$result;
 
           /*. . . . . . . . . . . . . . . . . . . .*/
-          case 1: // S ::= P 
+          case 1: // INICIO ::= procedure id parentesis_abierto ARGUMENTOS parentesis_cerrado DEFVARIABLES llave_abierta CUERPITO llave_cerrada 
             {
               Object RESULT =null;
 
-              CUP$SyntacticAnalyzer$result = parser.getSymbolFactory().newSymbol("S",0, ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()), ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()), RESULT);
+              CUP$SyntacticAnalyzer$result = parser.getSymbolFactory().newSymbol("INICIO",0, ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-8)), ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()), RESULT);
             }
           return CUP$SyntacticAnalyzer$result;
 
           /*. . . . . . . . . . . . . . . . . . . .*/
-          case 2: // S ::= P S 
+          case 2: // INICIO ::= function id parentesis_abierto ARGUMENTOS parentesis_cerrado DEFVARIABLES llave_abierta CUERPITO llave_cerrada 
             {
               Object RESULT =null;
 
-              CUP$SyntacticAnalyzer$result = parser.getSymbolFactory().newSymbol("S",0, ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-1)), ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()), RESULT);
+              CUP$SyntacticAnalyzer$result = parser.getSymbolFactory().newSymbol("INICIO",0, ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-8)), ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()), RESULT);
             }
           return CUP$SyntacticAnalyzer$result;
 
           /*. . . . . . . . . . . . . . . . . . . .*/
-          case 3: // P ::= object id automatico parentesisabre CUERPO parentesiscierra puntoycoma 
+          case 3: // INICIO ::= procedure id parentesis_abierto parentesis_cerrado DEFVARIABLES llave_abierta CUERPITO llave_cerrada 
             {
               Object RESULT =null;
-		int nombretleft = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-5)).left;
-		int nombretright = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-5)).right;
-		String nombret = (String)((java_cup.runtime.Symbol) CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-5)).value;
-		envget="true";enviaset="true";result += "\n create table " + nombret + "(" + temporal+"\n get BOOLEAN ,"+"\n set BOOLEAN,"+"\n llave SERIAL PRIMARY KEY"+"  );\n insert into "+nombret+" values ("+temporalvalor+envget+","+enviaset+")"+"; \n"+consulta; consulta=""; guardo+=temporalvalor;       hereda+=temporal+","; temporal=""; temporalvalor="";envget="false";enviaset="false";
 
-              CUP$SyntacticAnalyzer$result = parser.getSymbolFactory().newSymbol("P",9, ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-6)), ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()), RESULT);
+              CUP$SyntacticAnalyzer$result = parser.getSymbolFactory().newSymbol("INICIO",0, ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-7)), ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()), RESULT);
             }
           return CUP$SyntacticAnalyzer$result;
 
           /*. . . . . . . . . . . . . . . . . . . .*/
-          case 4: // P ::= object id parentesisabre CUERPO parentesiscierra puntoycoma FIN 
+          case 4: // INICIO ::= function id parentesis_abierto parentesis_cerrado DEFVARIABLES llave_abierta CUERPITO llave_cerrada 
             {
               Object RESULT =null;
-		int nombretleft = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-5)).left;
-		int nombretright = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-5)).right;
-		String nombret = (String)((java_cup.runtime.Symbol) CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-5)).value;
-		result += "\n create table " + nombret + "(" + temporal+"\n get BOOLEAN ,"+"\n set BOOLEAN,"+"\n llave SERIAL PRIMARY KEY"+"  );\n insert into "+nombret+" values ("+temporalvalor+envget+","+enviaset+")"+"; \n"+consulta;consulta=""; guardo+=temporalvalor;    hereda+=temporal+",";envget="false";enviaset="false";temporal=""; temporalvalor="";
-              CUP$SyntacticAnalyzer$result = parser.getSymbolFactory().newSymbol("P",9, ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-6)), ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()), RESULT);
-            }
-          return CUP$SyntacticAnalyzer$result;
-
-          /*. . . . . . . . . . . . . . . . . . . .*/
-          case 5: // P ::= object id herencia parentesisabre CUERPO parentesiscierra puntoycoma FIN 
-            {
-              Object RESULT =null;
-		int nombretleft = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-6)).left;
-		int nombretright = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-6)).right;
-		String nombret = (String)((java_cup.runtime.Symbol) CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-6)).value;
-		 hereda = hereda.substring(0, hereda.length()-1);   result += "\n create table " + nombret + "(" + temporal+""+hereda+"\n get BOOLEAN ,"+"\n set BOOLEAN,"+"\n llave SERIAL PRIMARY KEY"+"  );\n insert into "+nombret+" values ("+temporalvalor+guardo+envget+","+enviaset+")"+"; \n"+consulta;consulta=""; hereda+=temporal+",";envget="false";enviaset="false";temporal=""; temporalvalor="";
-              CUP$SyntacticAnalyzer$result = parser.getSymbolFactory().newSymbol("P",9, ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-7)), ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()), RESULT);
-            }
-          return CUP$SyntacticAnalyzer$result;
-
-          /*. . . . . . . . . . . . . . . . . . . .*/
-          case 6: // P ::= object id composicion id parentesisabre CUERPO parentesiscierra puntoycoma FIN 
-            {
-              Object RESULT =null;
-		int nombretleft = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-7)).left;
-		int nombretright = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-7)).right;
-		String nombret = (String)((java_cup.runtime.Symbol) CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-7)).value;
-		int compleft = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-5)).left;
-		int compright = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-5)).right;
-		String comp = (String)((java_cup.runtime.Symbol) CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-5)).value;
-		result += "\n create table " + nombret + "(" + temporal+"\n get BOOLEAN ,"+"\n set BOOLEAN,"+"\n llave SERIAL PRIMARY KEY"+"  );\n insert into "+nombret+" values ("+temporalvalor+envget+","+enviaset+")"+";"+"\n  alter table "+nombret+" add constraint restriccion foreign key (llave) references "+comp+"(llave); \n"+consulta ;consulta=""; hereda+=temporal+",";envget="false";enviaset="false";temporal=""; temporalvalor="";
-              CUP$SyntacticAnalyzer$result = parser.getSymbolFactory().newSymbol("P",9, ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-8)), ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()), RESULT);
-            }
-          return CUP$SyntacticAnalyzer$result;
-
-          /*. . . . . . . . . . . . . . . . . . . .*/
-          case 7: // CUERPO ::= DECLARAR parentesisabre parentesiscierra 
-            {
-              Object RESULT =null;
-
-              CUP$SyntacticAnalyzer$result = parser.getSymbolFactory().newSymbol("CUERPO",1, ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-2)), ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()), RESULT);
-            }
-          return CUP$SyntacticAnalyzer$result;
-
-          /*. . . . . . . . . . . . . . . . . . . .*/
-          case 8: // DECLARAR ::= id t_cadena puntoycoma 
-            {
-              Object RESULT =null;
-		int nombrevarleft = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-2)).left;
-		int nombrevarright = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-2)).right;
-		String nombrevar = (String)((java_cup.runtime.Symbol) CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-2)).value;
-		
-
-temporal+= "\n  " + nombrevar+" "+"VARCHAR,";
- 
-
-              CUP$SyntacticAnalyzer$result = parser.getSymbolFactory().newSymbol("DECLARAR",2, ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-2)), ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()), RESULT);
-            }
-          return CUP$SyntacticAnalyzer$result;
-
-          /*. . . . . . . . . . . . . . . . . . . .*/
-          case 9: // DECLARAR ::= id t_boolean puntoycoma 
-            {
-              Object RESULT =null;
-		int nombrevarleft = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-2)).left;
-		int nombrevarright = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-2)).right;
-		String nombrevar = (String)((java_cup.runtime.Symbol) CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-2)).value;
-		
-
-temporal+= "\n  " + nombrevar+" "+"BOOLEAN,";
- 
-
-              CUP$SyntacticAnalyzer$result = parser.getSymbolFactory().newSymbol("DECLARAR",2, ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-2)), ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()), RESULT);
-            }
-          return CUP$SyntacticAnalyzer$result;
-
-          /*. . . . . . . . . . . . . . . . . . . .*/
-          case 10: // DECLARAR ::= id t_numeric puntoycoma 
-            {
-              Object RESULT =null;
-		int nombrevarleft = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-2)).left;
-		int nombrevarright = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-2)).right;
-		String nombrevar = (String)((java_cup.runtime.Symbol) CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-2)).value;
-		
-
-temporal+= "\n  " + nombrevar+" "+"NUMERIC,";
- 
-
-              CUP$SyntacticAnalyzer$result = parser.getSymbolFactory().newSymbol("DECLARAR",2, ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-2)), ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()), RESULT);
-            }
-          return CUP$SyntacticAnalyzer$result;
-
-          /*. . . . . . . . . . . . . . . . . . . .*/
-          case 11: // DECLARAR ::= id t_date puntoycoma 
-            {
-              Object RESULT =null;
-		int nombrevarleft = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-2)).left;
-		int nombrevarright = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-2)).right;
-		String nombrevar = (String)((java_cup.runtime.Symbol) CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-2)).value;
-		
-temporal+= "\n  " + nombrevar+" "+"DATE,";
- 
-
-              CUP$SyntacticAnalyzer$result = parser.getSymbolFactory().newSymbol("DECLARAR",2, ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-2)), ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()), RESULT);
-            }
-          return CUP$SyntacticAnalyzer$result;
-
-          /*. . . . . . . . . . . . . . . . . . . .*/
-          case 12: // DECLARAR ::= id t_cadena puntoycoma DECLARAR 
-            {
-              Object RESULT =null;
-		int nombrevarleft = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-3)).left;
-		int nombrevarright = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-3)).right;
-		String nombrevar = (String)((java_cup.runtime.Symbol) CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-3)).value;
-		
-temporal+= "\n  " + nombrevar+" "+"VARCHAR,";
- 
-
-              CUP$SyntacticAnalyzer$result = parser.getSymbolFactory().newSymbol("DECLARAR",2, ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-3)), ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()), RESULT);
-            }
-          return CUP$SyntacticAnalyzer$result;
-
-          /*. . . . . . . . . . . . . . . . . . . .*/
-          case 13: // DECLARAR ::= id t_numeric puntoycoma DECLARAR 
-            {
-              Object RESULT =null;
-		int nombrevarleft = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-3)).left;
-		int nombrevarright = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-3)).right;
-		String nombrevar = (String)((java_cup.runtime.Symbol) CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-3)).value;
-		
-temporal+= "\n  " + nombrevar+" "+"NUMERIC,";
- 
-
-              CUP$SyntacticAnalyzer$result = parser.getSymbolFactory().newSymbol("DECLARAR",2, ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-3)), ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()), RESULT);
-            }
-          return CUP$SyntacticAnalyzer$result;
-
-          /*. . . . . . . . . . . . . . . . . . . .*/
-          case 14: // DECLARAR ::= id t_boolean puntoycoma DECLARAR 
-            {
-              Object RESULT =null;
-		int nombrevarleft = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-3)).left;
-		int nombrevarright = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-3)).right;
-		String nombrevar = (String)((java_cup.runtime.Symbol) CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-3)).value;
-		
-temporal+= "\n  " + nombrevar+" "+ "BOOLEAN,";
- 
-
-              CUP$SyntacticAnalyzer$result = parser.getSymbolFactory().newSymbol("DECLARAR",2, ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-3)), ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()), RESULT);
-            }
-          return CUP$SyntacticAnalyzer$result;
-
-          /*. . . . . . . . . . . . . . . . . . . .*/
-          case 15: // DECLARAR ::= id t_date puntoycoma DECLARAR 
-            {
-              Object RESULT =null;
-		int nombrevarleft = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-3)).left;
-		int nombrevarright = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-3)).right;
-		String nombrevar = (String)((java_cup.runtime.Symbol) CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-3)).value;
-		
-temporal+= "\n  " + nombrevar+" "+ "DATE," ;
- 
-
-              CUP$SyntacticAnalyzer$result = parser.getSymbolFactory().newSymbol("DECLARAR",2, ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-3)), ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()), RESULT);
-            }
-          return CUP$SyntacticAnalyzer$result;
-
-          /*. . . . . . . . . . . . . . . . . . . .*/
-          case 16: // VALOR ::= id 
-            {
-              Object RESULT =null;
-		int nombrevarleft = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()).left;
-		int nombrevarright = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()).right;
-		String nombrevar = (String)((java_cup.runtime.Symbol) CUP$SyntacticAnalyzer$stack.peek()).value;
-		
-temporalvalor+="'"+nombrevar+"',";
 
-              CUP$SyntacticAnalyzer$result = parser.getSymbolFactory().newSymbol("VALOR",3, ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()), ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()), RESULT);
+              CUP$SyntacticAnalyzer$result = parser.getSymbolFactory().newSymbol("INICIO",0, ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-7)), ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()), RESULT);
             }
           return CUP$SyntacticAnalyzer$result;
 
           /*. . . . . . . . . . . . . . . . . . . .*/
-          case 17: // VALOR ::= numero 
+          case 5: // INICIO ::= procedure id parentesis_abierto ARGUMENTOS parentesis_cerrado llave_abierta CUERPITO llave_cerrada 
             {
               Object RESULT =null;
-		int nombrevarleft = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()).left;
-		int nombrevarright = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()).right;
-		String nombrevar = (String)((java_cup.runtime.Symbol) CUP$SyntacticAnalyzer$stack.peek()).value;
-		
-temporalvalor+=nombrevar+",";
 
-              CUP$SyntacticAnalyzer$result = parser.getSymbolFactory().newSymbol("VALOR",3, ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()), ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()), RESULT);
+              CUP$SyntacticAnalyzer$result = parser.getSymbolFactory().newSymbol("INICIO",0, ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-7)), ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()), RESULT);
             }
           return CUP$SyntacticAnalyzer$result;
 
           /*. . . . . . . . . . . . . . . . . . . .*/
-          case 18: // VALOR ::= entero 
+          case 6: // INICIO ::= function id parentesis_abierto ARGUMENTOS parentesis_cerrado llave_abierta CUERPITO llave_cerrada 
             {
               Object RESULT =null;
-		int nombrevarleft = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()).left;
-		int nombrevarright = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()).right;
-		String nombrevar = (String)((java_cup.runtime.Symbol) CUP$SyntacticAnalyzer$stack.peek()).value;
-		
-temporalvalor+=nombrevar+",";
 
-              CUP$SyntacticAnalyzer$result = parser.getSymbolFactory().newSymbol("VALOR",3, ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()), ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()), RESULT);
+              CUP$SyntacticAnalyzer$result = parser.getSymbolFactory().newSymbol("INICIO",0, ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-7)), ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()), RESULT);
             }
           return CUP$SyntacticAnalyzer$result;
 
           /*. . . . . . . . . . . . . . . . . . . .*/
-          case 19: // VALOR ::= set 
+          case 7: // INICIO ::= procedure id parentesis_abierto parentesis_cerrado llave_abierta CUERPITO llave_cerrada 
             {
               Object RESULT =null;
-		
-enviaset="true";
 
-              CUP$SyntacticAnalyzer$result = parser.getSymbolFactory().newSymbol("VALOR",3, ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()), ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()), RESULT);
+              CUP$SyntacticAnalyzer$result = parser.getSymbolFactory().newSymbol("INICIO",0, ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-6)), ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()), RESULT);
             }
           return CUP$SyntacticAnalyzer$result;
 
           /*. . . . . . . . . . . . . . . . . . . .*/
-          case 20: // VALOR ::= get 
+          case 8: // INICIO ::= function id parentesis_abierto parentesis_cerrado llave_abierta CUERPITO llave_cerrada 
             {
               Object RESULT =null;
-		
-envget="true";
 
-              CUP$SyntacticAnalyzer$result = parser.getSymbolFactory().newSymbol("VALOR",3, ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()), ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()), RESULT);
+              CUP$SyntacticAnalyzer$result = parser.getSymbolFactory().newSymbol("INICIO",0, ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-6)), ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()), RESULT);
             }
           return CUP$SyntacticAnalyzer$result;
 
           /*. . . . . . . . . . . . . . . . . . . .*/
-          case 21: // VALOR ::= verdad 
+          case 9: // INICIO ::= procedure id parentesis_abierto ARGUMENTOS parentesis_cerrado DEFVARIABLES llave_abierta CUERPITO llave_cerrada INICIO 
             {
               Object RESULT =null;
-		
-temporalvalor+="true,";
 
-              CUP$SyntacticAnalyzer$result = parser.getSymbolFactory().newSymbol("VALOR",3, ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()), ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()), RESULT);
+              CUP$SyntacticAnalyzer$result = parser.getSymbolFactory().newSymbol("INICIO",0, ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-9)), ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()), RESULT);
             }
           return CUP$SyntacticAnalyzer$result;
 
           /*. . . . . . . . . . . . . . . . . . . .*/
-          case 22: // VALOR ::= falso 
+          case 10: // INICIO ::= function id parentesis_abierto ARGUMENTOS parentesis_cerrado DEFVARIABLES llave_abierta CUERPITO llave_cerrada INICIO 
             {
               Object RESULT =null;
-		
-temporalvalor+="false,";
 
-              CUP$SyntacticAnalyzer$result = parser.getSymbolFactory().newSymbol("VALOR",3, ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()), ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()), RESULT);
+              CUP$SyntacticAnalyzer$result = parser.getSymbolFactory().newSymbol("INICIO",0, ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-9)), ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()), RESULT);
             }
           return CUP$SyntacticAnalyzer$result;
 
           /*. . . . . . . . . . . . . . . . . . . .*/
-          case 23: // ASIGNAR ::= VALOR puntoycoma 
+          case 11: // INICIO ::= procedure id parentesis_abierto parentesis_cerrado DEFVARIABLES llave_abierta CUERPITO llave_cerrada INICIO 
             {
               Object RESULT =null;
 
-              CUP$SyntacticAnalyzer$result = parser.getSymbolFactory().newSymbol("ASIGNAR",4, ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-1)), ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()), RESULT);
+              CUP$SyntacticAnalyzer$result = parser.getSymbolFactory().newSymbol("INICIO",0, ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-8)), ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()), RESULT);
             }
           return CUP$SyntacticAnalyzer$result;
 
           /*. . . . . . . . . . . . . . . . . . . .*/
-          case 24: // ASIGNAR ::= VALOR puntoycoma ASIGNAR 
+          case 12: // INICIO ::= function id parentesis_abierto parentesis_cerrado DEFVARIABLES llave_abierta CUERPITO llave_cerrada INICIO 
             {
               Object RESULT =null;
 
-              CUP$SyntacticAnalyzer$result = parser.getSymbolFactory().newSymbol("ASIGNAR",4, ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-2)), ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()), RESULT);
+              CUP$SyntacticAnalyzer$result = parser.getSymbolFactory().newSymbol("INICIO",0, ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-8)), ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()), RESULT);
             }
           return CUP$SyntacticAnalyzer$result;
 
           /*. . . . . . . . . . . . . . . . . . . .*/
-          case 25: // FIN ::= seleccionar id from id puntoycoma 
+          case 13: // INICIO ::= procedure id parentesis_abierto ARGUMENTOS parentesis_cerrado llave_abierta CUERPITO llave_cerrada INICIO 
             {
               Object RESULT =null;
-		int variableleft = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-3)).left;
-		int variableright = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-3)).right;
-		String variable = (String)((java_cup.runtime.Symbol) CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-3)).value;
-		int tablaleft = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-1)).left;
-		int tablaright = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-1)).right;
-		String tabla = (String)((java_cup.runtime.Symbol) CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-1)).value;
-		
-consulta="select "+variable+" from "+tabla+" where (get='true');" ;
 
-              CUP$SyntacticAnalyzer$result = parser.getSymbolFactory().newSymbol("FIN",6, ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-4)), ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()), RESULT);
+              CUP$SyntacticAnalyzer$result = parser.getSymbolFactory().newSymbol("INICIO",0, ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-8)), ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()), RESULT);
             }
           return CUP$SyntacticAnalyzer$result;
 
           /*. . . . . . . . . . . . . . . . . . . .*/
-          case 26: // FIN ::= seleccionar asterisco from id puntoycoma 
+          case 14: // INICIO ::= function id parentesis_abierto ARGUMENTOS parentesis_cerrado llave_abierta CUERPITO llave_cerrada INICIO 
             {
               Object RESULT =null;
-		int varleft = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-3)).left;
-		int varright = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-3)).right;
-		Object var = (Object)((java_cup.runtime.Symbol) CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-3)).value;
-		int tablaleft = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-1)).left;
-		int tablaright = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-1)).right;
-		String tabla = (String)((java_cup.runtime.Symbol) CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-1)).value;
-		
-consulta="select " +var+ " from "+tabla+" where (get='true');" ;
 
-              CUP$SyntacticAnalyzer$result = parser.getSymbolFactory().newSymbol("FIN",6, ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-4)), ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()), RESULT);
+              CUP$SyntacticAnalyzer$result = parser.getSymbolFactory().newSymbol("INICIO",0, ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-8)), ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()), RESULT);
             }
           return CUP$SyntacticAnalyzer$result;
 
           /*. . . . . . . . . . . . . . . . . . . .*/
-          case 27: // FIN ::= seleccionar id from id parentesisabre id SIGNOS id parentesiscierra puntoycoma 
+          case 15: // INICIO ::= procedure id parentesis_abierto parentesis_cerrado llave_abierta CUERPITO llave_cerrada INICIO 
             {
               Object RESULT =null;
-		int ideleft = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-8)).left;
-		int ideright = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-8)).right;
-		String ide = (String)((java_cup.runtime.Symbol) CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-8)).value;
-		int ideeleft = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-6)).left;
-		int ideeright = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-6)).right;
-		String idee = (String)((java_cup.runtime.Symbol) CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-6)).value;
-		int ppleft = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-4)).left;
-		int ppright = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-4)).right;
-		String pp = (String)((java_cup.runtime.Symbol) CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-4)).value;
-		int pppleft = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-2)).left;
-		int pppright = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-2)).right;
-		String ppp = (String)((java_cup.runtime.Symbol) CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-2)).value;
-		
 
-consulta="select " +ide+ " from "+idee+" where ("+pp+" "+valorsigno+"'"+ppp+"' and get='true');" ; valorsigno="";
-
-
-              CUP$SyntacticAnalyzer$result = parser.getSymbolFactory().newSymbol("FIN",6, ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-9)), ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()), RESULT);
-            }
-          return CUP$SyntacticAnalyzer$result;
-
-          /*. . . . . . . . . . . . . . . . . . . .*/
-          case 28: // FIN ::= seleccionar id from id parentesisabre id SIGNOS entero parentesiscierra puntoycoma 
-            {
-              Object RESULT =null;
-		int ideleft = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-8)).left;
-		int ideright = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-8)).right;
-		String ide = (String)((java_cup.runtime.Symbol) CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-8)).value;
-		int ideeleft = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-6)).left;
-		int ideeright = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-6)).right;
-		String idee = (String)((java_cup.runtime.Symbol) CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-6)).value;
-		int ppleft = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-4)).left;
-		int ppright = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-4)).right;
-		String pp = (String)((java_cup.runtime.Symbol) CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-4)).value;
-		int pppleft = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-2)).left;
-		int pppright = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-2)).right;
-		String ppp = (String)((java_cup.runtime.Symbol) CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-2)).value;
-		
-
-consulta="select " +ide+ " from "+idee+" where ("+pp+" "+valorsigno+"'"+ppp+"' and get='true');" ; valorsigno="";
-
-
-              CUP$SyntacticAnalyzer$result = parser.getSymbolFactory().newSymbol("FIN",6, ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-9)), ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()), RESULT);
+              CUP$SyntacticAnalyzer$result = parser.getSymbolFactory().newSymbol("INICIO",0, ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-7)), ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()), RESULT);
             }
           return CUP$SyntacticAnalyzer$result;
 
           /*. . . . . . . . . . . . . . . . . . . .*/
-          case 29: // FIN ::= seleccionar id from id parentesisabre id SIGNOS numero parentesiscierra puntoycoma 
+          case 16: // INICIO ::= function id parentesis_abierto parentesis_cerrado llave_abierta CUERPITO llave_cerrada INICIO 
             {
               Object RESULT =null;
-		int ideleft = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-8)).left;
-		int ideright = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-8)).right;
-		String ide = (String)((java_cup.runtime.Symbol) CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-8)).value;
-		int ideeleft = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-6)).left;
-		int ideeright = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-6)).right;
-		String idee = (String)((java_cup.runtime.Symbol) CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-6)).value;
-		int ppleft = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-4)).left;
-		int ppright = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-4)).right;
-		String pp = (String)((java_cup.runtime.Symbol) CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-4)).value;
-		int pppleft = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-2)).left;
-		int pppright = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-2)).right;
-		String ppp = (String)((java_cup.runtime.Symbol) CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-2)).value;
-		
-consulta="select " +ide+ " from "+idee+" where ("+pp+" "+valorsigno+"'"+ppp+"' and get='true');" ; valorsigno="";
 
-              CUP$SyntacticAnalyzer$result = parser.getSymbolFactory().newSymbol("FIN",6, ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-9)), ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()), RESULT);
+              CUP$SyntacticAnalyzer$result = parser.getSymbolFactory().newSymbol("INICIO",0, ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-7)), ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()), RESULT);
             }
           return CUP$SyntacticAnalyzer$result;
 
           /*. . . . . . . . . . . . . . . . . . . .*/
-          case 30: // FIN ::= seleccionar ACCEDER from ACCEDERID parentesisabre ACCEDERCONDICIONES parentesiscierra puntoycoma 
+          case 17: // ARGUMENTOS ::= REFERENCIA TIPODATO id coma ARGUMENTOS 
             {
               Object RESULT =null;
-		
-
-serialcondicion = serialcondicion.substring(0, serialcondicion.length()-4);
 
-consulta="select "+ valoracceder+" from \n "+valoraccederid+" where  ("+serialcondicion+" );";
-
-///consulta=valoracceder+" id --"+valoraccederid+"condicionallllessss--> "+serialcondicion;
-
-serialcondicion="";
-valoracceder="";
-valoraccederid="";
-
-              CUP$SyntacticAnalyzer$result = parser.getSymbolFactory().newSymbol("FIN",6, ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-7)), ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()), RESULT);
+              CUP$SyntacticAnalyzer$result = parser.getSymbolFactory().newSymbol("ARGUMENTOS",1, ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-4)), ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()), RESULT);
             }
           return CUP$SyntacticAnalyzer$result;
 
           /*. . . . . . . . . . . . . . . . . . . .*/
-          case 31: // FIN ::= insertar object id valores ING puntoycoma 
+          case 18: // ARGUMENTOS ::= REFERENCIA TIPODATO id 
             {
               Object RESULT =null;
-		int varleft = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-3)).left;
-		int varright = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-3)).right;
-		String var = (String)((java_cup.runtime.Symbol) CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-3)).value;
-		
-
-insertarvalores = insertarvalores.substring(0, insertarvalores.length()-1);
-consulta="insert into "+var+" values("+insertarvalores+");";
-
-
 
-              CUP$SyntacticAnalyzer$result = parser.getSymbolFactory().newSymbol("FIN",6, ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-5)), ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()), RESULT);
+              CUP$SyntacticAnalyzer$result = parser.getSymbolFactory().newSymbol("ARGUMENTOS",1, ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-2)), ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()), RESULT);
             }
           return CUP$SyntacticAnalyzer$result;
 
           /*. . . . . . . . . . . . . . . . . . . .*/
-          case 32: // FIN ::= puntoycoma 
+          case 19: // REFERENCIA ::= parametro_entrada 
             {
               Object RESULT =null;
 
-              CUP$SyntacticAnalyzer$result = parser.getSymbolFactory().newSymbol("FIN",6, ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()), ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()), RESULT);
+              CUP$SyntacticAnalyzer$result = parser.getSymbolFactory().newSymbol("REFERENCIA",4, ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()), ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()), RESULT);
             }
           return CUP$SyntacticAnalyzer$result;
 
           /*. . . . . . . . . . . . . . . . . . . .*/
-          case 33: // ING ::= entero 
+          case 20: // REFERENCIA ::= parametro_salida 
             {
               Object RESULT =null;
-		int eeleft = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()).left;
-		int eeright = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()).right;
-		String ee = (String)((java_cup.runtime.Symbol) CUP$SyntacticAnalyzer$stack.peek()).value;
-		
-insertarvalores+="'"+ee+"'"+" ,"; 
-              CUP$SyntacticAnalyzer$result = parser.getSymbolFactory().newSymbol("ING",12, ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()), ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()), RESULT);
-            }
-          return CUP$SyntacticAnalyzer$result;
 
-          /*. . . . . . . . . . . . . . . . . . . .*/
-          case 34: // ING ::= entero ING 
-            {
-              Object RESULT =null;
-		int eeleft = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-1)).left;
-		int eeright = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-1)).right;
-		String ee = (String)((java_cup.runtime.Symbol) CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-1)).value;
-		
-insertarvalores+="'"+ee+"'"+" ,"; 
-              CUP$SyntacticAnalyzer$result = parser.getSymbolFactory().newSymbol("ING",12, ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-1)), ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()), RESULT);
+              CUP$SyntacticAnalyzer$result = parser.getSymbolFactory().newSymbol("REFERENCIA",4, ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()), ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()), RESULT);
             }
           return CUP$SyntacticAnalyzer$result;
 
           /*. . . . . . . . . . . . . . . . . . . .*/
-          case 35: // ING ::= numero 
+          case 21: // REFERENCIA ::= parametro_entada_salida 
             {
               Object RESULT =null;
-		int eeleft = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()).left;
-		int eeright = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()).right;
-		String ee = (String)((java_cup.runtime.Symbol) CUP$SyntacticAnalyzer$stack.peek()).value;
-		
-insertarvalores+="'"+ee+"'"+" ,"; 
-              CUP$SyntacticAnalyzer$result = parser.getSymbolFactory().newSymbol("ING",12, ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()), ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()), RESULT);
-            }
-          return CUP$SyntacticAnalyzer$result;
 
-          /*. . . . . . . . . . . . . . . . . . . .*/
-          case 36: // ING ::= numero ING 
-            {
-              Object RESULT =null;
-		int eeleft = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-1)).left;
-		int eeright = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-1)).right;
-		String ee = (String)((java_cup.runtime.Symbol) CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-1)).value;
-		
-insertarvalores+="'"+ee+"'"+" ,"; 
-              CUP$SyntacticAnalyzer$result = parser.getSymbolFactory().newSymbol("ING",12, ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-1)), ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()), RESULT);
+              CUP$SyntacticAnalyzer$result = parser.getSymbolFactory().newSymbol("REFERENCIA",4, ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()), ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()), RESULT);
             }
           return CUP$SyntacticAnalyzer$result;
 
           /*. . . . . . . . . . . . . . . . . . . .*/
-          case 37: // ING ::= id 
+          case 22: // ELEMENTOS ::= entero coma ELEMENTOS 
             {
               Object RESULT =null;
-		int eeleft = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()).left;
-		int eeright = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()).right;
-		String ee = (String)((java_cup.runtime.Symbol) CUP$SyntacticAnalyzer$stack.peek()).value;
-		
-insertarvalores+="'"+ee+"'"+" ,"; 
-              CUP$SyntacticAnalyzer$result = parser.getSymbolFactory().newSymbol("ING",12, ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()), ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()), RESULT);
-            }
-          return CUP$SyntacticAnalyzer$result;
 
-          /*. . . . . . . . . . . . . . . . . . . .*/
-          case 38: // ING ::= id ING 
-            {
-              Object RESULT =null;
-		int eeleft = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-1)).left;
-		int eeright = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-1)).right;
-		String ee = (String)((java_cup.runtime.Symbol) CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-1)).value;
-		
-insertarvalores+="'"+ee+"'"+" ,"; 
-              CUP$SyntacticAnalyzer$result = parser.getSymbolFactory().newSymbol("ING",12, ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-1)), ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()), RESULT);
+              CUP$SyntacticAnalyzer$result = parser.getSymbolFactory().newSymbol("ELEMENTOS",8, ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-2)), ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()), RESULT);
             }
           return CUP$SyntacticAnalyzer$result;
 
           /*. . . . . . . . . . . . . . . . . . . .*/
-          case 39: // ACCEDER ::= id re id puntoycoma 
+          case 23: // ELEMENTOS ::= entero 
             {
               Object RESULT =null;
-		int varleft = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-3)).left;
-		int varright = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-3)).right;
-		String var = (String)((java_cup.runtime.Symbol) CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-3)).value;
-		int varrleft = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-1)).left;
-		int varrright = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-1)).right;
-		String varr = (String)((java_cup.runtime.Symbol) CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-1)).value;
-		
-valoracceder+=var+"."+varr+" ";
 
-              CUP$SyntacticAnalyzer$result = parser.getSymbolFactory().newSymbol("ACCEDER",7, ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-3)), ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()), RESULT);
+              CUP$SyntacticAnalyzer$result = parser.getSymbolFactory().newSymbol("ELEMENTOS",8, ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()), ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()), RESULT);
             }
           return CUP$SyntacticAnalyzer$result;
 
           /*. . . . . . . . . . . . . . . . . . . .*/
-          case 40: // ACCEDER ::= id re id puntoycoma ACCEDER 
+          case 24: // ELEMENTOS ::= comilla id comilla 
             {
               Object RESULT =null;
-		int varleft = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-4)).left;
-		int varright = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-4)).right;
-		String var = (String)((java_cup.runtime.Symbol) CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-4)).value;
-		int varrleft = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-2)).left;
-		int varrright = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-2)).right;
-		String varr = (String)((java_cup.runtime.Symbol) CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-2)).value;
-		
-valoracceder+=var+"."+varr+" ";
 
-              CUP$SyntacticAnalyzer$result = parser.getSymbolFactory().newSymbol("ACCEDER",7, ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-4)), ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()), RESULT);
+              CUP$SyntacticAnalyzer$result = parser.getSymbolFactory().newSymbol("ELEMENTOS",8, ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-2)), ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()), RESULT);
             }
           return CUP$SyntacticAnalyzer$result;
 
           /*. . . . . . . . . . . . . . . . . . . .*/
-          case 41: // ACCEDERID ::= id id 
+          case 25: // ELEMENTOS ::= comilla id comilla coma ELEMENTOS 
             {
               Object RESULT =null;
-		int varleft = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-1)).left;
-		int varright = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-1)).right;
-		String var = (String)((java_cup.runtime.Symbol) CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-1)).value;
-		int varrleft = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()).left;
-		int varrright = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()).right;
-		String varr = (String)((java_cup.runtime.Symbol) CUP$SyntacticAnalyzer$stack.peek()).value;
-		
-valoraccederid+=var+" "+varr+" ";
 
-              CUP$SyntacticAnalyzer$result = parser.getSymbolFactory().newSymbol("ACCEDERID",10, ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-1)), ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()), RESULT);
+              CUP$SyntacticAnalyzer$result = parser.getSymbolFactory().newSymbol("ELEMENTOS",8, ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-4)), ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()), RESULT);
             }
           return CUP$SyntacticAnalyzer$result;
 
           /*. . . . . . . . . . . . . . . . . . . .*/
-          case 42: // ACCEDERID ::= id id ACCEDERID 
+          case 26: // ELEMENTOS ::= id coma ELEMENTOS 
             {
               Object RESULT =null;
-		int varleft = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-2)).left;
-		int varright = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-2)).right;
-		String var = (String)((java_cup.runtime.Symbol) CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-2)).value;
-		int varrleft = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-1)).left;
-		int varrright = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-1)).right;
-		String varr = (String)((java_cup.runtime.Symbol) CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-1)).value;
-		
-valoraccederid+=var+" "+varr+" ";
-
-              CUP$SyntacticAnalyzer$result = parser.getSymbolFactory().newSymbol("ACCEDERID",10, ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-2)), ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()), RESULT);
-            }
-          return CUP$SyntacticAnalyzer$result;
 
-          /*. . . . . . . . . . . . . . . . . . . .*/
-          case 43: // ACCEDERCONDICIONES ::= id igual id 
-            {
-              Object RESULT =null;
-		int varleft = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-2)).left;
-		int varright = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-2)).right;
-		String var = (String)((java_cup.runtime.Symbol) CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-2)).value;
-		int varrleft = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()).left;
-		int varrright = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()).right;
-		String varr = (String)((java_cup.runtime.Symbol) CUP$SyntacticAnalyzer$stack.peek()).value;
-		
-serialcondicion+=" "+var+" = '"+varr+"' and "; 
-              CUP$SyntacticAnalyzer$result = parser.getSymbolFactory().newSymbol("ACCEDERCONDICIONES",11, ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-2)), ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()), RESULT);
+              CUP$SyntacticAnalyzer$result = parser.getSymbolFactory().newSymbol("ELEMENTOS",8, ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-2)), ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()), RESULT);
             }
           return CUP$SyntacticAnalyzer$result;
 
           /*. . . . . . . . . . . . . . . . . . . .*/
-          case 44: // ACCEDERCONDICIONES ::= id igual id ACCEDERCONDICIONES 
+          case 27: // ESTRUCTURA ::= VECTOR 
             {
               Object RESULT =null;
-		int varleft = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-3)).left;
-		int varright = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-3)).right;
-		String var = (String)((java_cup.runtime.Symbol) CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-3)).value;
-		int varrleft = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-1)).left;
-		int varrright = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-1)).right;
-		String varr = (String)((java_cup.runtime.Symbol) CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-1)).value;
-		
-serialcondicion+=" "+var+" = '"+varr+"' and "; 
-              CUP$SyntacticAnalyzer$result = parser.getSymbolFactory().newSymbol("ACCEDERCONDICIONES",11, ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-3)), ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()), RESULT);
-            }
-          return CUP$SyntacticAnalyzer$result;
 
-          /*. . . . . . . . . . . . . . . . . . . .*/
-          case 45: // ACCEDERCONDICIONES ::= id igual entero 
-            {
-              Object RESULT =null;
-		int varleft = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-2)).left;
-		int varright = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-2)).right;
-		String var = (String)((java_cup.runtime.Symbol) CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-2)).value;
-		int varrleft = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()).left;
-		int varrright = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()).right;
-		String varr = (String)((java_cup.runtime.Symbol) CUP$SyntacticAnalyzer$stack.peek()).value;
-		
-serialcondicion+=" "+var+" = '"+varr+"' and "; 
-              CUP$SyntacticAnalyzer$result = parser.getSymbolFactory().newSymbol("ACCEDERCONDICIONES",11, ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-2)), ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()), RESULT);
+              CUP$SyntacticAnalyzer$result = parser.getSymbolFactory().newSymbol("ESTRUCTURA",7, ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()), ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()), RESULT);
             }
           return CUP$SyntacticAnalyzer$result;
 
           /*. . . . . . . . . . . . . . . . . . . .*/
-          case 46: // ACCEDERCONDICIONES ::= id igual entero ACCEDERCONDICIONES 
+          case 28: // ESTRUCTURA ::= MATRIZ 
             {
               Object RESULT =null;
-		int varleft = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-3)).left;
-		int varright = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-3)).right;
-		String var = (String)((java_cup.runtime.Symbol) CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-3)).value;
-		int varrleft = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-1)).left;
-		int varrright = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-1)).right;
-		String varr = (String)((java_cup.runtime.Symbol) CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-1)).value;
-		
-serialcondicion+=" "+var+" = '"+varr+"' and "; 
-              CUP$SyntacticAnalyzer$result = parser.getSymbolFactory().newSymbol("ACCEDERCONDICIONES",11, ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-3)), ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()), RESULT);
-            }
-          return CUP$SyntacticAnalyzer$result;
 
-          /*. . . . . . . . . . . . . . . . . . . .*/
-          case 47: // ACCEDERCONDICIONES ::= id igual numero 
-            {
-              Object RESULT =null;
-		int varleft = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-2)).left;
-		int varright = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-2)).right;
-		String var = (String)((java_cup.runtime.Symbol) CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-2)).value;
-		int varrleft = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()).left;
-		int varrright = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()).right;
-		String varr = (String)((java_cup.runtime.Symbol) CUP$SyntacticAnalyzer$stack.peek()).value;
-		
-serialcondicion+=" "+var+" = '"+varr+"' and "; 
-              CUP$SyntacticAnalyzer$result = parser.getSymbolFactory().newSymbol("ACCEDERCONDICIONES",11, ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-2)), ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()), RESULT);
+              CUP$SyntacticAnalyzer$result = parser.getSymbolFactory().newSymbol("ESTRUCTURA",7, ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()), ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()), RESULT);
             }
           return CUP$SyntacticAnalyzer$result;
 
           /*. . . . . . . . . . . . . . . . . . . .*/
-          case 48: // ACCEDERCONDICIONES ::= id igual numero ACCEDERCONDICIONES 
+          case 29: // TIPODATO ::= int_type 
             {
               Object RESULT =null;
-		int varleft = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-3)).left;
-		int varright = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-3)).right;
-		String var = (String)((java_cup.runtime.Symbol) CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-3)).value;
-		int varrleft = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-1)).left;
-		int varrright = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-1)).right;
-		String varr = (String)((java_cup.runtime.Symbol) CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-1)).value;
-		
-
-serialcondicion+=" "+var+" = '"+varr+"' and "; 
-              CUP$SyntacticAnalyzer$result = parser.getSymbolFactory().newSymbol("ACCEDERCONDICIONES",11, ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-3)), ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()), RESULT);
-            }
-          return CUP$SyntacticAnalyzer$result;
 
-          /*. . . . . . . . . . . . . . . . . . . .*/
-          case 49: // ACCEDERCONDICIONES ::= id menor entero 
-            {
-              Object RESULT =null;
-		int varleft = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-2)).left;
-		int varright = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-2)).right;
-		String var = (String)((java_cup.runtime.Symbol) CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-2)).value;
-		int varrleft = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()).left;
-		int varrright = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()).right;
-		String varr = (String)((java_cup.runtime.Symbol) CUP$SyntacticAnalyzer$stack.peek()).value;
-		
-serialcondicion+=" "+var+" < '"+varr+"' and "; 
-              CUP$SyntacticAnalyzer$result = parser.getSymbolFactory().newSymbol("ACCEDERCONDICIONES",11, ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-2)), ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()), RESULT);
+              CUP$SyntacticAnalyzer$result = parser.getSymbolFactory().newSymbol("TIPODATO",5, ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()), ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()), RESULT);
             }
           return CUP$SyntacticAnalyzer$result;
 
           /*. . . . . . . . . . . . . . . . . . . .*/
-          case 50: // ACCEDERCONDICIONES ::= id menor entero ACCEDERCONDICIONES 
+          case 30: // TIPODATO ::= char_type 
             {
               Object RESULT =null;
-		int varleft = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-3)).left;
-		int varright = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-3)).right;
-		String var = (String)((java_cup.runtime.Symbol) CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-3)).value;
-		int varrleft = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-1)).left;
-		int varrright = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-1)).right;
-		String varr = (String)((java_cup.runtime.Symbol) CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-1)).value;
-		
-serialcondicion+=" "+var+" < '"+varr+"' and "; 
-              CUP$SyntacticAnalyzer$result = parser.getSymbolFactory().newSymbol("ACCEDERCONDICIONES",11, ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-3)), ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()), RESULT);
-            }
-          return CUP$SyntacticAnalyzer$result;
 
-          /*. . . . . . . . . . . . . . . . . . . .*/
-          case 51: // ACCEDERCONDICIONES ::= id menor numero 
-            {
-              Object RESULT =null;
-		int varleft = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-2)).left;
-		int varright = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-2)).right;
-		String var = (String)((java_cup.runtime.Symbol) CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-2)).value;
-		int varrleft = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()).left;
-		int varrright = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()).right;
-		String varr = (String)((java_cup.runtime.Symbol) CUP$SyntacticAnalyzer$stack.peek()).value;
-		
-serialcondicion+=" "+var+" < '"+varr+"' and "; 
-              CUP$SyntacticAnalyzer$result = parser.getSymbolFactory().newSymbol("ACCEDERCONDICIONES",11, ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-2)), ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()), RESULT);
+              CUP$SyntacticAnalyzer$result = parser.getSymbolFactory().newSymbol("TIPODATO",5, ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()), ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()), RESULT);
             }
           return CUP$SyntacticAnalyzer$result;
 
           /*. . . . . . . . . . . . . . . . . . . .*/
-          case 52: // ACCEDERCONDICIONES ::= id menor numero ACCEDERCONDICIONES 
+          case 31: // TIPODATO ::= float_type 
             {
               Object RESULT =null;
-		int varleft = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-3)).left;
-		int varright = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-3)).right;
-		String var = (String)((java_cup.runtime.Symbol) CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-3)).value;
-		int varrleft = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-1)).left;
-		int varrright = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-1)).right;
-		String varr = (String)((java_cup.runtime.Symbol) CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-1)).value;
-		
 
-serialcondicion+=" "+var+" < '"+varr+"' and "; 
-              CUP$SyntacticAnalyzer$result = parser.getSymbolFactory().newSymbol("ACCEDERCONDICIONES",11, ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-3)), ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()), RESULT);
+              CUP$SyntacticAnalyzer$result = parser.getSymbolFactory().newSymbol("TIPODATO",5, ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()), ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()), RESULT);
             }
           return CUP$SyntacticAnalyzer$result;
 
           /*. . . . . . . . . . . . . . . . . . . .*/
-          case 53: // ACCEDERCONDICIONES ::= id mayor entero 
+          case 32: // TIPODATO ::= boolean_type 
             {
               Object RESULT =null;
-		int varleft = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-2)).left;
-		int varright = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-2)).right;
-		String var = (String)((java_cup.runtime.Symbol) CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-2)).value;
-		int varrleft = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()).left;
-		int varrright = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()).right;
-		String varr = (String)((java_cup.runtime.Symbol) CUP$SyntacticAnalyzer$stack.peek()).value;
-		
-serialcondicion+=" "+var+" > '"+varr+"' and "; 
-              CUP$SyntacticAnalyzer$result = parser.getSymbolFactory().newSymbol("ACCEDERCONDICIONES",11, ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-2)), ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()), RESULT);
-            }
-          return CUP$SyntacticAnalyzer$result;
-
-          /*. . . . . . . . . . . . . . . . . . . .*/
-          case 54: // ACCEDERCONDICIONES ::= id mayor entero ACCEDERCONDICIONES 
-            {
-              Object RESULT =null;
-		int varleft = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-3)).left;
-		int varright = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-3)).right;
-		String var = (String)((java_cup.runtime.Symbol) CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-3)).value;
-		int varrleft = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-1)).left;
-		int varrright = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-1)).right;
-		String varr = (String)((java_cup.runtime.Symbol) CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-1)).value;
-		
-serialcondicion+=" "+var+" > '"+varr+"' and "; 
-              CUP$SyntacticAnalyzer$result = parser.getSymbolFactory().newSymbol("ACCEDERCONDICIONES",11, ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-3)), ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()), RESULT);
-            }
-          return CUP$SyntacticAnalyzer$result;
 
-          /*. . . . . . . . . . . . . . . . . . . .*/
-          case 55: // ACCEDERCONDICIONES ::= id mayor numero 
-            {
-              Object RESULT =null;
-		int varleft = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-2)).left;
-		int varright = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-2)).right;
-		String var = (String)((java_cup.runtime.Symbol) CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-2)).value;
-		int varrleft = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()).left;
-		int varrright = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()).right;
-		String varr = (String)((java_cup.runtime.Symbol) CUP$SyntacticAnalyzer$stack.peek()).value;
-		
-serialcondicion+=" "+var+" > '"+varr+"' and "; 
-              CUP$SyntacticAnalyzer$result = parser.getSymbolFactory().newSymbol("ACCEDERCONDICIONES",11, ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-2)), ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()), RESULT);
+              CUP$SyntacticAnalyzer$result = parser.getSymbolFactory().newSymbol("TIPODATO",5, ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()), ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()), RESULT);
             }
           return CUP$SyntacticAnalyzer$result;
 
           /*. . . . . . . . . . . . . . . . . . . .*/
-          case 56: // ACCEDERCONDICIONES ::= id mayor numero ACCEDERCONDICIONES 
+          case 33: // TIPODATO ::= string_type 
             {
               Object RESULT =null;
-		int varleft = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-3)).left;
-		int varright = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-3)).right;
-		String var = (String)((java_cup.runtime.Symbol) CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-3)).value;
-		int varrleft = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-1)).left;
-		int varrright = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-1)).right;
-		String varr = (String)((java_cup.runtime.Symbol) CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-1)).value;
-		
-
-serialcondicion+=" "+var+" > '"+varr+"' and "; 
-              CUP$SyntacticAnalyzer$result = parser.getSymbolFactory().newSymbol("ACCEDERCONDICIONES",11, ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-3)), ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()), RESULT);
-            }
-          return CUP$SyntacticAnalyzer$result;
 
-          /*. . . . . . . . . . . . . . . . . . . .*/
-          case 57: // ACCEDERCONDICIONES ::= id mayorigual entero 
-            {
-              Object RESULT =null;
-		int varleft = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-2)).left;
-		int varright = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-2)).right;
-		String var = (String)((java_cup.runtime.Symbol) CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-2)).value;
-		int varrleft = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()).left;
-		int varrright = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()).right;
-		String varr = (String)((java_cup.runtime.Symbol) CUP$SyntacticAnalyzer$stack.peek()).value;
-		
-serialcondicion+=" "+var+" >= '"+varr+"' and "; 
-              CUP$SyntacticAnalyzer$result = parser.getSymbolFactory().newSymbol("ACCEDERCONDICIONES",11, ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-2)), ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()), RESULT);
+              CUP$SyntacticAnalyzer$result = parser.getSymbolFactory().newSymbol("TIPODATO",5, ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()), ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()), RESULT);
             }
           return CUP$SyntacticAnalyzer$result;
 
           /*. . . . . . . . . . . . . . . . . . . .*/
-          case 58: // ACCEDERCONDICIONES ::= id mayorigual entero ACCEDERCONDICIONES 
+          case 34: // TIPODATO ::= ESTRUCTURA 
             {
               Object RESULT =null;
-		int varleft = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-3)).left;
-		int varright = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-3)).right;
-		String var = (String)((java_cup.runtime.Symbol) CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-3)).value;
-		int varrleft = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-1)).left;
-		int varrright = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-1)).right;
-		String varr = (String)((java_cup.runtime.Symbol) CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-1)).value;
-		
-serialcondicion+=" "+var+" >= '"+varr+"' and "; 
-              CUP$SyntacticAnalyzer$result = parser.getSymbolFactory().newSymbol("ACCEDERCONDICIONES",11, ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-3)), ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()), RESULT);
-            }
-          return CUP$SyntacticAnalyzer$result;
 
-          /*. . . . . . . . . . . . . . . . . . . .*/
-          case 59: // ACCEDERCONDICIONES ::= id mayorigual numero 
-            {
-              Object RESULT =null;
-		int varleft = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-2)).left;
-		int varright = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-2)).right;
-		String var = (String)((java_cup.runtime.Symbol) CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-2)).value;
-		int varrleft = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()).left;
-		int varrright = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()).right;
-		String varr = (String)((java_cup.runtime.Symbol) CUP$SyntacticAnalyzer$stack.peek()).value;
-		
-serialcondicion+=" "+var+" >= '"+varr+"' and "; 
-              CUP$SyntacticAnalyzer$result = parser.getSymbolFactory().newSymbol("ACCEDERCONDICIONES",11, ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-2)), ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()), RESULT);
+              CUP$SyntacticAnalyzer$result = parser.getSymbolFactory().newSymbol("TIPODATO",5, ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()), ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()), RESULT);
             }
           return CUP$SyntacticAnalyzer$result;
 
           /*. . . . . . . . . . . . . . . . . . . .*/
-          case 60: // ACCEDERCONDICIONES ::= id mayorigual numero ACCEDERCONDICIONES 
+          case 35: // VECTOR ::= TIPODATO id corchete_abierto corchete_cerrado 
             {
               Object RESULT =null;
-		int varleft = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-3)).left;
-		int varright = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-3)).right;
-		String var = (String)((java_cup.runtime.Symbol) CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-3)).value;
-		int varrleft = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-1)).left;
-		int varrright = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-1)).right;
-		String varr = (String)((java_cup.runtime.Symbol) CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-1)).value;
-		
-
-serialcondicion+=" "+var+" >= '"+varr+"' and "; 
-              CUP$SyntacticAnalyzer$result = parser.getSymbolFactory().newSymbol("ACCEDERCONDICIONES",11, ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-3)), ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()), RESULT);
-            }
-          return CUP$SyntacticAnalyzer$result;
 
-          /*. . . . . . . . . . . . . . . . . . . .*/
-          case 61: // ACCEDERCONDICIONES ::= id menorigual entero 
-            {
-              Object RESULT =null;
-		int varleft = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-2)).left;
-		int varright = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-2)).right;
-		String var = (String)((java_cup.runtime.Symbol) CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-2)).value;
-		int varrleft = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()).left;
-		int varrright = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()).right;
-		String varr = (String)((java_cup.runtime.Symbol) CUP$SyntacticAnalyzer$stack.peek()).value;
-		
-serialcondicion+=" "+var+" <= '"+varr+"' and "; 
-              CUP$SyntacticAnalyzer$result = parser.getSymbolFactory().newSymbol("ACCEDERCONDICIONES",11, ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-2)), ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()), RESULT);
+              CUP$SyntacticAnalyzer$result = parser.getSymbolFactory().newSymbol("VECTOR",6, ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-3)), ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()), RESULT);
             }
           return CUP$SyntacticAnalyzer$result;
 
           /*. . . . . . . . . . . . . . . . . . . .*/
-          case 62: // ACCEDERCONDICIONES ::= id menorigual entero ACCEDERCONDICIONES 
+          case 36: // VECTOR ::= TIPODATO id corchete_abierto entero corchete_cerrado 
             {
               Object RESULT =null;
-		int varleft = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-3)).left;
-		int varright = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-3)).right;
-		String var = (String)((java_cup.runtime.Symbol) CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-3)).value;
-		int varrleft = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-1)).left;
-		int varrright = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-1)).right;
-		String varr = (String)((java_cup.runtime.Symbol) CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-1)).value;
-		
-serialcondicion+=" "+var+" <= '"+varr+"' and "; 
-              CUP$SyntacticAnalyzer$result = parser.getSymbolFactory().newSymbol("ACCEDERCONDICIONES",11, ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-3)), ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()), RESULT);
-            }
-          return CUP$SyntacticAnalyzer$result;
 
-          /*. . . . . . . . . . . . . . . . . . . .*/
-          case 63: // ACCEDERCONDICIONES ::= id menorigual numero 
-            {
-              Object RESULT =null;
-		int varleft = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-2)).left;
-		int varright = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-2)).right;
-		String var = (String)((java_cup.runtime.Symbol) CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-2)).value;
-		int varrleft = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()).left;
-		int varrright = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()).right;
-		String varr = (String)((java_cup.runtime.Symbol) CUP$SyntacticAnalyzer$stack.peek()).value;
-		
-serialcondicion+=" "+var+" <= '"+varr+"' and "; 
-              CUP$SyntacticAnalyzer$result = parser.getSymbolFactory().newSymbol("ACCEDERCONDICIONES",11, ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-2)), ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()), RESULT);
+              CUP$SyntacticAnalyzer$result = parser.getSymbolFactory().newSymbol("VECTOR",6, ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-4)), ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()), RESULT);
             }
           return CUP$SyntacticAnalyzer$result;
 
           /*. . . . . . . . . . . . . . . . . . . .*/
-          case 64: // ACCEDERCONDICIONES ::= id menorigual numero ACCEDERCONDICIONES 
+          case 37: // VECTOR ::= TIPODATO id corchete_abierto id corchete_cerrado 
             {
               Object RESULT =null;
-		int varleft = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-3)).left;
-		int varright = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-3)).right;
-		String var = (String)((java_cup.runtime.Symbol) CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-3)).value;
-		int varrleft = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-1)).left;
-		int varrright = ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-1)).right;
-		String varr = (String)((java_cup.runtime.Symbol) CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-1)).value;
-		
-
-serialcondicion+=" "+var+" <= '"+varr+"' and "; 
-              CUP$SyntacticAnalyzer$result = parser.getSymbolFactory().newSymbol("ACCEDERCONDICIONES",11, ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-3)), ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()), RESULT);
-            }
-          return CUP$SyntacticAnalyzer$result;
 
-          /*. . . . . . . . . . . . . . . . . . . .*/
-          case 65: // SIGNOS ::= mayorigual 
-            {
-              Object RESULT =null;
-		valorsigno=">="; 
-              CUP$SyntacticAnalyzer$result = parser.getSymbolFactory().newSymbol("SIGNOS",5, ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()), ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()), RESULT);
+              CUP$SyntacticAnalyzer$result = parser.getSymbolFactory().newSymbol("VECTOR",6, ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-4)), ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()), RESULT);
             }
           return CUP$SyntacticAnalyzer$result;
 
           /*. . . . . . . . . . . . . . . . . . . .*/
-          case 66: // SIGNOS ::= menorigual 
+          case 38: // VECTOR ::= TIPODATO id corchete_abierto corchete_cerrado asignacion llave_abierta ELEMENTOS llave_cerrada 
             {
               Object RESULT =null;
-		valorsigno="<="; 
-              CUP$SyntacticAnalyzer$result = parser.getSymbolFactory().newSymbol("SIGNOS",5, ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()), ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()), RESULT);
-            }
-          return CUP$SyntacticAnalyzer$result;
 
-          /*. . . . . . . . . . . . . . . . . . . .*/
-          case 67: // SIGNOS ::= igual 
-            {
-              Object RESULT =null;
-		valorsigno="="; 
-              CUP$SyntacticAnalyzer$result = parser.getSymbolFactory().newSymbol("SIGNOS",5, ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()), ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()), RESULT);
+              CUP$SyntacticAnalyzer$result = parser.getSymbolFactory().newSymbol("VECTOR",6, ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-7)), ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()), RESULT);
             }
           return CUP$SyntacticAnalyzer$result;
 
           /*. . . . . . . . . . . . . . . . . . . .*/
-          case 68: // SIGNOS ::= mayor 
+          case 39: // MATRIZ ::= id 
             {
               Object RESULT =null;
-		valorsigno=">"; 
-              CUP$SyntacticAnalyzer$result = parser.getSymbolFactory().newSymbol("SIGNOS",5, ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()), ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()), RESULT);
-            }
-          return CUP$SyntacticAnalyzer$result;
 
-          /*. . . . . . . . . . . . . . . . . . . .*/
-          case 69: // SIGNOS ::= menor 
-            {
-              Object RESULT =null;
-		valorsigno="<"; 
-              CUP$SyntacticAnalyzer$result = parser.getSymbolFactory().newSymbol("SIGNOS",5, ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()), ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()), RESULT);
+              CUP$SyntacticAnalyzer$result = parser.getSymbolFactory().newSymbol("MATRIZ",9, ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()), ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()), RESULT);
             }
           return CUP$SyntacticAnalyzer$result;
 
           /*. . . . . . . . . . . . . . . . . . . .*/
-          case 70: // BUSCAR ::= id 
+          case 40: // DEFVARIABLES ::= id 
             {
               Object RESULT =null;
 
-              CUP$SyntacticAnalyzer$result = parser.getSymbolFactory().newSymbol("BUSCAR",8, ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()), ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()), RESULT);
+              CUP$SyntacticAnalyzer$result = parser.getSymbolFactory().newSymbol("DEFVARIABLES",2, ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()), ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()), RESULT);
             }
           return CUP$SyntacticAnalyzer$result;
 
           /*. . . . . . . . . . . . . . . . . . . .*/
-          case 71: // BUSCAR ::= id SIGNOS BUSCAR 
+          case 41: // CUERPITO ::= id id 
             {
               Object RESULT =null;
 
-              CUP$SyntacticAnalyzer$result = parser.getSymbolFactory().newSymbol("BUSCAR",8, ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-2)), ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()), RESULT);
+              CUP$SyntacticAnalyzer$result = parser.getSymbolFactory().newSymbol("CUERPITO",3, ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.elementAt(CUP$SyntacticAnalyzer$top-1)), ((java_cup.runtime.Symbol)CUP$SyntacticAnalyzer$stack.peek()), RESULT);
             }
           return CUP$SyntacticAnalyzer$result;
 

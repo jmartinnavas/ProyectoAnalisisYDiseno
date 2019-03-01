@@ -22,7 +22,7 @@ public class Test
      */
     public static void main(String[] args)
     {
-        String datos = "title := {id := esteban, color := #0000} \n page := {title:= {id := hello}}";
+        String datos = "title := {id := hola, color := #0000} \n page := {title:= {id := hello}}";
         LexicalAnalyzer lexico = new LexicalAnalyzer(new BufferedReader(new StringReader(datos)));
         SyntacticAnalyzer sintactico = new SyntacticAnalyzer(lexico);
 
