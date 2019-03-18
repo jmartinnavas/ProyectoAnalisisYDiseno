@@ -59,16 +59,32 @@ action code
 {:
 :}
 
+
+/*-------------PRUEBAS
+
+procedure hola()
+ {
+ print << holita >>  -- }
+
+
+
+
+
+
+
+
+-------------*/
+
 /*--------------- 2da Area: Declaraciones -----------------------*/
 //------> declaracion de terminales 
-terminal function, procedure, boolean_type , int_type , float_type , char_type , string_type , retorno , verdadero , falso ;
+terminal function, procedure, boolean_type , int_type , float_type , char_type , string_type  ;
 terminal parametro_entrada , parametro_salida , parametro_entada_salida , ciclo_for , ciclo_while , ciclo_repeat , condicional_if ;
-terminal condicional_switch , condicional_until , then , else_if  , end_if , case_of , end_case , array , list , stack , queve ;
-terminal tree , graph , set , suma , resta , multiplicacion , division , potencia , menor  , mayor , comparacion , menor_igual ;
-terminal mayor_igual , division_entera , modulo , diferente , or , and , not , comentario , asignacion , parentesis_abierto ;
-terminal parentesis_cerrado , llave_abierta , llave_cerrada , corchete_abierto , corchete_cerrado , coma , hasta , hacer , incremento ;
-terminal decremento , descenso , imprimir , digito , letra , entero , numero , id , comilla ;
-
+terminal condicional_switch , condicional_until , then , sino  , end_if ,  caso ;
+terminal  suma , resta , multiplicacion , division , potencia , menor  , mayor , comparacion , menor_igual ;
+terminal mayor_igual ,  modulo , diferente , or , and , not ,  asignacion , parentesis_abierto ;
+terminal parentesis_cerrado , llave_abierta , llave_cerrada , corchete_abierto , corchete_cerrado , coma , hasta , hacer  ;
+terminal  down_to  , digito , letra , entero , numero , id , comilla_abierta , comilla_cerrada, end_for ;
+terminal dos_puntos, end_while, lambda , imprimir  ;
 
 
 
@@ -77,58 +93,103 @@ terminal decremento , descenso , imprimir , digito , letra , entero , numero , i
 //------> declaracion de no terminales   
 
 
-non terminal INICIO, ARGUMENTOS , DEFVARIABLES , CUERPITO , REFERENCIA , TIPODATO , VECTOR ,  ESTRUCTURA ,  ELEMENTOS , MATRIZ       ;
-
-start with INICIO;
-
-
-
+non terminal S , INICIO, ARGUMENTOS , DEFVARS , CUERPITO , REFERENCIA , TIPODATO , VECTOR , OPERADOR_LOGICO, DEFVAR ;
+non terminal  ELEMENTO,ELEMENTOS , MATRIZ   , OPEMATES,  OPERADOR_RELACIONAL   ;
+non terminal EXPRESION_REG, ARGUMENTO, E ,T , F ,CONDICION11, ASIGNACION, INSTRUCCIONES1   ,OPERADOR_MATEMATICO ,CICLO , CONDICION, CONDICIONAL , VAR, VARS ;
+start with S;
 
 
 
 /*--------------- 3ra Area: Reglas Semanticas -----------------------*/
+S ::= INICIO | INICIO S;
 
-INICIO ::=    procedure id parentesis_abierto ARGUMENTOS parentesis_cerrado DEFVARIABLES llave_abierta CUERPITO llave_cerrada 
-            | function id parentesis_abierto ARGUMENTOS parentesis_cerrado DEFVARIABLES llave_abierta CUERPITO llave_cerrada
-            | procedure id parentesis_abierto  parentesis_cerrado DEFVARIABLES llave_abierta CUERPITO llave_cerrada
-            | function id parentesis_abierto  parentesis_cerrado DEFVARIABLES llave_abierta CUERPITO llave_cerrada
-            | procedure id parentesis_abierto ARGUMENTOS parentesis_cerrado  llave_abierta CUERPITO llave_cerrada
-            | function id parentesis_abierto ARGUMENTOS parentesis_cerrado  llave_abierta CUERPITO llave_cerrada
-            | procedure id parentesis_abierto  parentesis_cerrado  llave_abierta CUERPITO llave_cerrada
-            | function id parentesis_abierto  parentesis_cerrado  llave_abierta CUERPITO llave_cerrada 
-            | procedure id parentesis_abierto ARGUMENTOS parentesis_cerrado DEFVARIABLES llave_abierta CUERPITO llave_cerrada INICIO
-            | function id parentesis_abierto ARGUMENTOS parentesis_cerrado DEFVARIABLES llave_abierta CUERPITO llave_cerrada INICIO
-            | procedure id parentesis_abierto  parentesis_cerrado DEFVARIABLES llave_abierta CUERPITO llave_cerrada INICIO
-            | function id parentesis_abierto  parentesis_cerrado DEFVARIABLES llave_abierta CUERPITO llave_cerrada INICIO
-            | procedure id parentesis_abierto ARGUMENTOS parentesis_cerrado  llave_abierta CUERPITO llave_cerrada INICIO
-            | function id parentesis_abierto ARGUMENTOS parentesis_cerrado  llave_abierta CUERPITO llave_cerrada INICIO
-            | procedure id parentesis_abierto  parentesis_cerrado  llave_abierta CUERPITO llave_cerrada INICIO
-            | function id parentesis_abierto  parentesis_cerrado  llave_abierta CUERPITO llave_cerrada INICIO ;
+INICIO ::=    procedure id parentesis_abierto ARGUMENTO parentesis_cerrado DEFVARS llave_abierta INSTRUCCIONES1 llave_cerrada
+            | procedure id parentesis_abierto  parentesis_cerrado DEFVARS llave_abierta INSTRUCCIONES1 llave_cerrada
+            | procedure id parentesis_abierto  parentesis_cerrado  llave_abierta INSTRUCCIONES1 llave_cerrada
+            | procedure id parentesis_abierto ARGUMENTO parentesis_cerrado  llave_abierta INSTRUCCIONES1 llave_cerrada
+            | function id parentesis_abierto ARGUMENTO parentesis_cerrado DEFVARS llave_abierta INSTRUCCIONES1 llave_cerrada
+            | function id parentesis_abierto ARGUMENTO parentesis_cerrado  llave_abierta INSTRUCCIONES1 llave_cerrada
+            | function id parentesis_abierto  parentesis_cerrado DEFVARS llave_abierta INSTRUCCIONES1 llave_cerrada
+            | function id parentesis_abierto  parentesis_cerrado  llave_abierta INSTRUCCIONES1 llave_cerrada ;
 
-ARGUMENTOS ::= REFERENCIA TIPODATO id coma ARGUMENTOS 
+ARGUMENTO ::= ARGUMENTOS | ARGUMENTOS ARGUMENTO ; 
+
+ARGUMENTOS ::= REFERENCIA TIPODATO id coma  
               | REFERENCIA TIPODATO id ;
 
 REFERENCIA ::= parametro_entrada | parametro_salida | parametro_entada_salida ; 
 
+ELEMENTO ::= ELEMENTOS | ELEMENTOS ELEMENTO ;
 
+ELEMENTOS ::= entero coma  | entero |  comilla_abierta id comilla_cerrada | comilla_abierta id comilla_cerrada coma  | id  coma ;
 
-ELEMENTOS ::= entero coma ELEMENTOS | entero |  comilla id comilla | comilla id comilla coma ELEMENTOS | id coma ELEMENTOS ;
-
-ESTRUCTURA ::= VECTOR | MATRIZ ;
-
-TIPODATO ::= int_type | char_type | float_type | boolean_type | string_type | ESTRUCTURA ;
+TIPODATO ::= int_type | char_type | float_type | boolean_type | string_type   ;
 
 
 
-VECTOR ::=   TIPODATO id corchete_abierto corchete_cerrado 
-           | TIPODATO id corchete_abierto entero corchete_cerrado 
-           | TIPODATO id corchete_abierto id corchete_cerrado 
-           | TIPODATO id corchete_abierto  corchete_cerrado asignacion llave_abierta ELEMENTOS llave_cerrada  ;
+VECTOR ::=    id corchete_abierto corchete_cerrado 
+           |  id corchete_abierto entero corchete_cerrado 
+           |  id corchete_abierto id corchete_cerrado 
+           |  id corchete_abierto  corchete_cerrado asignacion llave_abierta ELEMENTO llave_cerrada 
+           |  id corchete_abierto entero corchete_cerrado asignacion EXPRESION_REG 
+           |  id corchete_abierto id corchete_cerrado asignacion EXPRESION_REG ;
 
-MATRIZ ::=id ;
+MATRIZ ::=     id  corchete_abierto corchete_cerrado  corchete_abierto corchete_cerrado 
+            |  id  corchete_abierto entero  corchete_cerrado  corchete_abierto entero corchete_cerrado  
+            |  id  corchete_abierto id  corchete_cerrado  corchete_abierto id corchete_cerrado 
+            |  id  corchete_abierto entero  corchete_cerrado  corchete_abierto id corchete_cerrado 
+            |  id  corchete_abierto id  corchete_cerrado  corchete_abierto entero corchete_cerrado    ;
 
-DEFVARIABLES ::=id ;
 
 
-CUERPITO ::= id id ;
+DEFVARS  ::= DEFVAR| DEFVAR DEFVARS   ;
 
+DEFVAR ::= TIPODATO VARS ;
+
+VARS ::= VARS VAR |  VAR ; 
+
+VAR ::= id | letra | MATRIZ | VECTOR ;
+
+
+EXPRESION_REG ::= digito | numero | entero | id | letra ;
+
+OPERADOR_MATEMATICO ::= suma | resta | multiplicacion | division | potencia | modulo ;
+
+OPERADOR_LOGICO ::= menor | mayor | comparacion | menor_igual |mayor_igual | diferente | not  ; 
+
+OPERADOR_RELACIONAL ::= and | or | not ;
+
+INSTRUCCIONES1 ::= lambda | CUERPITO INSTRUCCIONES1 ;
+
+CUERPITO ::= CICLO | CONDICIONAL | ASIGNACION | OPEMATES | imprimir comilla_abierta id comilla_cerrada;
+
+CICLO ::= ciclo_for id asignacion entero hasta EXPRESION_REG hacer INSTRUCCIONES1 end_for | 
+        ciclo_for id asignacion id hasta EXPRESION_REG hacer INSTRUCCIONES1 end_for |
+        ciclo_for id asignacion entero down_to EXPRESION_REG hacer INSTRUCCIONES1 end_for |
+        ciclo_while parentesis_abierto CONDICION parentesis_cerrado hacer INSTRUCCIONES1 end_while |
+        ciclo_repeat INSTRUCCIONES1 condicional_until parentesis_abierto CONDICION parentesis_cerrado ;
+
+CONDICIONAL ::= condicional_if parentesis_abierto CONDICION11 parentesis_cerrado then INSTRUCCIONES1 end_if 
+		|condicional_if parentesis_abierto CONDICION11 parentesis_cerrado then INSTRUCCIONES1 sino INSTRUCCIONES1 end_if 
+		| condicional_switch id caso id dos_puntos INSTRUCCIONES1 caso
+
+		|caso id INSTRUCCIONES1 ;
+
+
+
+CONDICION11 ::= CONDICION | CONDICION CONDICION11 ; 
+
+CONDICION ::= parentesis_abierto EXPRESION_REG OPERADOR_LOGICO EXPRESION_REG parentesis_cerrado | OPERADOR_RELACIONAL ; 
+              
+OPEMATES ::= id OPERADOR_MATEMATICO id ; 
+
+ASIGNACION ::= id asignacion EXPRESION_REG | E  ;
+
+
+
+E ::= E suma T | E resta T | T  ;
+T ::= T multiplicacion F | T division F | F ;
+F ::= digito | numero | entero ;
+
+
+ 

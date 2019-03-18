@@ -14,27 +14,24 @@ import java.io.StringReader;
  *
  * @author darkd
  */
-public class Test
-{
+public class Test {
 
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args)
-    {
-        String datos = "title := {id := hola, color := #0000} \n page := {title:= {id := hello}}";
+    public static void main(String[] args) {
+        String datos = "procedure hola()\n"
+                + " {\n"
+                + " print << holita >>  -- }";
         LexicalAnalyzer lexico = new LexicalAnalyzer(new BufferedReader(new StringReader(datos)));
         SyntacticAnalyzer sintactico = new SyntacticAnalyzer(lexico);
 
-        try
-        {
+        try {
             sintactico.parse();
             System.out.println(lexico.showResult);
             System.out.println(sintactico.result);
             // System.out.println(sintactico.resultado);
-        }
-        catch (Exception e)
-        {
+        } catch (Exception e) {
         }
 
     }

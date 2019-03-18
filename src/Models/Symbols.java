@@ -8,76 +8,66 @@ package Models;
 /** CUP generated class containing symbol constants. */
 public class Symbols {
   /* terminals */
-  public static final int case_of = 24;
   public static final int function = 2;
-  public static final int comilla = 69;
-  public static final int parametro_entada_salida = 14;
-  public static final int parametro_entrada = 12;
-  public static final int suma = 33;
-  public static final int resta = 34;
-  public static final int imprimir = 63;
-  public static final int comparacion = 40;
-  public static final int array = 26;
-  public static final int hasta = 58;
-  public static final int coma = 57;
-  public static final int corchete_cerrado = 56;
-  public static final int parentesis_cerrado = 52;
-  public static final int letra = 65;
-  public static final int multiplicacion = 35;
+  public static final int parametro_entada_salida = 11;
+  public static final int parametro_entrada = 9;
+  public static final int suma = 22;
+  public static final int resta = 23;
+  public static final int down_to = 47;
+  public static final int imprimir = 59;
+  public static final int comparacion = 29;
+  public static final int hasta = 45;
+  public static final int coma = 44;
+  public static final int corchete_cerrado = 43;
+  public static final int parentesis_cerrado = 39;
+  public static final int letra = 49;
   public static final int boolean_type = 4;
-  public static final int ciclo_repeat = 17;
-  public static final int llave_cerrada = 54;
-  public static final int descenso = 62;
+  public static final int multiplicacion = 24;
+  public static final int ciclo_repeat = 14;
+  public static final int comilla_abierta = 53;
+  public static final int llave_cerrada = 41;
+  public static final int dos_puntos = 56;
   public static final int int_type = 5;
   public static final int char_type = 7;
-  public static final int tree = 30;
-  public static final int numero = 67;
-  public static final int list = 27;
-  public static final int then = 21;
-  public static final int menor = 38;
-  public static final int stack = 28;
+  public static final int end_for = 55;
+  public static final int numero = 51;
+  public static final int then = 18;
+  public static final int menor = 27;
   public static final int EOF = 0;
-  public static final int mayor_igual = 42;
-  public static final int set = 32;
-  public static final int verdadero = 10;
+  public static final int mayor_igual = 31;
   public static final int error = 1;
   public static final int string_type = 8;
-  public static final int mayor = 39;
-  public static final int entero = 66;
-  public static final int corchete_abierto = 55;
-  public static final int or = 46;
-  public static final int parentesis_abierto = 51;
-  public static final int end_case = 25;
+  public static final int mayor = 28;
+  public static final int end_while = 57;
+  public static final int entero = 50;
+  public static final int corchete_abierto = 42;
+  public static final int or = 34;
+  public static final int parentesis_abierto = 38;
   public static final int procedure = 3;
-  public static final int menor_igual = 41;
-  public static final int else_if = 22;
-  public static final int ciclo_while = 16;
-  public static final int condicional_if = 18;
-  public static final int id = 68;
-  public static final int potencia = 37;
-  public static final int condicional_switch = 19;
-  public static final int incremento = 60;
-  public static final int llave_abierta = 53;
-  public static final int falso = 11;
-  public static final int hacer = 59;
-  public static final int end_if = 23;
-  public static final int graph = 31;
-  public static final int ciclo_for = 15;
-  public static final int diferente = 45;
-  public static final int decremento = 61;
-  public static final int not = 48;
-  public static final int and = 47;
-  public static final int condicional_until = 20;
-  public static final int parametro_salida = 13;
-  public static final int queve = 29;
-  public static final int comentario = 49;
-  public static final int division_entera = 43;
-  public static final int asignacion = 50;
-  public static final int division = 36;
-  public static final int modulo = 44;
-  public static final int retorno = 9;
-  public static final int digito = 64;
+  public static final int ciclo_while = 13;
+  public static final int menor_igual = 30;
+  public static final int condicional_if = 15;
+  public static final int id = 52;
+  public static final int condicional_switch = 16;
+  public static final int potencia = 26;
+  public static final int llave_abierta = 40;
+  public static final int caso = 21;
+  public static final int hacer = 46;
+  public static final int end_if = 20;
+  public static final int ciclo_for = 12;
+  public static final int diferente = 33;
+  public static final int not = 36;
+  public static final int and = 35;
+  public static final int condicional_until = 17;
+  public static final int parametro_salida = 10;
+  public static final int lambda = 58;
+  public static final int comilla_cerrada = 54;
+  public static final int asignacion = 37;
+  public static final int division = 25;
+  public static final int modulo = 32;
+  public static final int digito = 48;
   public static final int float_type = 6;
+  public static final int sino = 19;
   public static final String[] terminalNames = new String[] {
   "EOF",
   "error",
@@ -88,9 +78,6 @@ public class Symbols {
   "float_type",
   "char_type",
   "string_type",
-  "retorno",
-  "verdadero",
-  "falso",
   "parametro_entrada",
   "parametro_salida",
   "parametro_entada_salida",
@@ -101,17 +88,9 @@ public class Symbols {
   "condicional_switch",
   "condicional_until",
   "then",
-  "else_if",
+  "sino",
   "end_if",
-  "case_of",
-  "end_case",
-  "array",
-  "list",
-  "stack",
-  "queve",
-  "tree",
-  "graph",
-  "set",
+  "caso",
   "suma",
   "resta",
   "multiplicacion",
@@ -122,13 +101,11 @@ public class Symbols {
   "comparacion",
   "menor_igual",
   "mayor_igual",
-  "division_entera",
   "modulo",
   "diferente",
   "or",
   "and",
   "not",
-  "comentario",
   "asignacion",
   "parentesis_abierto",
   "parentesis_cerrado",
@@ -139,16 +116,19 @@ public class Symbols {
   "coma",
   "hasta",
   "hacer",
-  "incremento",
-  "decremento",
-  "descenso",
-  "imprimir",
+  "down_to",
   "digito",
   "letra",
   "entero",
   "numero",
   "id",
-  "comilla"
+  "comilla_abierta",
+  "comilla_cerrada",
+  "end_for",
+  "dos_puntos",
+  "end_while",
+  "lambda",
+  "imprimir"
   };
 }
 
