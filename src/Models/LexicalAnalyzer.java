@@ -66,23 +66,23 @@ public class LexicalAnalyzer implements java_cup.runtime.Scanner {
   private static final int [] ZZ_ACTION = zzUnpackAction();
 
   private static final String ZZ_ACTION_PACKED_0 =
-    "\1\0\1\1\1\2\6\3\2\4\1\5\6\3\1\1"+
-    "\2\3\1\6\1\7\1\10\1\11\1\12\1\13\1\14"+
-    "\1\15\1\1\1\3\1\16\1\17\1\20\1\21\1\22"+
-    "\1\23\1\24\1\25\1\26\1\0\10\27\1\30\1\27"+
-    "\1\31\1\0\1\32\1\31\1\27\1\32\1\33\4\27"+
-    "\1\34\2\27\2\0\3\27\1\35\1\36\1\37\1\40"+
-    "\1\41\1\42\1\43\1\44\1\27\1\45\1\27\1\46"+
-    "\2\27\1\47\1\0\3\27\2\50\1\0\4\27\1\0"+
-    "\2\27\1\51\2\0\2\27\1\0\1\27\1\52\2\27"+
-    "\1\0\1\27\2\53\1\54\1\55\1\0\3\27\1\0"+
-    "\2\56\1\27\2\0\2\27\1\0\2\27\1\57\2\60"+
-    "\2\61\2\27\2\0\1\27\2\0\2\27\2\62\1\0"+
-    "\2\27\1\63\1\0\1\64\1\27\1\65\1\66\1\65"+
-    "\1\66\1\0\2\27\1\67\1\70\2\71\1\27\1\72";
+    "\1\0\1\1\1\2\6\3\1\1\10\3\1\1\2\3"+
+    "\1\4\1\5\1\6\1\7\1\10\1\11\1\12\1\13"+
+    "\1\1\1\3\1\14\1\15\1\16\1\17\1\20\1\21"+
+    "\1\22\1\23\1\24\1\0\10\25\1\26\1\25\1\27"+
+    "\1\30\1\31\1\27\1\30\1\31\1\32\1\33\4\25"+
+    "\1\34\2\25\2\0\3\25\1\35\1\36\1\37\1\40"+
+    "\1\41\1\42\1\43\1\44\1\25\1\45\1\25\1\46"+
+    "\2\25\1\47\1\0\3\25\2\50\1\0\4\25\1\0"+
+    "\2\25\1\51\2\0\2\25\1\0\1\25\1\52\2\25"+
+    "\1\0\1\25\2\53\1\54\1\55\1\0\3\25\1\0"+
+    "\2\56\1\25\2\0\2\25\1\0\2\25\1\57\2\60"+
+    "\2\61\2\25\2\0\1\25\2\0\2\25\2\62\1\0"+
+    "\2\25\1\63\1\0\1\64\1\25\1\65\1\66\1\65"+
+    "\1\66\1\0\2\25\1\67\1\70\2\71\1\25\1\72";
 
   private static int [] zzUnpackAction() {
-    int [] result = new int[166];
+    int [] result = new int[167];
     int offset = 0;
     offset = zzUnpackAction(ZZ_ACTION_PACKED_0, offset, result);
     return result;
@@ -114,23 +114,23 @@ public class LexicalAnalyzer implements java_cup.runtime.Scanner {
     "\0\54\0\54\0\54\0\54\0\54\0\54\0\54\0\130"+
     "\0\u0478\0\204\0\u04a4\0\u04d0\0\u04fc\0\u0528\0\u0554\0\u0580"+
     "\0\u05ac\0\204\0\u05d8\0\54\0\u0604\0\54\0\204\0\u0630"+
-    "\0\204\0\204\0\u065c\0\u0688\0\u06b4\0\u06e0\0\204\0\u070c"+
-    "\0\u0738\0\u0764\0\u0790\0\u07bc\0\u07e8\0\u0814\0\54\0\54"+
-    "\0\54\0\54\0\54\0\54\0\54\0\54\0\u0840\0\u0478"+
-    "\0\u086c\0\204\0\u0898\0\u08c4\0\204\0\u08f0\0\u091c\0\u0948"+
-    "\0\u0974\0\54\0\204\0\u09a0\0\u09cc\0\u09f8\0\u0a24\0\u0a50"+
-    "\0\u0a7c\0\u0aa8\0\u0ad4\0\204\0\u0b00\0\u0b2c\0\u0b58\0\u0b84"+
-    "\0\u0bb0\0\u0bdc\0\204\0\u0c08\0\u0c34\0\u0c60\0\u0c8c\0\54"+
-    "\0\204\0\204\0\204\0\u0cb8\0\u0ce4\0\u0d10\0\u0d3c\0\u0d68"+
-    "\0\54\0\204\0\u0d94\0\u0dc0\0\u0dec\0\u0e18\0\u0e44\0\u0e70"+
-    "\0\u0e9c\0\u0ec8\0\204\0\54\0\204\0\54\0\204\0\u0ef4"+
-    "\0\u0f20\0\u0f4c\0\u0f78\0\u0fa4\0\u0fd0\0\u0ffc\0\u1028\0\u1054"+
-    "\0\54\0\204\0\u1080\0\u10ac\0\u10d8\0\204\0\u1104\0\54"+
-    "\0\u1130\0\54\0\54\0\204\0\204\0\u115c\0\u1188\0\u11b4"+
-    "\0\54\0\204\0\54\0\204\0\u11e0\0\204";
+    "\0\204\0\204\0\204\0\u065c\0\u0688\0\u06b4\0\u06e0\0\204"+
+    "\0\u070c\0\u0738\0\u0764\0\u0790\0\u07bc\0\u07e8\0\u0814\0\54"+
+    "\0\54\0\54\0\54\0\54\0\54\0\54\0\54\0\u0840"+
+    "\0\u0478\0\u086c\0\204\0\u0898\0\u08c4\0\204\0\u08f0\0\u091c"+
+    "\0\u0948\0\u0974\0\54\0\204\0\u09a0\0\u09cc\0\u09f8\0\u0a24"+
+    "\0\u0a50\0\u0a7c\0\u0aa8\0\u0ad4\0\204\0\u0b00\0\u0b2c\0\u0b58"+
+    "\0\u0b84\0\u0bb0\0\u0bdc\0\204\0\u0c08\0\u0c34\0\u0c60\0\u0c8c"+
+    "\0\54\0\204\0\204\0\204\0\u0cb8\0\u0ce4\0\u0d10\0\u0d3c"+
+    "\0\u0d68\0\54\0\204\0\u0d94\0\u0dc0\0\u0dec\0\u0e18\0\u0e44"+
+    "\0\u0e70\0\u0e9c\0\u0ec8\0\204\0\54\0\204\0\54\0\204"+
+    "\0\u0ef4\0\u0f20\0\u0f4c\0\u0f78\0\u0fa4\0\u0fd0\0\u0ffc\0\u1028"+
+    "\0\u1054\0\54\0\204\0\u1080\0\u10ac\0\u10d8\0\204\0\u1104"+
+    "\0\54\0\u1130\0\54\0\54\0\204\0\204\0\u115c\0\u1188"+
+    "\0\u11b4\0\54\0\204\0\54\0\204\0\u11e0\0\204";
 
   private static int [] zzUnpackRowMap() {
-    int [] result = new int[166];
+    int [] result = new int[167];
     int offset = 0;
     offset = zzUnpackRowMap(ZZ_ROWMAP_PACKED_0, offset, result);
     return result;
@@ -171,112 +171,112 @@ public class LexicalAnalyzer implements java_cup.runtime.Scanner {
     "\11\0\1\52\16\0\1\64\1\0\1\65\4\0\1\66"+
     "\41\0\2\52\1\0\1\67\1\52\1\70\2\52\1\0"+
     "\1\52\1\71\10\52\1\0\3\52\11\0\1\52\13\0"+
-    "\2\52\1\0\5\52\1\0\3\52\1\72\6\52\1\0"+
-    "\3\52\11\0\1\52\13\0\2\52\1\0\5\52\1\0"+
-    "\3\52\1\73\6\52\1\0\3\52\11\0\1\52\13\0"+
-    "\2\52\1\0\5\52\1\0\4\52\1\74\5\52\1\0"+
-    "\3\52\11\0\1\52\13\0\2\52\1\0\2\52\1\75"+
-    "\2\52\1\0\7\52\1\76\2\52\1\0\3\52\11\0"+
-    "\1\52\13\0\2\52\1\0\5\52\1\0\1\52\1\77"+
-    "\10\52\1\0\3\52\11\0\1\52\13\0\2\52\1\0"+
-    "\5\52\1\0\1\52\1\100\10\52\1\0\3\52\11\0"+
-    "\1\52\13\0\2\52\1\0\2\52\1\101\2\52\1\0"+
-    "\12\52\1\0\3\52\11\0\1\52\22\0\1\102\16\0"+
-    "\1\103\25\0\2\52\1\0\4\52\1\104\1\0\12\52"+
-    "\1\0\2\52\1\105\11\0\1\52\13\0\2\52\1\0"+
-    "\5\52\1\0\11\52\1\106\1\0\3\52\11\0\1\52"+
-    "\44\0\1\107\53\0\1\110\3\0\1\111\1\112\1\113"+
-    "\52\0\1\114\1\115\53\0\1\116\14\0\2\52\1\0"+
-    "\5\52\1\0\1\52\1\117\10\52\1\0\3\52\11\0"+
-    "\1\52\13\0\1\120\53\0\2\52\1\0\2\52\1\121"+
-    "\2\52\1\0\12\52\1\0\3\52\11\0\1\52\13\0"+
-    "\2\52\1\0\5\52\1\0\3\52\1\122\6\52\1\0"+
-    "\3\52\11\0\1\52\13\0\2\52\1\0\5\52\1\0"+
-    "\1\52\1\123\10\52\1\0\3\52\11\0\1\52\13\0"+
-    "\2\52\1\0\4\52\1\124\1\0\12\52\1\0\3\52"+
-    "\11\0\1\52\13\0\2\52\1\0\4\52\1\125\1\0"+
-    "\12\52\1\0\3\52\11\0\1\52\13\0\2\52\1\0"+
-    "\5\52\1\0\12\52\1\126\1\127\2\52\11\0\1\52"+
-    "\13\0\2\52\1\0\5\52\1\0\10\52\1\130\1\52"+
-    "\1\0\3\52\11\0\1\52\13\0\2\52\1\0\5\52"+
-    "\1\0\4\52\1\131\5\52\1\0\3\52\11\0\1\52"+
-    "\22\0\1\132\44\0\2\52\1\0\4\52\1\133\1\0"+
-    "\12\52\1\0\3\52\11\0\1\52\13\0\2\52\1\0"+
-    "\5\52\1\134\1\135\1\136\10\52\1\0\3\52\11\0"+
-    "\1\52\13\0\2\52\1\0\5\52\1\0\2\52\1\137"+
-    "\7\52\1\0\3\52\11\0\1\52\13\0\2\52\1\0"+
-    "\5\52\1\0\5\52\1\140\4\52\1\0\3\52\11\0"+
-    "\1\52\13\0\2\52\1\0\5\52\1\0\12\52\1\141"+
-    "\1\142\2\52\11\0\1\52\13\0\2\52\1\0\5\52"+
-    "\1\0\1\52\1\143\10\52\1\0\3\52\11\0\1\52"+
-    "\13\0\2\52\1\0\5\52\1\0\5\52\1\144\4\52"+
-    "\1\0\3\52\11\0\1\52\27\0\1\145\47\0\2\146"+
-    "\42\0\2\52\1\0\5\52\1\0\3\52\1\147\6\52"+
-    "\1\0\3\52\11\0\1\52\13\0\2\52\1\0\5\52"+
-    "\1\146\1\150\11\52\1\0\3\52\11\0\1\52\13\0"+
-    "\2\52\1\0\5\52\1\151\1\152\11\52\1\0\3\52"+
-    "\11\0\1\52\13\0\2\52\1\0\5\52\1\0\5\52"+
-    "\1\153\4\52\1\0\3\52\11\0\1\52\13\0\2\52"+
-    "\1\0\3\52\1\154\1\52\1\0\12\52\1\0\3\52"+
-    "\11\0\1\52\13\0\2\52\1\0\5\52\1\0\10\52"+
-    "\1\155\1\52\1\0\3\52\11\0\1\52\13\0\2\52"+
-    "\1\0\5\52\1\156\1\157\11\52\1\0\3\52\11\0"+
-    "\1\52\30\0\1\160\36\0\2\52\1\0\5\52\1\0"+
-    "\4\52\1\161\5\52\1\0\3\52\11\0\1\52\13\0"+
-    "\2\52\1\0\5\52\1\0\3\52\1\162\6\52\1\0"+
-    "\3\52\11\0\1\52\13\0\2\52\1\0\2\52\1\163"+
-    "\2\52\1\0\12\52\1\0\3\52\11\0\1\52\20\0"+
-    "\1\164\46\0\2\52\1\0\2\52\1\165\2\52\1\0"+
-    "\12\52\1\0\3\52\11\0\1\52\13\0\2\52\1\0"+
-    "\3\52\1\166\1\52\1\0\12\52\1\0\3\52\11\0"+
-    "\1\52\13\0\2\52\1\0\5\52\1\0\4\52\1\167"+
+    "\2\52\1\0\1\52\1\72\3\52\1\0\3\52\1\73"+
+    "\6\52\1\0\3\52\11\0\1\52\13\0\2\52\1\0"+
+    "\5\52\1\0\3\52\1\74\6\52\1\0\3\52\11\0"+
+    "\1\52\13\0\2\52\1\0\5\52\1\0\4\52\1\75"+
     "\5\52\1\0\3\52\11\0\1\52\13\0\2\52\1\0"+
-    "\5\52\1\0\12\52\1\0\3\52\1\170\10\0\1\52"+
-    "\30\0\1\171\36\0\2\52\1\0\5\52\1\0\4\52"+
-    "\1\172\5\52\1\0\3\52\11\0\1\52\13\0\2\52"+
-    "\1\0\5\52\1\0\7\52\1\173\2\52\1\0\3\52"+
-    "\11\0\1\52\23\0\2\174\51\0\1\175\44\0\2\52"+
-    "\1\0\5\52\1\174\1\176\11\52\1\0\3\52\11\0"+
-    "\1\52\13\0\2\52\1\0\4\52\1\177\1\0\12\52"+
-    "\1\0\3\52\11\0\1\52\33\0\1\200\33\0\2\52"+
-    "\1\0\5\52\1\0\7\52\1\201\2\52\1\0\3\52"+
-    "\11\0\1\52\13\0\2\52\1\0\4\52\1\202\1\0"+
-    "\12\52\1\0\3\52\11\0\1\52\13\0\2\52\1\0"+
-    "\4\52\1\203\1\0\12\52\1\0\3\52\11\0\1\52"+
-    "\33\0\1\204\33\0\2\52\1\0\5\52\1\0\7\52"+
-    "\1\205\2\52\1\0\3\52\11\0\1\52\22\0\1\206"+
-    "\44\0\2\52\1\0\4\52\1\207\1\0\12\52\1\0"+
+    "\2\52\1\76\2\52\1\0\7\52\1\77\2\52\1\0"+
     "\3\52\11\0\1\52\13\0\2\52\1\0\5\52\1\0"+
-    "\4\52\1\210\5\52\1\0\3\52\11\0\1\52\13\0"+
-    "\2\52\1\0\5\52\1\0\10\52\1\211\1\52\1\0"+
-    "\3\52\11\0\1\52\16\0\1\212\4\0\2\213\42\0"+
-    "\2\52\1\0\5\52\1\0\4\52\1\214\5\52\1\0"+
-    "\3\52\11\0\1\52\20\0\1\215\54\0\1\216\45\0"+
-    "\2\52\1\0\2\52\1\217\2\52\1\0\12\52\1\0"+
-    "\3\52\11\0\1\52\13\0\2\52\1\0\3\52\1\220"+
-    "\1\52\1\0\12\52\1\0\3\52\11\0\1\52\30\0"+
-    "\1\221\36\0\2\52\1\0\5\52\1\0\4\52\1\222"+
-    "\5\52\1\0\3\52\11\0\1\52\13\0\2\52\1\0"+
-    "\5\52\1\223\1\224\11\52\1\0\3\52\11\0\1\52"+
-    "\13\0\2\52\1\0\5\52\1\0\5\52\1\225\4\52"+
+    "\1\52\1\100\10\52\1\0\3\52\11\0\1\52\13\0"+
+    "\2\52\1\0\5\52\1\0\1\52\1\101\10\52\1\0"+
+    "\3\52\11\0\1\52\13\0\2\52\1\0\2\52\1\102"+
+    "\2\52\1\0\12\52\1\0\3\52\11\0\1\52\22\0"+
+    "\1\103\16\0\1\104\25\0\2\52\1\0\4\52\1\105"+
+    "\1\0\12\52\1\0\2\52\1\106\11\0\1\52\13\0"+
+    "\2\52\1\0\5\52\1\0\11\52\1\107\1\0\3\52"+
+    "\11\0\1\52\44\0\1\110\53\0\1\111\3\0\1\112"+
+    "\1\113\1\114\52\0\1\115\1\116\53\0\1\117\14\0"+
+    "\2\52\1\0\5\52\1\0\1\52\1\120\10\52\1\0"+
+    "\3\52\11\0\1\52\13\0\1\121\53\0\2\52\1\0"+
+    "\2\52\1\122\2\52\1\0\12\52\1\0\3\52\11\0"+
+    "\1\52\13\0\2\52\1\0\5\52\1\0\3\52\1\123"+
+    "\6\52\1\0\3\52\11\0\1\52\13\0\2\52\1\0"+
+    "\5\52\1\0\1\52\1\124\10\52\1\0\3\52\11\0"+
+    "\1\52\13\0\2\52\1\0\4\52\1\125\1\0\12\52"+
     "\1\0\3\52\11\0\1\52\13\0\2\52\1\0\4\52"+
-    "\1\226\1\0\12\52\1\0\3\52\11\0\1\52\25\0"+
-    "\1\227\44\0\1\230\50\0\2\52\1\0\5\52\1\0"+
-    "\10\52\1\231\1\52\1\0\3\52\11\0\1\52\40\0"+
-    "\1\232\50\0\1\233\31\0\2\52\1\0\5\52\1\0"+
-    "\12\52\1\0\1\52\1\234\1\52\11\0\1\52\13\0"+
-    "\2\52\1\0\5\52\1\0\11\52\1\235\1\0\3\52"+
-    "\11\0\1\52\25\0\1\236\41\0\2\52\1\0\5\52"+
-    "\1\0\1\52\1\237\10\52\1\0\3\52\11\0\1\52"+
-    "\13\0\2\52\1\0\1\52\1\240\3\52\1\0\12\52"+
-    "\1\0\3\52\11\0\1\52\27\0\1\241\37\0\2\52"+
-    "\1\0\2\52\1\242\2\52\1\0\12\52\1\0\3\52"+
-    "\11\0\1\52\20\0\1\243\46\0\2\52\1\0\2\52"+
-    "\1\244\2\52\1\0\12\52\1\0\3\52\11\0\1\52"+
-    "\13\0\2\52\1\0\5\52\1\0\3\52\1\245\6\52"+
+    "\1\126\1\0\12\52\1\0\3\52\11\0\1\52\13\0"+
+    "\2\52\1\0\5\52\1\0\12\52\1\127\1\130\2\52"+
+    "\11\0\1\52\13\0\2\52\1\0\5\52\1\0\10\52"+
+    "\1\131\1\52\1\0\3\52\11\0\1\52\13\0\2\52"+
+    "\1\0\5\52\1\0\4\52\1\132\5\52\1\0\3\52"+
+    "\11\0\1\52\22\0\1\133\44\0\2\52\1\0\4\52"+
+    "\1\134\1\0\12\52\1\0\3\52\11\0\1\52\13\0"+
+    "\2\52\1\0\5\52\1\135\1\136\1\137\10\52\1\0"+
+    "\3\52\11\0\1\52\13\0\2\52\1\0\5\52\1\0"+
+    "\2\52\1\140\7\52\1\0\3\52\11\0\1\52\13\0"+
+    "\2\52\1\0\5\52\1\0\5\52\1\141\4\52\1\0"+
+    "\3\52\11\0\1\52\13\0\2\52\1\0\5\52\1\0"+
+    "\12\52\1\142\1\143\2\52\11\0\1\52\13\0\2\52"+
+    "\1\0\5\52\1\0\1\52\1\144\10\52\1\0\3\52"+
+    "\11\0\1\52\13\0\2\52\1\0\5\52\1\0\5\52"+
+    "\1\145\4\52\1\0\3\52\11\0\1\52\27\0\1\146"+
+    "\47\0\2\147\42\0\2\52\1\0\5\52\1\0\3\52"+
+    "\1\150\6\52\1\0\3\52\11\0\1\52\13\0\2\52"+
+    "\1\0\5\52\1\147\1\151\11\52\1\0\3\52\11\0"+
+    "\1\52\13\0\2\52\1\0\5\52\1\152\1\153\11\52"+
     "\1\0\3\52\11\0\1\52\13\0\2\52\1\0\5\52"+
-    "\1\0\4\52\1\246\5\52\1\0\3\52\11\0\1\52"+
-    "\12\0";
+    "\1\0\5\52\1\154\4\52\1\0\3\52\11\0\1\52"+
+    "\13\0\2\52\1\0\3\52\1\155\1\52\1\0\12\52"+
+    "\1\0\3\52\11\0\1\52\13\0\2\52\1\0\5\52"+
+    "\1\0\10\52\1\156\1\52\1\0\3\52\11\0\1\52"+
+    "\13\0\2\52\1\0\5\52\1\157\1\160\11\52\1\0"+
+    "\3\52\11\0\1\52\30\0\1\161\36\0\2\52\1\0"+
+    "\5\52\1\0\4\52\1\162\5\52\1\0\3\52\11\0"+
+    "\1\52\13\0\2\52\1\0\5\52\1\0\3\52\1\163"+
+    "\6\52\1\0\3\52\11\0\1\52\13\0\2\52\1\0"+
+    "\2\52\1\164\2\52\1\0\12\52\1\0\3\52\11\0"+
+    "\1\52\20\0\1\165\46\0\2\52\1\0\2\52\1\166"+
+    "\2\52\1\0\12\52\1\0\3\52\11\0\1\52\13\0"+
+    "\2\52\1\0\3\52\1\167\1\52\1\0\12\52\1\0"+
+    "\3\52\11\0\1\52\13\0\2\52\1\0\5\52\1\0"+
+    "\4\52\1\170\5\52\1\0\3\52\11\0\1\52\13\0"+
+    "\2\52\1\0\5\52\1\0\12\52\1\0\3\52\1\171"+
+    "\10\0\1\52\30\0\1\172\36\0\2\52\1\0\5\52"+
+    "\1\0\4\52\1\173\5\52\1\0\3\52\11\0\1\52"+
+    "\13\0\2\52\1\0\5\52\1\0\7\52\1\174\2\52"+
+    "\1\0\3\52\11\0\1\52\23\0\2\175\51\0\1\176"+
+    "\44\0\2\52\1\0\5\52\1\175\1\177\11\52\1\0"+
+    "\3\52\11\0\1\52\13\0\2\52\1\0\4\52\1\200"+
+    "\1\0\12\52\1\0\3\52\11\0\1\52\33\0\1\201"+
+    "\33\0\2\52\1\0\5\52\1\0\7\52\1\202\2\52"+
+    "\1\0\3\52\11\0\1\52\13\0\2\52\1\0\4\52"+
+    "\1\203\1\0\12\52\1\0\3\52\11\0\1\52\13\0"+
+    "\2\52\1\0\4\52\1\204\1\0\12\52\1\0\3\52"+
+    "\11\0\1\52\33\0\1\205\33\0\2\52\1\0\5\52"+
+    "\1\0\7\52\1\206\2\52\1\0\3\52\11\0\1\52"+
+    "\22\0\1\207\44\0\2\52\1\0\4\52\1\210\1\0"+
+    "\12\52\1\0\3\52\11\0\1\52\13\0\2\52\1\0"+
+    "\5\52\1\0\4\52\1\211\5\52\1\0\3\52\11\0"+
+    "\1\52\13\0\2\52\1\0\5\52\1\0\10\52\1\212"+
+    "\1\52\1\0\3\52\11\0\1\52\16\0\1\213\4\0"+
+    "\2\214\42\0\2\52\1\0\5\52\1\0\4\52\1\215"+
+    "\5\52\1\0\3\52\11\0\1\52\20\0\1\216\54\0"+
+    "\1\217\45\0\2\52\1\0\2\52\1\220\2\52\1\0"+
+    "\12\52\1\0\3\52\11\0\1\52\13\0\2\52\1\0"+
+    "\3\52\1\221\1\52\1\0\12\52\1\0\3\52\11\0"+
+    "\1\52\30\0\1\222\36\0\2\52\1\0\5\52\1\0"+
+    "\4\52\1\223\5\52\1\0\3\52\11\0\1\52\13\0"+
+    "\2\52\1\0\5\52\1\224\1\225\11\52\1\0\3\52"+
+    "\11\0\1\52\13\0\2\52\1\0\5\52\1\0\5\52"+
+    "\1\226\4\52\1\0\3\52\11\0\1\52\13\0\2\52"+
+    "\1\0\4\52\1\227\1\0\12\52\1\0\3\52\11\0"+
+    "\1\52\25\0\1\230\44\0\1\231\50\0\2\52\1\0"+
+    "\5\52\1\0\10\52\1\232\1\52\1\0\3\52\11\0"+
+    "\1\52\40\0\1\233\50\0\1\234\31\0\2\52\1\0"+
+    "\5\52\1\0\12\52\1\0\1\52\1\235\1\52\11\0"+
+    "\1\52\13\0\2\52\1\0\5\52\1\0\11\52\1\236"+
+    "\1\0\3\52\11\0\1\52\25\0\1\237\41\0\2\52"+
+    "\1\0\5\52\1\0\1\52\1\240\10\52\1\0\3\52"+
+    "\11\0\1\52\13\0\2\52\1\0\1\52\1\241\3\52"+
+    "\1\0\12\52\1\0\3\52\11\0\1\52\27\0\1\242"+
+    "\37\0\2\52\1\0\2\52\1\243\2\52\1\0\12\52"+
+    "\1\0\3\52\11\0\1\52\20\0\1\244\46\0\2\52"+
+    "\1\0\2\52\1\245\2\52\1\0\12\52\1\0\3\52"+
+    "\11\0\1\52\13\0\2\52\1\0\5\52\1\0\3\52"+
+    "\1\246\6\52\1\0\3\52\11\0\1\52\13\0\2\52"+
+    "\1\0\5\52\1\0\4\52\1\247\5\52\1\0\3\52"+
+    "\11\0\1\52\12\0";
 
   private static int [] zzUnpackTrans() {
     int [] result = new int[4620];
@@ -318,7 +318,7 @@ public class LexicalAnalyzer implements java_cup.runtime.Scanner {
 
   private static final String ZZ_ATTRIBUTE_PACKED_0 =
     "\1\0\1\11\23\1\2\11\1\1\3\11\4\1\10\11"+
-    "\1\1\1\0\12\1\1\11\1\0\1\11\13\1\2\0"+
+    "\1\1\1\0\12\1\1\11\1\1\1\11\14\1\2\0"+
     "\3\1\10\11\7\1\1\0\3\1\1\11\1\1\1\0"+
     "\4\1\1\0\3\1\2\0\2\1\1\0\4\1\1\0"+
     "\1\1\1\11\3\1\1\0\3\1\1\0\1\11\2\1"+
@@ -328,7 +328,7 @@ public class LexicalAnalyzer implements java_cup.runtime.Scanner {
     "\1\1\1\11\3\1";
 
   private static int [] zzUnpackAttribute() {
-    int [] result = new int[166];
+    int [] result = new int[167];
     int offset = 0;
     offset = zzUnpackAttribute(ZZ_ATTRIBUTE_PACKED_0, offset, result);
     return result;
@@ -789,95 +789,95 @@ public String showResult = "";
             }
           case 61: break;
           case 4: 
-            { System.out.println("Token correcto: "+yytext()+" parametro_entrada"); showResult += "Token correcto: " +yytext()+" Linea: " + (yyline+1) + " columna: "+ (yycolumn+1) + " \n"; return new Symbol(Symbols.parametro_entrada, yycolumn, yyline, yytext());
+            { /* Espacios en blanco, se ignoran */
             }
           case 62: break;
           case 5: 
-            { System.out.println("Token correcto: "+yytext()+" parametro_salida"); showResult += "Token correcto: " +yytext()+" Linea: " + (yyline+1) + " columna: "+ (yycolumn+1) + " \n"; return new Symbol(Symbols.parametro_salida, yycolumn, yyline, yytext());
+            { System.out.println("Token correcto: "+yytext()+" suma"); showResult += "Token correcto: " +yytext()+" Linea: " + (yyline+1) + " columna: "+ (yycolumn+1) + " \n"; return new Symbol(Symbols.suma, yycolumn, yyline, yytext());
             }
           case 63: break;
           case 6: 
-            { /* Espacios en blanco, se ignoran */
+            { System.out.println("Token correcto: "+yytext()+" resta"); showResult += "Token correcto: " +yytext()+" Linea: " + (yyline+1) + " columna: "+ (yycolumn+1) + " \n"; return new Symbol(Symbols.resta, yycolumn, yyline, yytext());
             }
           case 64: break;
           case 7: 
-            { System.out.println("Token correcto: "+yytext()+" suma"); showResult += "Token correcto: " +yytext()+" Linea: " + (yyline+1) + " columna: "+ (yycolumn+1) + " \n"; return new Symbol(Symbols.suma, yycolumn, yyline, yytext());
+            { System.out.println("Token correcto: "+yytext()+" multiplicacion"); showResult += "Token correcto: " +yytext()+" Linea: " + (yyline+1) + " columna: "+ (yycolumn+1) + " \n"; return new Symbol(Symbols.multiplicacion, yycolumn, yyline, yytext());
             }
           case 65: break;
           case 8: 
-            { System.out.println("Token correcto: "+yytext()+" resta"); showResult += "Token correcto: " +yytext()+" Linea: " + (yyline+1) + " columna: "+ (yycolumn+1) + " \n"; return new Symbol(Symbols.resta, yycolumn, yyline, yytext());
+            { System.out.println("Token correcto: "+yytext()+" division"); showResult += "Token correcto: " +yytext()+" Linea: " + (yyline+1) + " columna: "+ (yycolumn+1) + " \n"; return new Symbol(Symbols.division, yycolumn, yyline, yytext());
             }
           case 66: break;
           case 9: 
-            { System.out.println("Token correcto: "+yytext()+" multiplicacion"); showResult += "Token correcto: " +yytext()+" Linea: " + (yyline+1) + " columna: "+ (yycolumn+1) + " \n"; return new Symbol(Symbols.multiplicacion, yycolumn, yyline, yytext());
+            { System.out.println("Token correcto: "+yytext()+" potencia"); showResult += "Token correcto: " +yytext()+" Linea: " + (yyline+1) + " columna: "+ (yycolumn+1) + " \n"; return new Symbol(Symbols.potencia, yycolumn, yyline, yytext());
             }
           case 67: break;
           case 10: 
-            { System.out.println("Token correcto: "+yytext()+" division"); showResult += "Token correcto: " +yytext()+" Linea: " + (yyline+1) + " columna: "+ (yycolumn+1) + " \n"; return new Symbol(Symbols.division, yycolumn, yyline, yytext());
+            { System.out.println("Token correcto: "+yytext()+" menor"); showResult += "Token correcto: " +yytext()+" Linea: " + (yyline+1) + " columna: "+ (yycolumn+1) + " \n"; return new Symbol(Symbols.menor, yycolumn, yyline, yytext());
             }
           case 68: break;
           case 11: 
-            { System.out.println("Token correcto: "+yytext()+" potencia"); showResult += "Token correcto: " +yytext()+" Linea: " + (yyline+1) + " columna: "+ (yycolumn+1) + " \n"; return new Symbol(Symbols.potencia, yycolumn, yyline, yytext());
+            { System.out.println("Token correcto: "+yytext()+" mayor"); showResult += "Token correcto: " +yytext()+" Linea: " + (yyline+1) + " columna: "+ (yycolumn+1) + " \n"; return new Symbol(Symbols.mayor, yycolumn, yyline, yytext());
             }
           case 69: break;
           case 12: 
-            { System.out.println("Token correcto: "+yytext()+" menor"); showResult += "Token correcto: " +yytext()+" Linea: " + (yyline+1) + " columna: "+ (yycolumn+1) + " \n"; return new Symbol(Symbols.menor, yycolumn, yyline, yytext());
+            { System.out.println("Token correcto: "+yytext()+" parentesisabre"); showResult += "Token correcto: " +yytext()+" Linea: " + (yyline+1) + " columna: "+ (yycolumn+1) + " \n"; return new Symbol(Symbols.parentesis_abierto, yycolumn, yyline, yytext());
             }
           case 70: break;
           case 13: 
-            { System.out.println("Token correcto: "+yytext()+" mayor"); showResult += "Token correcto: " +yytext()+" Linea: " + (yyline+1) + " columna: "+ (yycolumn+1) + " \n"; return new Symbol(Symbols.mayor, yycolumn, yyline, yytext());
+            { System.out.println("Token correcto: "+yytext()+" parentesiscierra"); showResult += "Token correcto: " +yytext()+" Linea: " + (yyline+1) + " columna: "+ (yycolumn+1) + " \n"; return new Symbol(Symbols.parentesis_cerrado, yycolumn, yyline, yytext());
             }
           case 71: break;
           case 14: 
-            { System.out.println("Token correcto: "+yytext()+" parentesisabre"); showResult += "Token correcto: " +yytext()+" Linea: " + (yyline+1) + " columna: "+ (yycolumn+1) + " \n"; return new Symbol(Symbols.parentesis_abierto, yycolumn, yyline, yytext());
+            { System.out.println("Token correcto: "+yytext()+" llaveabre"); showResult += "Token correcto: " +yytext()+" Linea: " + (yyline+1) + " columna: "+ (yycolumn+1) + " \n"; return new Symbol(Symbols.llave_abierta, yycolumn, yyline, yytext());
             }
           case 72: break;
           case 15: 
-            { System.out.println("Token correcto: "+yytext()+" parentesiscierra"); showResult += "Token correcto: " +yytext()+" Linea: " + (yyline+1) + " columna: "+ (yycolumn+1) + " \n"; return new Symbol(Symbols.parentesis_cerrado, yycolumn, yyline, yytext());
+            { System.out.println("Token correcto: "+yytext()+" llavecierra"); showResult += "Token correcto: " +yytext()+" Linea: " + (yyline+1) + " columna: "+ (yycolumn+1) + " \n"; return new Symbol(Symbols.llave_cerrada, yycolumn, yyline, yytext());
             }
           case 73: break;
           case 16: 
-            { System.out.println("Token correcto: "+yytext()+" llaveabre"); showResult += "Token correcto: " +yytext()+" Linea: " + (yyline+1) + " columna: "+ (yycolumn+1) + " \n"; return new Symbol(Symbols.llave_abierta, yycolumn, yyline, yytext());
+            { System.out.println("Token correcto: "+yytext()+" corcheteabre"); showResult += "Token correcto: " +yytext()+" Linea: " + (yyline+1) + " columna: "+ (yycolumn+1) + " \n"; return new Symbol(Symbols.corchete_abierto, yycolumn, yyline, yytext());
             }
           case 74: break;
           case 17: 
-            { System.out.println("Token correcto: "+yytext()+" llavecierra"); showResult += "Token correcto: " +yytext()+" Linea: " + (yyline+1) + " columna: "+ (yycolumn+1) + " \n"; return new Symbol(Symbols.llave_cerrada, yycolumn, yyline, yytext());
+            { System.out.println("Token correcto: "+yytext()+" corchetecierra"); showResult += "Token correcto: " +yytext()+" Linea: " + (yyline+1) + " columna: "+ (yycolumn+1) + " \n"; return new Symbol(Symbols.corchete_cerrado, yycolumn, yyline, yytext());
             }
           case 75: break;
           case 18: 
-            { System.out.println("Token correcto: "+yytext()+" corcheteabre"); showResult += "Token correcto: " +yytext()+" Linea: " + (yyline+1) + " columna: "+ (yycolumn+1) + " \n"; return new Symbol(Symbols.corchete_abierto, yycolumn, yyline, yytext());
+            { System.out.println("Token correcto: "+yytext()+" coma"); showResult += "Token correcto: " +yytext()+" Linea: " + (yyline+1) + " columna: "+ (yycolumn+1) + " \n"; return new Symbol(Symbols.coma, yycolumn, yyline, yytext());
             }
           case 76: break;
           case 19: 
-            { System.out.println("Token correcto: "+yytext()+" corchetecierra"); showResult += "Token correcto: " +yytext()+" Linea: " + (yyline+1) + " columna: "+ (yycolumn+1) + " \n"; return new Symbol(Symbols.corchete_cerrado, yycolumn, yyline, yytext());
+            { System.out.println("Token correcto: "+yytext()+"puntos"); showResult += "Token correcto: " +yytext()+" Linea: " + (yyline+1) + " columna: "+ (yycolumn+1) + " \n"; return new Symbol(Symbols.dos_puntos, yycolumn, yyline, yytext());
             }
           case 77: break;
           case 20: 
-            { System.out.println("Token correcto: "+yytext()+" coma"); showResult += "Token correcto: " +yytext()+" Linea: " + (yyline+1) + " columna: "+ (yycolumn+1) + " \n"; return new Symbol(Symbols.coma, yycolumn, yyline, yytext());
+            { System.out.println("Token "+yytext()+" enero"); showResult += "Token correcto: " +yytext()+" Linea: " + (yyline+1) + " columna: "+ (yycolumn+1) + " \n"; return new Symbol(Symbols.entero, yycolumn, yyline, yytext());
             }
           case 78: break;
           case 21: 
-            { System.out.println("Token correcto: "+yytext()+"puntos"); showResult += "Token correcto: " +yytext()+" Linea: " + (yyline+1) + " columna: "+ (yycolumn+1) + " \n"; return new Symbol(Symbols.dos_puntos, yycolumn, yyline, yytext());
+            { System.out.println("Token "+yytext()+" id"); showResult += "Token correcto: " +yytext()+" Linea: " + (yyline+1) + " columna: "+ (yycolumn+1) + " \n"; return new Symbol(Symbols.id, yycolumn, yyline, yytext());
             }
           case 79: break;
           case 22: 
-            { System.out.println("Token "+yytext()+" enero"); showResult += "Token correcto: " +yytext()+" Linea: " + (yyline+1) + " columna: "+ (yycolumn+1) + " \n"; return new Symbol(Symbols.entero, yycolumn, yyline, yytext());
+            { System.out.println("Token correcto: "+yytext()+" hasta"); showResult += "Token correcto: " +yytext()+" Linea: " + (yyline+1) + " columna: "+ (yycolumn+1) + " \n"; return new Symbol(Symbols.hasta, yycolumn, yyline, yytext());
             }
           case 80: break;
           case 23: 
-            { System.out.println("Token "+yytext()+" id"); showResult += "Token correcto: " +yytext()+" Linea: " + (yyline+1) + " columna: "+ (yycolumn+1) + " \n"; return new Symbol(Symbols.id, yycolumn, yyline, yytext());
+            { System.out.println("Token correcto: "+yytext()+" condicional_if"); showResult += "Token correcto: " +yytext()+" Linea: " + (yyline+1) + " columna: "+ (yycolumn+1) + " \n"; return new Symbol(Symbols.condicional_if, yycolumn, yyline, yytext());
             }
           case 81: break;
           case 24: 
-            { System.out.println("Token correcto: "+yytext()+" hasta"); showResult += "Token correcto: " +yytext()+" Linea: " + (yyline+1) + " columna: "+ (yycolumn+1) + " \n"; return new Symbol(Symbols.hasta, yycolumn, yyline, yytext());
+            { System.out.println("Token correcto: "+yytext()+" parametro_entrada"); showResult += "Token correcto: " +yytext()+" Linea: " + (yyline+1) + " columna: "+ (yycolumn+1) + " \n"; return new Symbol(Symbols.parametro_entrada, yycolumn, yyline, yytext());
             }
           case 82: break;
           case 25: 
-            { System.out.println("Token correcto: "+yytext()+" condicional_if"); showResult += "Token correcto: " +yytext()+" Linea: " + (yyline+1) + " columna: "+ (yycolumn+1) + " \n"; return new Symbol(Symbols.condicional_if, yycolumn, yyline, yytext());
+            { System.out.println("Token correcto: "+yytext()+" parametro_entada_salida"); showResult += "Token correcto: " +yytext()+" Linea: " + (yyline+1) + " columna: "+ (yycolumn+1) + " \n"; return new Symbol(Symbols.parametro_entada_salida, yycolumn, yyline, yytext());
             }
           case 83: break;
           case 26: 
-            { System.out.println("Token correcto: "+yytext()+" parametro_entada_salida"); showResult += "Token correcto: " +yytext()+" Linea: " + (yyline+1) + " columna: "+ (yycolumn+1) + " \n"; return new Symbol(Symbols.parametro_entada_salida, yycolumn, yyline, yytext());
+            { System.out.println("Token correcto: "+yytext()+" parametro_salida"); showResult += "Token correcto: " +yytext()+" Linea: " + (yyline+1) + " columna: "+ (yycolumn+1) + " \n"; return new Symbol(Symbols.parametro_salida, yycolumn, yyline, yytext());
             }
           case 84: break;
           case 27: 

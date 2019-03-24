@@ -64,6 +64,7 @@ public class Symbols {
   public static final int comilla_cerrada = 54;
   public static final int asignacion = 37;
   public static final int division = 25;
+  public static final int decimal = 60;
   public static final int modulo = 32;
   public static final int digito = 48;
   public static final int float_type = 6;
@@ -128,7 +129,8 @@ public class Symbols {
   "dos_puntos",
   "end_while",
   "lambda",
-  "imprimir"
+  "imprimir",
+  "decimal"
   };
 }
 

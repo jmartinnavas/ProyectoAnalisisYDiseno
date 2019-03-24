@@ -37,6 +37,7 @@ entero = {digito} {digito}*
 decimal = {digito}+"."{digito}+
 identificador = {letra}({letra}|{digito})*
 
+
 %%
 /*-------------Reglas Lexicas---------------*/
 
@@ -51,8 +52,8 @@ identificador = {letra}({letra}|{digito})*
 //-----> <YYINITIAL> "RETURN"    { System.out.println("Token correcto: "+yytext()+" retorno"); showResult += "Token correcto: " +yytext()+" Linea: " + (yyline+1) + " columna: "+ (yycolumn+1) + " \n"; return new Symbol(Symbols.retorno, yycolumn, yyline, yytext()); }
 //-----> <YYINITIAL> "TRUE"      { System.out.println("Token correcto: "+yytext()+" verdadero"); showResult += "Token correcto: " +yytext()+" Linea: " + (yyline+1) + " columna: "+ (yycolumn+1) + " \n"; return new Symbol(Symbols.verdadero , yycolumn, yyline, yytext()); }
 //-----> <YYINITIAL> "FALSE"     { System.out.println("Token correcto: "+yytext()+" falso"); showResult += "Token correcto: " +yytext()+" Linea: " + (yyline+1) + " columna: "+ (yycolumn+1) + " \n"; return new Symbol(Symbols.falso, yycolumn, yyline, yytext()); }
-<YYINITIAL> "I"         { System.out.println("Token correcto: "+yytext()+" parametro_entrada"); showResult += "Token correcto: " +yytext()+" Linea: " + (yyline+1) + " columna: "+ (yycolumn+1) + " \n"; return new Symbol(Symbols.parametro_entrada, yycolumn, yyline, yytext()); }
-<YYINITIAL> "O"         { System.out.println("Token correcto: "+yytext()+" parametro_salida"); showResult += "Token correcto: " +yytext()+" Linea: " + (yyline+1) + " columna: "+ (yycolumn+1) + " \n"; return new Symbol(Symbols.parametro_salida, yycolumn, yyline, yytext()); }
+<YYINITIAL> "IN"         { System.out.println("Token correcto: "+yytext()+" parametro_entrada"); showResult += "Token correcto: " +yytext()+" Linea: " + (yyline+1) + " columna: "+ (yycolumn+1) + " \n"; return new Symbol(Symbols.parametro_entrada, yycolumn, yyline, yytext()); }
+<YYINITIAL> "OU"         { System.out.println("Token correcto: "+yytext()+" parametro_salida"); showResult += "Token correcto: " +yytext()+" Linea: " + (yyline+1) + " columna: "+ (yycolumn+1) + " \n"; return new Symbol(Symbols.parametro_salida, yycolumn, yyline, yytext()); }
 <YYINITIAL> "IO"        { System.out.println("Token correcto: "+yytext()+" parametro_entada_salida"); showResult += "Token correcto: " +yytext()+" Linea: " + (yyline+1) + " columna: "+ (yycolumn+1) + " \n"; return new Symbol(Symbols.parametro_entada_salida, yycolumn, yyline, yytext()); }
 <YYINITIAL> "FOR"       { System.out.println("Token correcto: "+yytext()+" ciclo_for"); showResult += "Token correcto: " +yytext()+" Linea: " + (yyline+1) + " columna: "+ (yycolumn+1) + " \n"; return new Symbol(Symbols.ciclo_for, yycolumn, yyline, yytext()); }
 <YYINITIAL> "WHILE"     { System.out.println("Token correcto: "+yytext()+" ciclo_while"); showResult += "Token correcto: " +yytext()+" Linea: " + (yyline+1) + " columna: "+ (yycolumn+1) + " \n"; return new Symbol(Symbols.ciclo_while, yycolumn, yyline, yytext()); }
@@ -119,8 +120,6 @@ identificador = {letra}({letra}|{digito})*
 <YYINITIAL> {entero}         { System.out.println("Token "+yytext()+" enero"); showResult += "Token correcto: " +yytext()+" Linea: " + (yyline+1) + " columna: "+ (yycolumn+1) + " \n"; return new Symbol(Symbols.entero, yycolumn, yyline, yytext()); }
 <YYINITIAL> {decimal}        { System.out.println("Token "+yytext()+" numero"); showResult += "Token correcto: " +yytext()+" Linea: " + (yyline+1) + " columna: "+ (yycolumn+1) + " \n"; return new Symbol(Symbols.numero, yycolumn, yyline, yytext()); }
 <YYINITIAL> {identificador}  { System.out.println("Token "+yytext()+" id"); showResult += "Token correcto: " +yytext()+" Linea: " + (yyline+1) + " columna: "+ (yycolumn+1) + " \n"; return new Symbol(Symbols.id, yycolumn, yyline, yytext()); }
-
-
 
 //------> Espacios
 [ \t\r\n\f]             {/* Espacios en blanco, se ignoran */}
