@@ -60,10 +60,12 @@ public class Symbols {
   public static final int and = 35;
   public static final int condicional_until = 17;
   public static final int parametro_salida = 10;
+  public static final int principal = 62;
   public static final int lambda = 58;
   public static final int comilla_cerrada = 54;
   public static final int asignacion = 37;
   public static final int division = 25;
+  public static final int retorno = 61;
   public static final int decimal = 60;
   public static final int modulo = 32;
   public static final int digito = 48;
@@ -130,7 +132,9 @@ public class Symbols {
   "end_while",
   "lambda",
   "imprimir",
-  "decimal"
+  "decimal",
+  "retorno",
+  "principal"
   };
 }
 

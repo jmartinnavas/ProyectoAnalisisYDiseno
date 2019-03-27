@@ -80,7 +80,7 @@ terminal  suma , resta , multiplicacion , division , potencia , menor  , mayor ,
 terminal mayor_igual ,  modulo , diferente , or , and , not ,  asignacion , parentesis_abierto ;
 terminal parentesis_cerrado , llave_abierta , llave_cerrada , corchete_abierto , corchete_cerrado , coma , hasta , hacer  ;
 terminal  down_to  , digito , letra , entero , numero , id , comilla_abierta , comilla_cerrada, end_for ;
-terminal dos_puntos, end_while, lambda , imprimir , decimal  ;
+terminal dos_puntos, end_while, lambda , imprimir , decimal , retorno , principal ;
 
 
 
@@ -92,7 +92,7 @@ terminal dos_puntos, end_while, lambda , imprimir , decimal  ;
 non terminal S , INICIO, ARGUMENTOS , DEFVARS , CUERPITO , REFERENCIA , TIPODATO , VECTOR , OPERADOR_LOGICO, DEFVAR ;
 non terminal  ELEMENTO,ELEMENTOS , MATRIZ, EXP_NUMERICA   , OPEMATES,  OPERADOR_RELACIONAL , EXP_INICIO , IMPRIMIR , VARIABLES ;
 non terminal EXPRESION_REG, ARGUMENTO ,CONDICION11, INSTRUCCIONES1   ,OPERADOR_MATEMATICO ,CICLO , CONDICION, CONDICIONAL , VAR, VARS ;
- 
+non terminal RETORNOS , MAIN , LLAMADO ;  
 start with S;
 
 
@@ -107,7 +107,17 @@ INICIO ::=   procedure id parentesis_abierto ARGUMENTO parentesis_cerrado DEFVAR
             | function id parentesis_abierto ARGUMENTO parentesis_cerrado DEFVARS llave_abierta INSTRUCCIONES1 llave_cerrada
             | function id parentesis_abierto ARGUMENTO parentesis_cerrado  llave_abierta INSTRUCCIONES1 llave_cerrada
             | function id parentesis_abierto  parentesis_cerrado DEFVARS llave_abierta INSTRUCCIONES1 llave_cerrada
-            | function id parentesis_abierto  parentesis_cerrado  llave_abierta INSTRUCCIONES1 llave_cerrada ;
+            | function id parentesis_abierto  parentesis_cerrado  llave_abierta INSTRUCCIONES1 llave_cerrada 
+
+            | function id parentesis_abierto ARGUMENTO parentesis_cerrado DEFVARS llave_abierta INSTRUCCIONES1 RETORNOS  llave_cerrada
+            | function id parentesis_abierto ARGUMENTO parentesis_cerrado  llave_abierta INSTRUCCIONES1 RETORNOS  llave_cerrada
+            | function id parentesis_abierto  parentesis_cerrado DEFVARS llave_abierta INSTRUCCIONES1 RETORNOS llave_cerrada
+            | function id parentesis_abierto  parentesis_cerrado  llave_abierta INSTRUCCIONES1 RETORNOS llave_cerrada 
+            |  MAIN  ;
+ 
+
+MAIN ::=  principal llave_abierta | id parentesis_abierto | VECTOR | EXP_NUMERICA
+         | coma  | parentesis_cerrado | EXP_INICIO |TIPODATO VAR | llave_cerrada ;
 
 EXP_INICIO ::= id | letra ; 
 EXP_NUMERICA ::= digito | entero | decimal ; 
@@ -125,7 +135,9 @@ REFERENCIA ::= parametro_entrada | parametro_salida | parametro_entada_salida ;
 
 ELEMENTO ::= ELEMENTOS | ELEMENTOS ELEMENTO ;
 
-ELEMENTOS ::= EXP_NUMERICA coma  | EXP_NUMERICA |  comilla_abierta EXP_INICIO comilla_cerrada | comilla_abierta EXP_INICIO comilla_cerrada coma  | EXP_INICIO  coma ;
+ELEMENTOS ::= EXP_NUMERICA coma  | EXP_NUMERICA |  comilla_abierta EXP_INICIO comilla_cerrada 
+            | comilla_abierta EXP_INICIO comilla_cerrada coma|EXP_INICIO |VECTOR 
+            |VECTOR coma | EXP_INICIO  coma ;
 
 TIPODATO ::= int_type | char_type | float_type | boolean_type | string_type   ;
 
@@ -161,7 +173,14 @@ OPERADOR_RELACIONAL ::= and | or | not ;
 
 INSTRUCCIONES1 ::= lambda| CUERPITO INSTRUCCIONES1 ;
 
-CUERPITO ::= CICLO | CONDICIONAL  | OPEMATES | IMPRIMIR | VARIABLES   ;
+CUERPITO ::= CICLO | CONDICIONAL  | OPEMATES | IMPRIMIR | VARIABLES | RETORNOS | LLAMADO  ;
+
+RETORNOS ::= retorno EXP_INICIO | retorno VECTOR | retorno EXP_NUMERICA  ;
+
+
+LLAMADO ::=  llave_abierta  id parentesis_abierto ELEMENTO  parentesis_cerrado llave_cerrada;  
+
+
 
 VARIABLES ::=  EXP_INICIO asignacion EXP_NUMERICA | EXP_INICIO asignacion EXP_INICIO
                |  EXP_INICIO asignacion  VECTOR
