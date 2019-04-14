@@ -8,20 +8,21 @@ import java_cup.runtime.Symbol;
 parser code
 {:
     public String result="";
+
+    int iteradorcabecera = 1 ;
+    int iteradordeclaraciones = 1 ; 
+    int iteradorasignaciones = 1 ; 
+    int iteradorciclo = 1 ; 
+    int iteradorcondicional = 1 ; 
+    int iteradorrecursivo = 1 ; 
+    int iteradorimprimir = 1 ; 
+    int iteradorllamadonormal = 1 ; 
+    
     String temporal = "" ; 
+    String temporal1 = "" ; 
     String temporal2="";
     String temporal3="";
-    String temporalvalor="";
-    String envget="false";
-    String enviaset="false";
-    String hereda="";
-    String guardo="";
-    String consulta="";
-    String valorsigno="";
-    String valoracceder="";
-    String valoraccederid="";
-    String serialcondicion="";
-    String insertarvalores="";
+    String temporal4="";
 
     //Metodo al que se llama automaticamente ante algun error sintactico
     public void syntax_error(Symbol s)
@@ -100,36 +101,40 @@ start with S;
 /*--------------- 3ra Area: Reglas Semanticas -----------------------*/
 S ::= INICIO | INICIO S;
 
-INICIO ::=   procedure id parentesis_abierto ARGUMENTO parentesis_cerrado DEFVARS llave_abierta INSTRUCCIONES1 llave_cerrada
+INICIO ::=   procedure id:nombrep parentesis_abierto ARGUMENTO parentesis_cerrado DEFVARS llave_abierta INSTRUCCIONES1 llave_cerrada
+            {:result += "\n Pseudocodigo Ejecutado Correctamente :) !!! "   ; :}  
+
+
             | procedure id parentesis_abierto  parentesis_cerrado DEFVARS llave_abierta INSTRUCCIONES1 llave_cerrada
             | procedure id parentesis_abierto  parentesis_cerrado  llave_abierta INSTRUCCIONES1 llave_cerrada
+            
             | procedure id parentesis_abierto ARGUMENTO parentesis_cerrado  llave_abierta INSTRUCCIONES1 llave_cerrada
-            | function id parentesis_abierto ARGUMENTO parentesis_cerrado DEFVARS llave_abierta INSTRUCCIONES1 llave_cerrada
-            | function id parentesis_abierto ARGUMENTO parentesis_cerrado  llave_abierta INSTRUCCIONES1 llave_cerrada
-            | function id parentesis_abierto  parentesis_cerrado DEFVARS llave_abierta INSTRUCCIONES1 llave_cerrada
-            | function id parentesis_abierto  parentesis_cerrado  llave_abierta INSTRUCCIONES1 llave_cerrada 
-
-            | function id parentesis_abierto ARGUMENTO parentesis_cerrado DEFVARS llave_abierta INSTRUCCIONES1 RETORNOS  llave_cerrada
-            | function id parentesis_abierto ARGUMENTO parentesis_cerrado  llave_abierta INSTRUCCIONES1 RETORNOS  llave_cerrada
-            | function id parentesis_abierto  parentesis_cerrado DEFVARS llave_abierta INSTRUCCIONES1 RETORNOS llave_cerrada
-            | function id parentesis_abierto  parentesis_cerrado  llave_abierta INSTRUCCIONES1 RETORNOS llave_cerrada 
+           
+            | function TIPODATO id parentesis_abierto ARGUMENTO parentesis_cerrado DEFVARS llave_abierta INSTRUCCIONES1 llave_cerrada
+            | function TIPODATO id parentesis_abierto ARGUMENTO parentesis_cerrado  llave_abierta INSTRUCCIONES1 llave_cerrada
+            | function TIPODATO id parentesis_abierto  parentesis_cerrado DEFVARS llave_abierta INSTRUCCIONES1 llave_cerrada
+            | function TIPODATO id parentesis_abierto  parentesis_cerrado  llave_abierta INSTRUCCIONES1 llave_cerrada 
+            | function TIPODATO id parentesis_abierto ARGUMENTO parentesis_cerrado DEFVARS llave_abierta INSTRUCCIONES1 RETORNOS  llave_cerrada
+            | function TIPODATO id parentesis_abierto ARGUMENTO parentesis_cerrado  llave_abierta INSTRUCCIONES1 RETORNOS  llave_cerrada
+            | function TIPODATO id parentesis_abierto  parentesis_cerrado DEFVARS llave_abierta INSTRUCCIONES1 RETORNOS llave_cerrada
+            | function TIPODATO id parentesis_abierto  parentesis_cerrado  llave_abierta INSTRUCCIONES1 RETORNOS llave_cerrada 
             |  MAIN  ;
  
 
 MAIN ::=  principal llave_abierta | id parentesis_abierto | VECTOR | EXP_NUMERICA
          | coma  | parentesis_cerrado | EXP_INICIO |TIPODATO VAR | llave_cerrada ;
 
-EXP_INICIO ::= id | letra ; 
+EXP_INICIO ::= id:nn {: temporal3+= nn  ;:} | letra:nn {: temporal3+= nn  ;:} ;  
 EXP_NUMERICA ::= digito | entero | decimal ; 
 
 ARGUMENTO ::= ARGUMENTOS | ARGUMENTOS ARGUMENTO ; 
 
-ARGUMENTOS ::= REFERENCIA TIPODATO EXP_INICIO coma  
-              | REFERENCIA TIPODATO EXP_INICIO 
-              | REFERENCIA  TIPODATO VECTOR 
-              | REFERENCIA  TIPODATO VECTOR  coma
-              | REFERENCIA  TIPODATO  MATRIZ
-              | REFERENCIA  TIPODATO  MATRIZ coma ;
+ARGUMENTOS ::= REFERENCIA TIPODATO EXP_INICIO coma   {: temporal1+= temporal +" "  + temporal3 + "," ; temporal3="";temporal="";:}
+              | REFERENCIA TIPODATO EXP_INICIO  {: temporal1+= temporal +" "  + temporal3   ; temporal3=""; temporal=""; :}
+              | REFERENCIA  TIPODATO VECTOR     {: temporal1+= temporal +" "  + temporal4   ; temporal4=""; temporal=""; temporal3=""; :}
+              | REFERENCIA  TIPODATO VECTOR  coma  {: temporal1+= temporal +" "  + temporal4 + ","   ; temporal4=""; temporal=""; temporal3=""; :}
+              | REFERENCIA  TIPODATO  MATRIZ 
+              | REFERENCIA  TIPODATO  MATRIZ coma ; 
 
 REFERENCIA ::= parametro_entrada | parametro_salida | parametro_entada_salida ; 
 
@@ -139,14 +144,20 @@ ELEMENTOS ::= EXP_NUMERICA coma  | EXP_NUMERICA |  comilla_abierta EXP_INICIO co
             | comilla_abierta EXP_INICIO comilla_cerrada coma|EXP_INICIO |VECTOR 
             |VECTOR coma | EXP_INICIO  coma ;
 
-TIPODATO ::= int_type | char_type | float_type | boolean_type | string_type   ;
+TIPODATO ::=  int_type:intt 
+            {:temporal+= intt ; :} 
+            | char_type:chart  {:temporal+= chart ; :}
+            | float_type:floatt  {:temporal+= floatt ; :}
+            | boolean_type:booleant  {:temporal+= booleant ; :} 
+            | string_type:stringt  {:temporal+= stringt ; :}   ;
 
 
 
-VECTOR ::=    EXP_INICIO corchete_abierto corchete_cerrado 
-           |  EXP_INICIO corchete_abierto EXP_NUMERICA corchete_cerrado 
-           |  EXP_INICIO corchete_abierto EXP_INICIO corchete_cerrado 
-           |  EXP_INICIO corchete_abierto  corchete_cerrado asignacion llave_abierta ELEMENTO llave_cerrada ;
+VECTOR ::=    EXP_INICIO corchete_abierto corchete_cerrado {: temporal4+= temporal3 + "[]"   ;:} 
+           |  EXP_INICIO corchete_abierto EXP_NUMERICA corchete_cerrado {: temporal4+= temporal3 + "[]"   ;:}
+           |  EXP_INICIO corchete_abierto EXP_INICIO corchete_cerrado {: temporal4+= temporal3.charAt(0) + "[" + temporal3.charAt(1) + "]"  ;:}
+           
+            |  EXP_INICIO corchete_abierto  corchete_cerrado asignacion llave_abierta ELEMENTO llave_cerrada      ;
            
 MATRIZ ::=     EXP_INICIO corchete_abierto corchete_cerrado  corchete_abierto corchete_cerrado 
             |  EXP_INICIO  corchete_abierto EXP_INICIO  corchete_cerrado  corchete_abierto EXP_INICIO corchete_cerrado 
@@ -178,7 +189,7 @@ CUERPITO ::= CICLO | CONDICIONAL  | OPEMATES | IMPRIMIR | VARIABLES | RETORNOS |
 RETORNOS ::= retorno EXP_INICIO | retorno VECTOR | retorno EXP_NUMERICA  ;
 
 
-LLAMADO ::=  llave_abierta  id parentesis_abierto ELEMENTO  parentesis_cerrado llave_cerrada;  
+LLAMADO ::=  llave_abierta multiplicacion  id parentesis_abierto ELEMENTO  parentesis_cerrado multiplicacion llave_cerrada;  
 
 
 

@@ -16,6 +16,10 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.StringReader;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.LinkedList;
+import java.util.StringTokenizer;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JTextArea;
@@ -27,6 +31,9 @@ import javax.swing.JTextArea;
 public class Frame extends javax.swing.JFrame {
 
     String src;
+    LinkedList<String> lista = new LinkedList<>();
+    LinkedHashMap<String, String> mapa = new LinkedHashMap<>();
+    int secuencia = 1;
 
     public void lines(JTextArea area1, JTextArea area2) {
         int lines = area1.getLineCount() + 1;
@@ -148,7 +155,7 @@ public class Frame extends javax.swing.JFrame {
         jScrollPane4.setViewportView(TextSyntactic);
 
         jLabel4.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        jLabel4.setText("Analisis de Pseudocodigo");
+        jLabel4.setText("Analisis semantico del Pseudocodigo");
 
         jButton1.setText("Analizar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -445,11 +452,85 @@ public class Frame extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         this.textLexer.setText("");
         this.TextSyntactic.setText("");
+        mapa.clear();
+        lista.clear();
+        secuencia = 1;
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    public void extraerLineas(String cadena) {
+        StringTokenizer st = new StringTokenizer(cadena, "\n");
+        while (st.hasMoreTokens()) {
+            String line = st.nextToken();
+            llenado(line);
+        }
+
+        for (String key : mapa.keySet()) {
+            String value = mapa.get(key);
+            System.out.println("Key = " + key + ", Value = " + value);
+        }
+    }
+
+    public void imprimirLista(LinkedList<String> lista) {
+        for (int i = 0; i < lista.size(); i++) {
+            System.out.println("lista en posicion:" + i + "igual a:" + lista.get(i));
+        }
+
+    }
+
+    public void llenado(String lineacodigo) {
+        String llave = "";
+        LinkedList<String> lista = new LinkedList<>();
+        String limpieza = "";
+        limpieza = lineacodigo.trim();
+        String[] bar = limpieza.split(" ");
+        for (int i = 0; i < bar.length; i++) {
+            lista.add(bar[i]);
+        }
+
+        llave = validacionesMapa(lista);
+        mapa.put(llave, limpieza);
+
+    }
+
+    public String validacionesMapa(LinkedList<String> list) {
+        String llave = "";
+
+        if (list.contains("procedure") || list.contains("function")) {
+            llave = "cabecera " + secuencia;
+            secuencia++;
+        } else if ((list.contains("<-")) && !(list.contains("for") || lista.contains("while"))) {
+            llave = "asignacion " + secuencia;
+            secuencia++;
+        } else if ((list.contains("int") || list.contains("string") || list.contains("char")
+                || list.contains("boolean") || list.contains("float")) && !(lista.contains("procedure") || lista.contains("function"))) {
+            llave = "declaracion " + secuencia;
+            secuencia++;
+        } else if ((list.contains("for") || lista.contains("while")) && !(list.contains("end"))) {
+            llave = "ciclo " + secuencia;
+            secuencia++;
+        } else if ((list.contains("if") || lista.contains("else") || lista.contains("switch")) && !(list.contains("end"))) {
+            llave = "condicional " + secuencia;
+            secuencia++;
+        } else if (list.contains("print")) {
+            llave = "imprimir " + secuencia;
+            secuencia++;
+        } else if (((list.contains("end")) && (list.contains("for"))) || ((list.contains("end")) && (list.contains("if")))) {
+            llave = "final " + secuencia;
+            secuencia++;
+        } else if (list.contains("{*")) {
+            llave = "LlamadoRecursivo " + secuencia;
+            secuencia++;
+        } else {
+            llave = "otro " + secuencia;
+            secuencia++;
+        }
+        return llave;
+    }
+
+    //BOTON ANALIZAR
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         String data = this.Code.getText();
-        System.out.println(data);
+        System.out.println("Hola Papi:  " + data);
         LexicalAnalyzer lexical = new LexicalAnalyzer(new BufferedReader(new StringReader(data)));
         SyntacticAnalyzer syntactic = new SyntacticAnalyzer(lexical);
 
@@ -457,6 +538,8 @@ public class Frame extends javax.swing.JFrame {
             syntactic.parse();
             this.textLexer.setText(lexical.showResult);
             this.TextSyntactic.setText(syntactic.result);
+            System.out.println("---------------------------------------------------------------");
+            extraerLineas(data);
             //System.out.println(lexical.showResult);
             //System.out.println(syntactic.result);
             // System.out.println(sintactico.resultado);
@@ -532,4 +615,5 @@ public class Frame extends javax.swing.JFrame {
     private javax.swing.JTextArea linesCode;
     private javax.swing.JTextArea textLexer;
     // End of variables declaration//GEN-END:variables
+
 }
