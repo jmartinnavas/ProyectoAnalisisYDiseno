@@ -67,19 +67,17 @@ public class Frame extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        textLexer = new javax.swing.JTextArea();
         jScrollPane3 = new javax.swing.JScrollPane();
         jPanel2 = new javax.swing.JPanel();
         Code = new javax.swing.JTextArea();
         linesCode = new javax.swing.JTextArea();
         jScrollPane4 = new javax.swing.JScrollPane();
         TextSyntactic = new javax.swing.JTextArea();
-        jLabel4 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -103,14 +101,11 @@ public class Frame extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel3.setText("Consola");
 
-        textLexer.setEditable(false);
-        textLexer.setColumns(20);
-        textLexer.setRows(5);
-        jScrollPane2.setViewportView(textLexer);
-
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
+        Code.setBackground(new java.awt.Color(229, 229, 229));
         Code.setColumns(20);
+        Code.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         Code.setRows(5);
         Code.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         Code.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -120,7 +115,10 @@ public class Frame extends javax.swing.JFrame {
         });
 
         linesCode.setEditable(false);
+        linesCode.setBackground(new java.awt.Color(0, 0, 0));
         linesCode.setColumns(20);
+        linesCode.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        linesCode.setForeground(new java.awt.Color(255, 255, 255));
         linesCode.setRows(5);
         linesCode.setRequestFocusEnabled(false);
 
@@ -132,8 +130,8 @@ public class Frame extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(linesCode, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Code, javax.swing.GroupLayout.PREFERRED_SIZE, 635, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(199, Short.MAX_VALUE))
+                .addComponent(Code, javax.swing.GroupLayout.PREFERRED_SIZE, 508, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(326, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -142,7 +140,7 @@ public class Frame extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(linesCode, javax.swing.GroupLayout.DEFAULT_SIZE, 776, Short.MAX_VALUE)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(Code, javax.swing.GroupLayout.PREFERRED_SIZE, 592, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(Code, javax.swing.GroupLayout.PREFERRED_SIZE, 486, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -150,12 +148,12 @@ public class Frame extends javax.swing.JFrame {
         jScrollPane3.setViewportView(jPanel2);
 
         TextSyntactic.setEditable(false);
+        TextSyntactic.setBackground(new java.awt.Color(0, 0, 0));
         TextSyntactic.setColumns(20);
+        TextSyntactic.setForeground(new java.awt.Color(0, 255, 0));
         TextSyntactic.setRows(5);
+        TextSyntactic.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jScrollPane4.setViewportView(TextSyntactic);
-
-        jLabel4.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        jLabel4.setText("Analisis semantico del Pseudocodigo");
 
         jButton1.setText("Analizar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -185,6 +183,8 @@ public class Frame extends javax.swing.JFrame {
             }
         });
 
+        jButton5.setText("Complejidad");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -196,26 +196,20 @@ public class Frame extends javax.swing.JFrame {
                         .addComponent(jLabel1))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(21, 21, 21)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 708, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 708, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(18, 18, 18)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(67, 67, 67)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel4)
-                                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 574, Short.MAX_VALUE)
+                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(286, 286, 286)
                         .addComponent(jLabel3)))
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addContainerGap(254, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -225,11 +219,9 @@ public class Frame extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 401, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(30, 30, 30)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel4)))
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 425, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel3))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
@@ -237,15 +229,15 @@ public class Frame extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(28, Short.MAX_VALUE))
         );
 
-        jMenu1.setText("File");
+        jMenu1.setText("Archivo");
 
         jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_G, java.awt.event.InputEvent.CTRL_MASK));
         jMenuItem1.setText("Guardar");
@@ -276,7 +268,7 @@ public class Frame extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu1);
 
-        jMenu2.setText("Edit");
+        jMenu2.setText("Editar");
 
         jMenuItem4.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, java.awt.event.InputEvent.CTRL_MASK));
         jMenuItem4.setText("Analizar");
@@ -386,7 +378,7 @@ public class Frame extends javax.swing.JFrame {
 
         try {
             syntactic.parse();
-            this.textLexer.setText(lexical.showResult);
+           
             this.TextSyntactic.setText(syntactic.result);
             //System.out.println(lexical.showResult);
             //System.out.println(syntactic.result);
@@ -398,7 +390,7 @@ public class Frame extends javax.swing.JFrame {
 
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jMenuItem5ActionPerformed
     {//GEN-HEADEREND:event_jMenuItem5ActionPerformed
-        this.textLexer.setText("");
+       
         this.TextSyntactic.setText("");
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
@@ -450,7 +442,7 @@ public class Frame extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        this.textLexer.setText("");
+       
         this.TextSyntactic.setText("");
         mapa.clear();
         lista.clear();
@@ -496,32 +488,35 @@ public class Frame extends javax.swing.JFrame {
         String llave = "";
 
         if (list.contains("procedure") || list.contains("function")) {
-            llave = "cabecera " + secuencia;
+            llave = secuencia+"-cabecera" ;
             secuencia++;
         } else if ((list.contains("<-")) && !(list.contains("for") || lista.contains("while"))) {
-            llave = "asignacion " + secuencia;
+            llave = secuencia+"-asignacion";
             secuencia++;
         } else if ((list.contains("int") || list.contains("string") || list.contains("char")
                 || list.contains("boolean") || list.contains("float")) && !(lista.contains("procedure") || lista.contains("function"))) {
-            llave = "declaracion " + secuencia;
+            llave = secuencia+"-declaracion";
             secuencia++;
         } else if ((list.contains("for") || lista.contains("while")) && !(list.contains("end"))) {
-            llave = "ciclo " + secuencia;
+            llave = secuencia+"-ciclo";
             secuencia++;
         } else if ((list.contains("if") || lista.contains("else") || lista.contains("switch")) && !(list.contains("end"))) {
-            llave = "condicional " + secuencia;
+            llave = secuencia+"-condicional";
             secuencia++;
         } else if (list.contains("print")) {
-            llave = "imprimir " + secuencia;
+            llave = secuencia+"-imprimir";
             secuencia++;
         } else if (((list.contains("end")) && (list.contains("for"))) || ((list.contains("end")) && (list.contains("if")))) {
-            llave = "final " + secuencia;
+            llave = secuencia+"-final";
             secuencia++;
         } else if (list.contains("{*")) {
-            llave = "LlamadoRecursivo " + secuencia;
+            llave = secuencia+"-LlamadoRecursivo";
             secuencia++;
-        } else {
-            llave = "otro " + secuencia;
+        }  else if (list.contains("retorno")) {
+            llave = secuencia+"-retorno";
+            secuencia++;
+        }else {
+            llave = secuencia+"-otro";
             secuencia++;
         }
         return llave;
@@ -536,8 +531,8 @@ public class Frame extends javax.swing.JFrame {
 
         try {
             syntactic.parse();
-            this.textLexer.setText(lexical.showResult);
-            this.TextSyntactic.setText(syntactic.result);
+           
+            this.TextSyntactic.setText(lexical.showResult+"\n" + syntactic.result);
             System.out.println("---------------------------------------------------------------");
             extraerLineas(data);
             //System.out.println(lexical.showResult);
@@ -595,9 +590,9 @@ public class Frame extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
@@ -609,11 +604,9 @@ public class Frame extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTextArea linesCode;
-    private javax.swing.JTextArea textLexer;
     // End of variables declaration//GEN-END:variables
 
 }

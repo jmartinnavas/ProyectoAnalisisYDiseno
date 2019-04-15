@@ -30,7 +30,7 @@ parser code
         String lexema = s.value.toString();
         int fila = s.right;
         int columna = s.left;
-        result +="\n!!!!!!! Error Sintactico Recuperado !!!!!!!\t\tLexema: "+lexema+"\t\tFila: "+fila+"\t\tColumna: "+columna;
+        result +="\n! Error Sintactico Recuperado !\t\tLexema: "+lexema+"\t\tFila: "+fila+"\t\tColumna: "+columna;
         System.out.println("!!!!!!! Error Sintactico Recuperado !!!!!!!");
         System.out.println("\t\tLexema: "+lexema);
         System.out.println("\t\tFila: "+fila);
@@ -46,7 +46,7 @@ parser code
         String lexema = s.value.toString();
         int fila = s.right;
         int columna = s.left;
-        result +="\n!!!!!!! Error Sintactico, Panic Mode !!!!!!!\t\tLexema: "+lexema+"\t\tFila: "+fila+"\t\tColumna: "+columna;
+        result +="\n! Error Sintactico, Panic Mode !\t\tLexema: "+lexema+"\t\tFila: "+fila+"\t\tColumna: "+columna;
         System.out.println("!!!!!!! Error Sintactico, Panic Mode !!!!!!! ");
         System.out.println("\t\tLexema: "+lexema);
         System.out.println("\t\tFila: "+fila);
