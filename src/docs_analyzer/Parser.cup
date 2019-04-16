@@ -8,7 +8,7 @@ import java_cup.runtime.Symbol;
 parser code
 {:
     public String result="";
-
+    public String result2="";
     int iteradorcabecera = 1 ;
     int iteradordeclaraciones = 1 ; 
     int iteradorasignaciones = 1 ; 
@@ -102,22 +102,31 @@ start with S;
 S ::= INICIO | INICIO S;
 
 INICIO ::=   procedure id:nombrep parentesis_abierto ARGUMENTO parentesis_cerrado DEFVARS llave_abierta INSTRUCCIONES1 llave_cerrada
-            {:result += "\n Pseudocodigo Ejecutado Correctamente :) !!! "   ; :}  
+            {:result += "\n Pseudocodigo Ejecutado Correctamente :) !!! "   ; result2="true"; :}  
 
 
             | procedure id parentesis_abierto  parentesis_cerrado DEFVARS llave_abierta INSTRUCCIONES1 llave_cerrada
+              {:result += "\n Pseudocodigo Ejecutado Correctamente :) !!! "   ; result2="true"; :} 
             | procedure id parentesis_abierto  parentesis_cerrado  llave_abierta INSTRUCCIONES1 llave_cerrada
-            
+                {:result += "\n Pseudocodigo Ejecutado Correctamente :) !!! "   ; result2="true"; :} 
             | procedure id parentesis_abierto ARGUMENTO parentesis_cerrado  llave_abierta INSTRUCCIONES1 llave_cerrada
-           
+                {:result += "\n Pseudocodigo Ejecutado Correctamente :) !!! "   ; result2="true"; :} 
             | function TIPODATO id parentesis_abierto ARGUMENTO parentesis_cerrado DEFVARS llave_abierta INSTRUCCIONES1 llave_cerrada
+  {:result += "\n Pseudocodigo Ejecutado Correctamente :) !!! "   ; result2="true"; :} 
             | function TIPODATO id parentesis_abierto ARGUMENTO parentesis_cerrado  llave_abierta INSTRUCCIONES1 llave_cerrada
+  {:result += "\n Pseudocodigo Ejecutado Correctamente :) !!! "   ; result2="true"; :} 
             | function TIPODATO id parentesis_abierto  parentesis_cerrado DEFVARS llave_abierta INSTRUCCIONES1 llave_cerrada
+  {:result += "\n Pseudocodigo Ejecutado Correctamente :) !!! "   ; result2="true"; :} 
             | function TIPODATO id parentesis_abierto  parentesis_cerrado  llave_abierta INSTRUCCIONES1 llave_cerrada 
+  {:result += "\n Pseudocodigo Ejecutado Correctamente :) !!! "   ; result2="true"; :} 
             | function TIPODATO id parentesis_abierto ARGUMENTO parentesis_cerrado DEFVARS llave_abierta INSTRUCCIONES1 RETORNOS  llave_cerrada
+  {:result += "\n Pseudocodigo Ejecutado Correctamente :) !!! "   ; result2="true"; :} 
             | function TIPODATO id parentesis_abierto ARGUMENTO parentesis_cerrado  llave_abierta INSTRUCCIONES1 RETORNOS  llave_cerrada
+  {:result += "\n Pseudocodigo Ejecutado Correctamente :) !!! "   ; result2="true"; :} 
             | function TIPODATO id parentesis_abierto  parentesis_cerrado DEFVARS llave_abierta INSTRUCCIONES1 RETORNOS llave_cerrada
+  {:result += "\n Pseudocodigo Ejecutado Correctamente :) !!! "   ; result2="true"; :} 
             | function TIPODATO id parentesis_abierto  parentesis_cerrado  llave_abierta INSTRUCCIONES1 RETORNOS llave_cerrada 
+  {:result += "\n Pseudocodigo Ejecutado Correctamente :) !!! "   ; result2="true"; :} 
             |  MAIN  ;
  
 
@@ -199,7 +208,8 @@ VARIABLES ::=  EXP_INICIO asignacion EXP_NUMERICA | EXP_INICIO asignacion EXP_IN
 
 IMPRIMIR ::= imprimir comilla_abierta id comilla_cerrada; 
 
-CICLO ::= ciclo_for parentesis_abierto EXP_INICIO asignacion EXP_NUMERICA hasta EXPRESION_REG parentesis_cerrado hacer INSTRUCCIONES1 end_for | 
+CICLO ::= ciclo_for parentesis_abierto EXP_INICIO asignacion EXP_NUMERICA hasta EXPRESION_REG parentesis_cerrado hacer INSTRUCCIONES1 end_for |
+        ciclo_for parentesis_abierto EXP_INICIO asignacion EXP_NUMERICA hasta EXPRESION_REG OPERADOR_MATEMATICO EXPRESION_REG  parentesis_cerrado hacer INSTRUCCIONES1 end_for |
         ciclo_for parentesis_abierto EXP_INICIO asignacion EXP_INICIO hasta EXPRESION_REG parentesis_cerrado hacer INSTRUCCIONES1 end_for |
         ciclo_for parentesis_abierto EXP_INICIO asignacion EXP_NUMERICA down_to EXPRESION_REG parentesis_cerrado hacer INSTRUCCIONES1 end_for |
         ciclo_while parentesis_abierto CONDICION parentesis_cerrado hacer INSTRUCCIONES1 end_while |

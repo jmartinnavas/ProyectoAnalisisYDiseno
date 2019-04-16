@@ -7,6 +7,7 @@ package Views;
 
 import Models.LexicalAnalyzer;
 import Models.SyntacticAnalyzer;
+import java.awt.Color;
 import java.awt.FileDialog;
 import java.awt.event.KeyEvent;
 import java.io.BufferedReader;
@@ -23,6 +24,7 @@ import java.util.StringTokenizer;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JTextArea;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -34,6 +36,7 @@ public class Frame extends javax.swing.JFrame {
     LinkedList<String> lista = new LinkedList<>();
     LinkedHashMap<String, String> mapa = new LinkedHashMap<>();
     int secuencia = 1;
+    DefaultTableModel dtm = new DefaultTableModel();
 
     public void lines(JTextArea area1, JTextArea area2) {
         int lines = area1.getLineCount() + 1;
@@ -52,6 +55,11 @@ public class Frame extends javax.swing.JFrame {
         this.setExtendedState(MAXIMIZED_BOTH);
         this.setTitle("Análisis y Diseño de Algoritmos");
         this.setLocationRelativeTo(this);
+        this.jPanel3.setVisible(false);
+        btncomplejidad.setEnabled(false);
+        String[] titulo = new String[]{"Ayuda", "Linea", "Costo"};
+        dtm.setColumnIdentifiers(titulo);
+        tabladatos.setModel(dtm);
 
     }
 
@@ -65,7 +73,6 @@ public class Frame extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
         jPanel2 = new javax.swing.JPanel();
@@ -77,7 +84,15 @@ public class Frame extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
+        btncomplejidad = new javax.swing.JButton();
+        jPanel5 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tabladatos = new javax.swing.JTable();
+        jPanel4 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        Comprobar = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -94,9 +109,6 @@ public class Frame extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(204, 204, 204));
         jPanel1.setForeground(new java.awt.Color(204, 204, 204));
         jPanel1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-
-        jLabel1.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        jLabel1.setText("Area de Pseudocodigo");
 
         jLabel3.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel3.setText("Consola");
@@ -183,7 +195,34 @@ public class Frame extends javax.swing.JFrame {
             }
         });
 
-        jButton5.setText("Complejidad");
+        btncomplejidad.setText("Complejidad");
+        btncomplejidad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btncomplejidadActionPerformed(evt);
+            }
+        });
+
+        jPanel5.setBackground(new java.awt.Color(0, 153, 153));
+
+        jLabel1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabel1.setText("Area de Pseudocodigo");
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(232, 232, 232)
+                .addComponent(jLabel1)
+                .addContainerGap(286, Short.MAX_VALUE))
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addContainerGap())
+        );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -192,12 +231,12 @@ public class Frame extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(253, 253, 253)
-                        .addComponent(jLabel1))
+                        .addGap(286, 286, 286)
+                        .addComponent(jLabel3))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(21, 21, 21)
+                        .addContainerGap()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 574, Short.MAX_VALUE)
+                            .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 560, Short.MAX_VALUE)
                             .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -205,18 +244,15 @@ public class Frame extends javax.swing.JFrame {
                             .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(286, 286, 286)
-                        .addComponent(jLabel3)))
-                .addContainerGap(254, Short.MAX_VALUE))
+                            .addComponent(btncomplejidad, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(37, 37, 37)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(34, 34, 34)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 425, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -231,10 +267,104 @@ public class Frame extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btncomplejidad, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addContainerGap(250, Short.MAX_VALUE))
+        );
+
+        jPanel3.setBackground(new java.awt.Color(204, 204, 204));
+
+        tabladatos.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
+            },
+            new String [] {
+                "Ayuda", "Linea", "Costo"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(tabladatos);
+
+        jPanel4.setBackground(new java.awt.Color(0, 153, 153));
+
+        jLabel2.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabel2.setText("Analisis de Complejidad");
+        jLabel2.setToolTipText("");
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel2)
+                .addGap(188, 188, 188))
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel2)
+                .addContainerGap())
+        );
+
+        Comprobar.setText("Comprobar");
+        Comprobar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ComprobarActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 574, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(79, 79, 79)
+                .addComponent(Comprobar)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 341, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(78, 78, 78)
+                .addComponent(Comprobar)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jMenu1.setText("Archivo");
@@ -305,11 +435,18 @@ public class Frame extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
@@ -378,7 +515,7 @@ public class Frame extends javax.swing.JFrame {
 
         try {
             syntactic.parse();
-           
+
             this.TextSyntactic.setText(syntactic.result);
             //System.out.println(lexical.showResult);
             //System.out.println(syntactic.result);
@@ -390,7 +527,7 @@ public class Frame extends javax.swing.JFrame {
 
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jMenuItem5ActionPerformed
     {//GEN-HEADEREND:event_jMenuItem5ActionPerformed
-       
+
         this.TextSyntactic.setText("");
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
@@ -441,18 +578,24 @@ public class Frame extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton3ActionPerformed
 
+    //BOTON BORRAR
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-       
+
         this.TextSyntactic.setText("");
         mapa.clear();
         lista.clear();
         secuencia = 1;
+        jPanel3.setVisible(false);
+        btncomplejidad.setEnabled(false);
+        tabladatos.removeAll();
+        dtm.setRowCount(0);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     public void extraerLineas(String cadena) {
         StringTokenizer st = new StringTokenizer(cadena, "\n");
         while (st.hasMoreTokens()) {
             String line = st.nextToken();
+            lista.add(line);
             llenado(line);
         }
 
@@ -488,38 +631,130 @@ public class Frame extends javax.swing.JFrame {
         String llave = "";
 
         if (list.contains("procedure") || list.contains("function")) {
-            llave = secuencia+"-cabecera" ;
+            llave = secuencia + "-cabecera";
             secuencia++;
-        } else if ((list.contains("<-")) && !(list.contains("for") || lista.contains("while"))) {
-            llave = secuencia+"-asignacion";
+        } else if ((list.contains("<-")) && !(list.contains("for") || list.contains("while"))) {
+            llave = secuencia + "-asignacion";
             secuencia++;
         } else if ((list.contains("int") || list.contains("string") || list.contains("char")
-                || list.contains("boolean") || list.contains("float")) && !(lista.contains("procedure") || lista.contains("function"))) {
-            llave = secuencia+"-declaracion";
+                || list.contains("boolean") || list.contains("float")) && !(list.contains("procedure") || list.contains("function"))) {
+            llave = secuencia + "-declaracion";
             secuencia++;
         } else if ((list.contains("for") || lista.contains("while")) && !(list.contains("end"))) {
-            llave = secuencia+"-ciclo";
+            llave = secuencia + "-ciclo";
             secuencia++;
-        } else if ((list.contains("if") || lista.contains("else") || lista.contains("switch")) && !(list.contains("end"))) {
-            llave = secuencia+"-condicional";
+        } else if ((list.contains("if") || lista.contains("else") || list.contains("switch")) && !(list.contains("end"))) {
+            llave = secuencia + "-condicional";
             secuencia++;
         } else if (list.contains("print")) {
-            llave = secuencia+"-imprimir";
+            llave = secuencia + "-imprimir";
             secuencia++;
-        } else if (((list.contains("end")) && (list.contains("for"))) || ((list.contains("end")) && (list.contains("if")))) {
-            llave = secuencia+"-final";
+        } else if (((list.contains("end")) && (list.contains("for")))) {
+            llave = secuencia + "-finalfor";
+            secuencia++;
+        } else if (((list.contains("end")) && (list.contains("if")))) {
+            llave = secuencia + "-finalif";
             secuencia++;
         } else if (list.contains("{*")) {
-            llave = secuencia+"-LlamadoRecursivo";
+            llave = secuencia + "-LlamadoRecursivo";
             secuencia++;
-        }  else if (list.contains("retorno")) {
-            llave = secuencia+"-retorno";
+        } else if (list.contains("retorno")) {
+            llave = secuencia + "-retorno";
             secuencia++;
-        }else {
-            llave = secuencia+"-otro";
+        } else {
+            llave = secuencia + "-otro";
             secuencia++;
         }
         return llave;
+    }
+
+    void llenadoTabla() {
+        for (String key : mapa.keySet()) {
+            String value = mapa.get(key);
+            dtm.addRow(new Object[]{
+                key, value
+
+            });
+
+        }
+
+    }
+
+    public void complejidad() {
+        int caso = 0;
+        boolean banderaciclo1 = false;
+        String fila;
+        for (int i = 0; i < mapa.size(); i++) {
+
+            String cadena = "";
+            cadena = (String) dtm.getValueAt(i, 0);
+            String[] cadenita = cadena.split("-");
+
+            //lineas que no afectan el comportamiento 
+            if ((cadenita[1].equals("cabecera") || cadenita[1].equals("otro")
+                    || cadenita[1].equals("final"))) {
+
+                dtm.setValueAt((Object) "---", i, 2);
+                //tabladatos.setBackground(Color.GREEN);
+                //asignaciones y declaraciones que no estan adentro de ciclos   
+            } else if ((cadenita[1].equals("asignacion") || cadenita[1].equals("declaracion")
+                    || cadenita[1].equals("imprimir") || cadenita[1].equals("retorno")
+                    || cadenita[1].equals("condicional")) && !banderaciclo1) {
+
+                dtm.setValueAt((Object) "c", i, 2);
+
+            } // es un solo ciclo 
+            else if (cadenita[1].equals("ciclo")) {
+                banderaciclo1 = true;
+                int ob = i + 1;
+                System.out.println("hola perrito: " + mapa.get(ob + "-ciclo"));
+                String[] cadenafor = mapa.get(ob + "-ciclo").split(" ");
+                if (cadenafor[4].equals("1") && cadenafor[6].equals("n")) {
+                    dtm.setValueAt((Object) "n+1", i, 2);
+                    caso = 1;
+
+                } else if (cadenafor[4].equals("1") && cadenafor[6].equals("n-1")) {
+                    dtm.setValueAt((Object) "n", i, 2);
+                    caso = 2;
+
+                }
+
+            } // declaraciones, asiganciones, condicionaes, print que esten dentro de 1 ciclo
+            else if ((cadenita[1].equals("asignacion") || cadenita[1].equals("declaracion")
+                    || cadenita[1].equals("imprimir") || cadenita[1].equals("retorno")
+                    || cadenita[1].equals("condicional")) && banderaciclo1) {
+                if (caso == 1) {
+                    dtm.setValueAt((Object) "n", i, 2);
+                } else {
+                    dtm.setValueAt((Object) "n-1", i, 2);
+                }
+
+            } else if (cadenita[1].equals("finalif")) {
+                dtm.setValueAt((Object) "---", i, 2);
+            } else if (cadenita[1].equals("finalfor")) {
+                banderaciclo1 = false;
+                dtm.setValueAt((Object) "---", i, 2);
+            }
+
+           
+            //System.out.println( dtm.getValueAt(i, 0));
+        }
+    }
+
+    //es un doble for anidado ? 
+    public boolean siguiente1(String llave, int i) {
+        int filasig = i + 1;
+        String cadena = (String) dtm.getValueAt(filasig, 0);
+        String[] cadenita = cadena.split("-");
+        return cadenita[1].equals(llave);
+    }
+
+    //es un triple for anidado ? 
+    public boolean siguiente2(String llave, int i) {
+        int filasig = i + 2;
+        String cadena = (String) dtm.getValueAt(filasig, 0);
+        String[] cadenita = cadena.split("-");
+        return cadenita[1].equals(llave);
     }
 
     //BOTON ANALIZAR
@@ -531,10 +766,15 @@ public class Frame extends javax.swing.JFrame {
 
         try {
             syntactic.parse();
-           
-            this.TextSyntactic.setText(lexical.showResult+"\n" + syntactic.result);
+
+            this.TextSyntactic.setText(lexical.showResult + "\n" + syntactic.result);
+            if (syntactic.result2 == "true") {
+                extraerLineas(data);
+                btncomplejidad.setEnabled(true);
+
+            }
             System.out.println("---------------------------------------------------------------");
-            extraerLineas(data);
+
             //System.out.println(lexical.showResult);
             //System.out.println(syntactic.result);
             // System.out.println(sintactico.resultado);
@@ -547,6 +787,17 @@ public class Frame extends javax.swing.JFrame {
             this.lines(this.Code, this.linesCode);
         }
     }//GEN-LAST:event_CodeKeyPressed
+
+    //BOTON COMPLEJIDAD
+    private void btncomplejidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncomplejidadActionPerformed
+        this.jPanel3.setVisible(true);
+        llenadoTabla();
+    }//GEN-LAST:event_btncomplejidadActionPerformed
+
+    //BOTON COMPROBAR
+    private void ComprobarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComprobarActionPerformed
+        complejidad();
+    }//GEN-LAST:event_ComprobarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -585,13 +836,15 @@ public class Frame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextArea Code;
+    private javax.swing.JButton Comprobar;
     private javax.swing.JTextArea TextSyntactic;
+    private javax.swing.JButton btncomplejidad;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
@@ -604,9 +857,14 @@ public class Frame extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTextArea linesCode;
+    private javax.swing.JTable tabladatos;
     // End of variables declaration//GEN-END:variables
 
 }
