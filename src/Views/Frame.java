@@ -683,6 +683,7 @@ public class Frame extends javax.swing.JFrame {
     public void complejidad() {
         int caso = 0;
         boolean banderaciclo1 = false;
+        boolean banderaciclo2 = false;
         String fila;
         for (int i = 0; i < mapa.size(); i++) {
 
@@ -704,12 +705,12 @@ public class Frame extends javax.swing.JFrame {
                 dtm.setValueAt((Object) "c", i, 2);
 
             } // es un solo ciclo 
-            else if (cadenita[1].equals("ciclo")) {
+            else if (cadenita[1].equals("ciclo") && !siguiente1("ciclo", i)) {
                 banderaciclo1 = true;
                 int ob = i + 1;
                 System.out.println("hola perrito: " + mapa.get(ob + "-ciclo"));
                 String[] cadenafor = mapa.get(ob + "-ciclo").split(" ");
-                if (cadenafor[4].equals("1") && cadenafor[6].equals("n")) {
+                if (cadenafor[4].equals("1") && cadenafor[6].equals("n") && (dtm.getValueAt(i, 2) == null)) {
                     dtm.setValueAt((Object) "n+1", i, 2);
                     caso = 1;
 
@@ -722,7 +723,7 @@ public class Frame extends javax.swing.JFrame {
             } // declaraciones, asiganciones, condicionaes, print que esten dentro de 1 ciclo
             else if ((cadenita[1].equals("asignacion") || cadenita[1].equals("declaracion")
                     || cadenita[1].equals("imprimir") || cadenita[1].equals("retorno")
-                    || cadenita[1].equals("condicional")) && banderaciclo1) {
+                    || cadenita[1].equals("condicional")) && banderaciclo1 && !banderaciclo2) {
                 if (caso == 1) {
                     dtm.setValueAt((Object) "n", i, 2);
                 } else {
@@ -731,12 +732,40 @@ public class Frame extends javax.swing.JFrame {
 
             } else if (cadenita[1].equals("finalif")) {
                 dtm.setValueAt((Object) "---", i, 2);
-            } else if (cadenita[1].equals("finalfor")) {
+            }
+            else if (cadenita[1].equals("finalfor") && !siguiente1("finalfor",i)) {
                 banderaciclo1 = false;
                 dtm.setValueAt((Object) "---", i, 2);
+            } 
+            else if (cadenita[1].equals("finalfor") && siguiente1("finalfor",i)) {
+                 banderaciclo1 = false;
+                banderaciclo2 = false;
+                dtm.setValueAt((Object) "---", i, 2);
+            } 
+            //es un ciclo for anidado
+            else if (cadenita[1].equals("ciclo") && siguiente1("ciclo", i)) {
+                banderaciclo1 = true;
+                banderaciclo2 = true;
+                int ob = i + 1;
+                int ob2 = i + 2;
+                String[] cadenafor1 = mapa.get(ob + "-ciclo").split(" ");
+                String[] cadenafor2 = mapa.get(ob2 + "-ciclo").split(" ");
+                if ((cadenafor1[4].equals("1") && cadenafor1[6].equals("n")) && (cadenafor1[4].equals("1") && cadenafor1[6].equals("n"))) {
+                    dtm.setValueAt((Object) "n+1", i, 2);
+                    dtm.setValueAt((Object) "n+n^2", i + 1, 2);
+                    caso = 3;
+
+                }
+            } // declaraciones, asiganciones, condicionaes, print que esten dentro de un for anidado
+            else if ((cadenita[1].equals("asignacion") || cadenita[1].equals("declaracion")
+                    || cadenita[1].equals("imprimir") || cadenita[1].equals("retorno")
+                    || cadenita[1].equals("condicional")) && banderaciclo1 && banderaciclo2 ) {
+                if (caso == 3) {
+                    dtm.setValueAt((Object) "n^2", i, 2);
+                } 
+
             }
 
-           
             //System.out.println( dtm.getValueAt(i, 0));
         }
     }
@@ -746,6 +775,7 @@ public class Frame extends javax.swing.JFrame {
         int filasig = i + 1;
         String cadena = (String) dtm.getValueAt(filasig, 0);
         String[] cadenita = cadena.split("-");
+      
         return cadenita[1].equals(llave);
     }
 
@@ -756,6 +786,8 @@ public class Frame extends javax.swing.JFrame {
         String[] cadenita = cadena.split("-");
         return cadenita[1].equals(llave);
     }
+    
+    
 
     //BOTON ANALIZAR
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
