@@ -101,6 +101,7 @@ public class Frame extends javax.swing.JFrame {
         btncomplejidad = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        btnvariables = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tabladatos = new javax.swing.JTable();
@@ -170,14 +171,10 @@ public class Frame extends javax.swing.JFrame {
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(linesCode, javax.swing.GroupLayout.DEFAULT_SIZE, 776, Short.MAX_VALUE)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(Code, javax.swing.GroupLayout.PREFERRED_SIZE, 486, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+            .addComponent(linesCode, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addComponent(Code, javax.swing.GroupLayout.PREFERRED_SIZE, 498, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 302, Short.MAX_VALUE))
         );
 
         jScrollPane3.setViewportView(jPanel2);
@@ -247,6 +244,8 @@ public class Frame extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        btnvariables.setText("Variables");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -267,7 +266,8 @@ public class Frame extends javax.swing.JFrame {
                             .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btncomplejidad, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(btncomplejidad, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnvariables, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
@@ -275,13 +275,9 @@ public class Frame extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 425, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel3))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(34, 34, 34)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -290,7 +286,14 @@ public class Frame extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btncomplejidad, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btncomplejidad, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnvariables, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 441, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel3)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -695,6 +698,7 @@ public class Frame extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    //para colorear las celdas de verde y rojo 
     public void pintar() {
         ColorearFilas color = new ColorearFilas(4);
         tabladatos.getColumnModel().getColumn(4).setCellRenderer(color);
@@ -705,6 +709,7 @@ public class Frame extends javax.swing.JFrame {
         tabladatos.getColumnModel().getColumn(2).setCellRenderer(color);
     }
 
+    //hace la captura linea por linea del area de texto de seudocodigo para ingresarla al mapa 
     public void extraerLineas(String cadena) {
         StringTokenizer st = new StringTokenizer(cadena, "\n");
         while (st.hasMoreTokens()) {
@@ -726,6 +731,8 @@ public class Frame extends javax.swing.JFrame {
 
     }
 
+    // se llena la estructura general que va a ser un hashmap para hacer todo el tratamiento de los datos
+    // y facilitar el manejo 
     public void llenado(String lineacodigo) {
         String llave = "";
         LinkedList<String> lista = new LinkedList<>();
@@ -741,6 +748,8 @@ public class Frame extends javax.swing.JFrame {
 
     }
 
+    // se encarga de identificar la llave correcta para cada valor del hashmap 
+    // y hacer mas facil el reconocimiento linea por linea 
     public String validacionesMapa(LinkedList<String> list) {
         String llave = "";
 
@@ -782,6 +791,7 @@ public class Frame extends javax.swing.JFrame {
         return llave;
     }
 
+    //llena la tabla que se ve en la interfaz principal 
     void llenadoTabla() {
         for (String key : mapa.keySet()) {
             String value = mapa.get(key);
@@ -794,6 +804,7 @@ public class Frame extends javax.swing.JFrame {
 
     }
 
+    //hace el caluculo de complejidad de cada linea ingresada en el pseudocodigo 
     public void complejidad() {
         int caso = 0;
         boolean banderaciclo1 = false;
@@ -936,6 +947,7 @@ public class Frame extends javax.swing.JFrame {
         return cadenita[1].equals(llave);
     }
 
+    //revisa que las respuestas que puso el jugador sean correctas o no 
     public void verificarRespuestas() {
         for (int i = 0; i < respuestas.size(); i++) {
             if (respuestas.get(i).equals(dtm.getValueAt(i, 3))) {
@@ -958,7 +970,7 @@ public class Frame extends javax.swing.JFrame {
     //BOTON ANALIZAR
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         String data = this.Code.getText();
-        System.out.println("Hola Papi:  " + data);
+
         LexicalAnalyzer lexical = new LexicalAnalyzer(new BufferedReader(new StringReader(data)));
         SyntacticAnalyzer syntactic = new SyntacticAnalyzer(lexical);
 
@@ -986,6 +998,21 @@ public class Frame extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_CodeKeyPressed
 
+    //identifica si el algoritmo ingresado es recursivo o no 
+    public boolean esRecursivo() {
+        boolean bandera = false;
+        for (int i = 0; i < mapa.size(); i++) {
+            String cadena = (String) dtm.getValueAt(i, 0);
+            String[] cadenita = cadena.split("-");
+            if (cadenita[1].equals("LlamadoRecursivo")) {
+                JOptionPane.showMessageDialog(rootPane, "Es un metodo recursivo");
+                bandera = true;
+            }
+        }
+
+        return bandera;
+    }
+
     //BOTON COMPLEJIDAD
     private void btncomplejidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncomplejidadActionPerformed
 
@@ -993,6 +1020,7 @@ public class Frame extends javax.swing.JFrame {
 
         //IntentosComplejidad();
         llenadoTabla();
+        esRecursivo();
 
     }//GEN-LAST:event_btncomplejidadActionPerformed
 
@@ -1058,7 +1086,7 @@ public class Frame extends javax.swing.JFrame {
             btnreiniciar.setEnabled(false);
             txtcaptura.setEnabled(false);
             btnenviaratabla.setEnabled(false);
-            JOptionPane.showMessageDialog(rootPane, "Las respuestas correctas son:"+ respuestas);
+            JOptionPane.showMessageDialog(rootPane, "Las respuestas correctas son:" + respuestas);
         }
         //tabladatos.removeAll();
         //dtm.setRowCount(0);
@@ -1116,6 +1144,7 @@ public class Frame extends javax.swing.JFrame {
     private javax.swing.JButton btncomplejidad;
     private javax.swing.JButton btnenviaratabla;
     private javax.swing.JButton btnreiniciar;
+    private javax.swing.JButton btnvariables;
     private javax.swing.JButton btnverificar;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
