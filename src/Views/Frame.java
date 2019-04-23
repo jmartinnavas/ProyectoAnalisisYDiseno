@@ -70,6 +70,8 @@ public class Frame extends javax.swing.JFrame {
         btncalcular.setEnabled(false);
         txtcaptura.setEnabled(false);
         btnenviaratabla.setEnabled(false);
+        btnreiniciar.setEnabled(false);
+        lblrestantes.setText("" + restantes);
 
         //tablaauxiliar.setEnabled(false);
         //tabladatos.setDefaultRenderer(Object.class, r);
@@ -112,6 +114,8 @@ public class Frame extends javax.swing.JFrame {
         btnenviaratabla = new javax.swing.JButton();
         txtcaptura = new javax.swing.JTextField();
         btnreiniciar = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
+        lblrestantes = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -214,7 +218,7 @@ public class Frame extends javax.swing.JFrame {
             }
         });
 
-        btncomplejidad.setText("Complejidad");
+        btncomplejidad.setText("Compilar");
         btncomplejidad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btncomplejidadActionPerformed(evt);
@@ -384,12 +388,17 @@ public class Frame extends javax.swing.JFrame {
             }
         });
 
-        btnreiniciar.setText("Reiniciar");
+        btnreiniciar.setText("Volver a Intentar");
         btnreiniciar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnreiniciarActionPerformed(evt);
             }
         });
+
+        jLabel4.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel4.setText("Intentos restantes:");
+
+        lblrestantes.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -411,37 +420,53 @@ public class Frame extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lbllineaañadir, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtcaptura, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnreiniciar)
-                    .addComponent(btnenviaratabla))
-                .addGap(59, 59, 59))
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(txtcaptura, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnenviaratabla))
+                    .addComponent(btnreiniciar))
+                .addGap(117, 117, 117))
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(203, 203, 203)
+                .addComponent(jLabel4)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblrestantes, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(212, 212, 212))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 341, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel4))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                        .addGap(12, 12, 12)
+                        .addComponent(lblrestantes, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(20, 20, 20)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                        .addComponent(Comprobar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel5)
                             .addComponent(lbllineaañadir, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnenviaratabla)
                             .addComponent(txtcaptura, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(12, 12, 12))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 341, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(54, 54, 54)
-                        .addComponent(Comprobar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
-                .addComponent(btnverificar)
+                        .addGap(12, 12, 12)))
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnverificar)
+                    .addComponent(btnreiniciar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btncalcular)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnreiniciar)
-                .addGap(54, 54, 54))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jMenu1.setText("Archivo");
@@ -789,8 +814,8 @@ public class Frame extends javax.swing.JFrame {
                 //tabladatos.setBackground(Color.GREEN);
                 //asignaciones y declaraciones que no estan adentro de ciclos   
             } else if (cadenita[1].equals("LlamadoRecursivo")) {
-                dtm.setValueAt((Object) "nn", i, 2);
-                respuestas.add("nn");
+                dtm.setValueAt((Object) "na", i, 2);
+                respuestas.add("na");
             } else if ((cadenita[1].equals("asignacion") || cadenita[1].equals("declaracion")
                     || cadenita[1].equals("imprimir") || cadenita[1].equals("retorno")
                     || cadenita[1].equals("condicional")) && !banderaciclo1) {
@@ -960,11 +985,10 @@ public class Frame extends javax.swing.JFrame {
             this.lines(this.Code, this.linesCode);
         }
     }//GEN-LAST:event_CodeKeyPressed
- 
 
     //BOTON COMPLEJIDAD
     private void btncomplejidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncomplejidadActionPerformed
-       
+
         this.jPanel3.setVisible(true);
 
         //IntentosComplejidad();
@@ -978,6 +1002,7 @@ public class Frame extends javax.swing.JFrame {
         btncalcular.setEnabled(true);
         txtcaptura.setEnabled(true);
         btnenviaratabla.setEnabled(true);
+        btnreiniciar.setEnabled(true);
         complejidad();
         pintarOcultar();
         System.out.println("lista respuestas: " + respuestas.size());
@@ -1021,12 +1046,31 @@ public class Frame extends javax.swing.JFrame {
         lbllineaañadir.setText("" + (cont + 1));
     }//GEN-LAST:event_btnenviaratablaActionPerformed
 
+    int restantes = 3;
     private void btnreiniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnreiniciarActionPerformed
-       
-        tabladatos.removeAll();
+        if (restantes != 0) {
+            cont = 0;
+            lbllineaañadir.setText("" + (cont + 1));
+            restantes--;
+            lblrestantes.setText("" + restantes);
+        }
+        if (restantes == 0) {
+            btnreiniciar.setEnabled(false);
+            txtcaptura.setEnabled(false);
+            btnenviaratabla.setEnabled(false);
+            JOptionPane.showMessageDialog(rootPane, "Las respuestas correctas son:"+ respuestas);
+        }
+        //tabladatos.removeAll();
         //dtm.setRowCount(0);
-        respuestas.clear();
-        cont = 0;
+        //respuestas.clear();
+        //cont = 0;
+        //lbllineaañadir.setText("" + (cont + 1));
+
+        //tabladatos.removeAll();
+        //dtm.setRowCount(0);
+        //respuestas.clear();
+        //cont = 0;
+        //lbllineaañadir.setText("" + (cont + 1));
     }//GEN-LAST:event_btnreiniciarActionPerformed
 
     /**
@@ -1080,6 +1124,7 @@ public class Frame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
@@ -1099,6 +1144,7 @@ public class Frame extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JLabel lbllineaañadir;
+    private javax.swing.JLabel lblrestantes;
     private javax.swing.JTextArea linesCode;
     private javax.swing.JTable tabladatos;
     private javax.swing.JTextField txtcaptura;
