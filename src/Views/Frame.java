@@ -38,9 +38,10 @@ public class Frame extends javax.swing.JFrame {
     LinkedHashMap<String, String> mapa = new LinkedHashMap<>();
     int secuencia = 1;
     DefaultTableModel dtm = new DefaultTableModel();
-
     LinkedList<String> respuestas = new LinkedList<>();
+    String traduccion = "";
     //RowsRenderer r = new RowsRenderer();
+    frmarbol framearbol;
 
     public void lines(JTextArea area1, JTextArea area2) {
         int lines = area1.getLineCount() + 1;
@@ -72,6 +73,7 @@ public class Frame extends javax.swing.JFrame {
         btnenviaratabla.setEnabled(false);
         btnreiniciar.setEnabled(false);
         lblrestantes.setText("" + restantes);
+        framearbol = new frmarbol();
 
         //tablaauxiliar.setEnabled(false);
         //tabladatos.setDefaultRenderer(Object.class, r);
@@ -117,6 +119,11 @@ public class Frame extends javax.swing.JFrame {
         btnreiniciar = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         lblrestantes = new javax.swing.JLabel();
+        cbocomportamiento = new javax.swing.JComboBox<>();
+        jLabel6 = new javax.swing.JLabel();
+        etiresultado = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        textareavariables = new javax.swing.JTextArea();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -245,6 +252,11 @@ public class Frame extends javax.swing.JFrame {
         );
 
         btnvariables.setText("Variables");
+        btnvariables.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnvariablesActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -403,6 +415,21 @@ public class Frame extends javax.swing.JFrame {
 
         lblrestantes.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
 
+        cbocomportamiento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "O(n)", "O(lgn)", "O(n^2)", "O(n^3)", "O(n^n)", "O(c)" }));
+        cbocomportamiento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbocomportamientoActionPerformed(evt);
+            }
+        });
+
+        jLabel6.setText("Comportamiento:");
+
+        etiresultado.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        textareavariables.setColumns(20);
+        textareavariables.setRows(5);
+        jScrollPane2.setViewportView(textareavariables);
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -410,34 +437,49 @@ public class Frame extends javax.swing.JFrame {
             .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 610, Short.MAX_VALUE)
+                .addComponent(jScrollPane1)
                 .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addGap(91, 91, 91)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btncalcular, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Comprobar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnverificar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lbllineaañadir, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(txtcaptura, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnenviaratabla))
-                    .addComponent(btnreiniciar))
-                .addGap(117, 117, 117))
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(203, 203, 203)
-                .addComponent(jLabel4)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(lblrestantes, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(212, 212, 212))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btnreiniciar))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                        .addGap(91, 91, 91)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btncalcular, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(Comprobar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnverificar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel5)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lbllineaañadir, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtcaptura, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnenviaratabla))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(39, 39, 39)
+                        .addComponent(etiresultado, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addGap(117, 117, 117))
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(203, 203, 203)
+                        .addComponent(jLabel4))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel6)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cbocomportamiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(108, 108, 108)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 296, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -468,8 +510,20 @@ public class Frame extends javax.swing.JFrame {
                     .addComponent(btnverificar)
                     .addComponent(btnreiniciar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btncalcular)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(btncalcular)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel6)
+                            .addComponent(cbocomportamiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(etiresultado, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(47, 47, 47))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())))
         );
 
         jMenu1.setText("Archivo");
@@ -549,9 +603,7 @@ public class Frame extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -837,7 +889,6 @@ public class Frame extends javax.swing.JFrame {
             else if (cadenita[1].equals("ciclo") && !siguiente1("ciclo", i)) {
                 banderaciclo1 = true;
                 int ob = i + 1;
-                System.out.println("hola perrito: " + mapa.get(ob + "-ciclo"));
                 String[] cadenafor = mapa.get(ob + "-ciclo").split(" ");
                 if (cadenafor[4].equals("1") && cadenafor[6].equals("n") && (dtm.getValueAt(i, 2) == null)) {
                     dtm.setValueAt((Object) "n+1", i, 2);
@@ -967,6 +1018,137 @@ public class Frame extends javax.swing.JFrame {
         pintar();
     }
 
+    public static String traductor(String pseudo) {
+        pseudo = pseudo.replace(" in ", "");
+        pseudo = pseudo.replace("procedure", "public static void");
+        pseudo = pseudo.replace("function", "public static");
+        pseudo = pseudo.replace("retornar", "return");
+        pseudo = pseudo.replace(" io ", "");
+        pseudo = pseudo.replace(" ou ", "");
+        String[] parts = pseudo.split("\n");
+        for (int i = 0; i < parts.length; i++) {
+            if (parts[i].replaceAll("\\s", "").equalsIgnoreCase("}")) {
+                parts[i] = parts[i].replace("}", "::");
+            }
+            if (evaluador(parts[i])) {
+                parts[i] = parts[i] + ";";
+            }
+            if (parts[i].contains("public")) {
+                parts[i] = parts[i] + "{";
+            }
+            if (parts[i].contains("principal") || parts[i].contains("PRINCIPAL")) {
+                parts[i] = "public static void main(String[] args) {";
+            }
+        }
+        pseudo = "";
+        for (int i = 0; i < parts.length; i++) {
+            pseudo += parts[i] + "\n";
+        }
+        pseudo = pseudo.replace("::;", "}");
+        pseudo = pseudo.replace(" do", "{");
+        pseudo = pseudo.replace("end for", "}");
+        pseudo = pseudo.replace("end while", "}");
+        pseudo = pseudo.replace(" mod ", "%");
+        pseudo = pseudo.replace("<>", "!=");
+        pseudo = pseudo.replace(" or ", " || ");
+        pseudo = pseudo.replace(" and ", " && ");
+        pseudo = pseudo.replace(" not ", " !");
+        pseudo = pseudo.replace("print", "System.out.println(?");
+        pseudo = pseudo.replace("<<", "\"");
+        pseudo = pseudo.replace(">>", "\"");
+        pseudo = pseudo.replace("--", "");
+        int a = 0;
+        StringBuilder cadena = new StringBuilder(pseudo);
+//            cadena.setCharAt(0, 'U');
+//            pseudo=cadena.toString();
+
+        for (int i = 0; i < cadena.length() - 1; i++) {
+            if (cadena.charAt(i) == '?') {
+                a = 1;
+            }
+            if (cadena.charAt(i + 1) == '\n' && a == 1) {
+                cadena.setCharAt(i, ')');
+                a = 0;
+            }
+        }
+        pseudo = cadena.toString();
+        pseudo = pseudo.replace("?", "");
+        pseudo = pseudo.replace("<-", "=");
+//        pseudo = pseudo.replaceFirst("\n", "\n" + "{" + "\n"); //
+//        pseudo = pseudo + "\n" + "}"; //
+        String[] partes = pseudo.split("\n");
+        for (int i = 0; i < partes.length; i++) {
+            if (partes[i].contains("System.out.println")) {
+                partes[i] = partes[i] + ";";
+            }
+            if (partes[i].trim().length() == 2) {
+                partes[i] = "";
+            }
+            if (partes[i].contains("for")) {
+                partes[i] = trans_for(partes[i]);
+            }
+//    
+        }
+        pseudo = "";
+        for (int i = 0; i < partes.length; i++) {
+            pseudo += partes[i] + "\n";
+        }
+        pseudo = pseudo.replace("else", "}else{");
+        pseudo = pseudo.replace("then", "{");
+        pseudo = pseudo.replace("end if", "}");
+        pseudo = pseudo.replace("{*", "");
+        pseudo = pseudo.replace("*}", "");
+
+        return pseudo;
+    }
+
+    public static boolean evaluador(String evaluar) {
+        if (evaluar.contains("public")) {
+            return false;
+        }
+        if (evaluar.trim().equals("")) {
+            return false;
+        }
+        if (evaluar.equals("{")) {
+            return false;
+        }
+        if (evaluar.equals("}")) {
+            return false;
+        }
+        if (evaluar.contains("for")) {
+            return false;
+        }
+        if (evaluar.contains("if")) {
+            return false;
+        }
+        if (evaluar.contains("else")) {
+            return false;
+        }
+        if (evaluar.contains("while")) {
+            return false;
+        }
+        return true;
+    }
+
+    public static String trans_for(String cadena) {
+        String retorno = "";
+        cadena = cadena.replace("(", "!");
+        String[] partes = cadena.split("!");
+        String copia = partes[1];
+        copia = copia.trim();
+        copia = copia.substring(0, 1);
+        partes[0] = partes[0] + "( int ";
+        String cad = partes[0] + partes[1];
+        String partes1[] = cad.split("to");
+        retorno = partes1[0] + ";" + copia + "<" + partes1[1];
+        retorno = retorno.replace(")", "!");
+        String partes2[] = retorno.split("!");
+        retorno = partes2[0] + ";" + copia + "++)" + partes2[1];
+
+        return retorno;
+
+    }
+
     //BOTON ANALIZAR
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         String data = this.Code.getText();
@@ -983,7 +1165,11 @@ public class Frame extends javax.swing.JFrame {
                 btncomplejidad.setEnabled(true);
 
             }
-            System.out.println("---------------------------------------------------------------");
+            System.out.println("-----------------PSEUDOCODIGO--------------------------------------");
+            System.out.println(data);
+            System.out.println("-----------------JAVA--------------------------------------");
+            traduccion = traductor(data);
+            System.out.println(traduccion);
 
             //System.out.println(lexical.showResult);
             //System.out.println(syntactic.result);
@@ -1013,6 +1199,19 @@ public class Frame extends javax.swing.JFrame {
         return bandera;
     }
 
+    public int factorRamificacion() {
+        int cantidadllamados = 0;
+        for (int i = 0; i < mapa.size(); i++) {
+            String cadena = (String) dtm.getValueAt(i, 0);
+            String[] cadenita = cadena.split("-");
+            if (cadenita[1].equals("LlamadoRecursivo")) {
+                cantidadllamados++;
+            }
+        }
+        System.out.println("cuantos llamados recursivos tiene: " + cantidadllamados);
+        return cantidadllamados;
+    }
+
     //BOTON COMPLEJIDAD
     private void btncomplejidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncomplejidadActionPerformed
 
@@ -1020,7 +1219,14 @@ public class Frame extends javax.swing.JFrame {
 
         //IntentosComplejidad();
         llenadoTabla();
-        esRecursivo();
+        if (esRecursivo()) {
+            //JOptionPane.showMessageDialog(rootPane, "Es un metodo recursivo");
+            framearbol.setEnabled(true);
+            framearbol.setVisible(true);
+            factorRamificacion();
+
+        }
+
 
     }//GEN-LAST:event_btncomplejidadActionPerformed
 
@@ -1041,7 +1247,6 @@ public class Frame extends javax.swing.JFrame {
 //BOTON VERIFICAR INTENTO
     private void btnverificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnverificarActionPerformed
 
-        System.out.println("tamaño perrito" + respuestas.size());
         System.out.println("lista resp" + respuestas);
 
         verificarRespuestas();
@@ -1086,20 +1291,147 @@ public class Frame extends javax.swing.JFrame {
             btnreiniciar.setEnabled(false);
             txtcaptura.setEnabled(false);
             btnenviaratabla.setEnabled(false);
-            JOptionPane.showMessageDialog(rootPane, "Las respuestas correctas son:" + respuestas);
+            JOptionPane.showMessageDialog(rootPane, "T(n)=:" + respuestas);
         }
-        //tabladatos.removeAll();
-        //dtm.setRowCount(0);
-        //respuestas.clear();
-        //cont = 0;
-        //lbllineaañadir.setText("" + (cont + 1));
 
-        //tabladatos.removeAll();
-        //dtm.setRowCount(0);
-        //respuestas.clear();
-        //cont = 0;
-        //lbllineaañadir.setText("" + (cont + 1));
     }//GEN-LAST:event_btnreiniciarActionPerformed
+
+    public String comportamiento() {
+        String cad = "";
+        int cantidadciclo = 0;
+        for (int i = 0; i < mapa.size(); i++) {
+            String cadena = "";
+            cadena = (String) dtm.getValueAt(i, 0);
+            String[] cadenita = cadena.split("-");
+            if (cadenita[1].equals("ciclo") && !siguiente1("ciclo", i)) {
+                cad = "O(n)";
+                break;
+            } else if (cadenita[1].equals("ciclo") && siguiente1("ciclo", i)) {
+                cad = "O(n^2)";
+                break;
+            } else if (cadenita[1].equals("ciclo") && siguiente1("ciclo", i) && siguiente2("ciclo", i)) {
+                cad = "O(n^3)";
+                break;
+            }
+
+        }
+        return cad;
+    }
+
+    public static LinkedList<String[]> iniciales(String java) {
+        String[] parts = java.split("\n");
+        int des = 0;
+        LinkedList<String[]> variables = new LinkedList<>();
+        for (int i = 0; i < parts.length; i++) {
+            if (!parts[i].contains("public static")) {
+                if (verificador(parts[i], 1)) {
+                    variables.add(arreglo(parts[i]));
+                }
+            }
+        }
+        return variables;
+    }
+
+    public static String[] arreglo(String cadena) {
+        String[] parts = cadena.split(" ");
+        return parts;
+    }
+
+    public static HashMap<String, LinkedList<String>> valores(String[] cadena) {
+        HashMap<String, LinkedList<String>> mapa = new HashMap<>();
+        for (int i = 0; i < cadena.length; i++) {
+            if (verificador(cadena[i], 2)) {
+                mapa.put(cadena[i + 1], valor(cadena[i], cadena[i + 3]));
+                i = cadena.length;
+            }
+
+        }
+        return mapa;
+    }
+
+    public static LinkedList<String> valor(String tipo, String valor) {
+        LinkedList<String> respuesta = new LinkedList<>();
+        tipo = tipo.trim();
+        valor = valor.trim();
+        respuesta.add(tipo);
+        respuesta.add(valor);
+        return respuesta;
+    }
+
+    public static boolean verificador(String cadena, int tipo) {
+        if (tipo == 1) {
+            if (cadena.contains("String ")) {
+                return true;
+            }
+            if (cadena.contains("float ")) {
+                return true;
+            }
+            if (cadena.contains("boolean ")) {
+                return true;
+            }
+            if (cadena.contains("int ")) {
+                return true;
+            }
+            return false;
+        } else {
+            if (cadena.contains("String")) {
+                return true;
+            }
+            if (cadena.contains("float")) {
+                return true;
+            }
+            if (cadena.contains("boolean")) {
+                return true;
+            }
+            if (cadena.contains("int")) {
+                return true;
+            }
+            return false;
+        }
+
+    }
+
+
+    private void cbocomportamientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbocomportamientoActionPerformed
+        // TODO add your handling code here:
+        String complejidad = comportamiento();
+        System.out.println(complejidad);
+        String mensaje = cbocomportamiento.getSelectedItem().toString();
+        System.out.println(mensaje);
+        if (complejidad.equals(mensaje)) {
+            etiresultado.setText("Correcto");
+        } else {
+            etiresultado.setText("Incorrecto");
+        }
+
+
+    }//GEN-LAST:event_cbocomportamientoActionPerformed
+
+    private void btnvariablesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnvariablesActionPerformed
+        // TODO add your handling code here:
+        LinkedList<String[]> variables = new LinkedList<>();
+        System.out.println("la traduccion es "+traduccion);
+        variables = iniciales(traduccion);
+        HashMap<String, LinkedList<String>> datos = new HashMap<>();
+        HashMap<String, LinkedList<String>> valores_inicio = new HashMap<>();
+        for (int i = 0; i < variables.size(); i++) {
+            datos = valores(variables.get(i));
+            for (String key : datos.keySet()) {
+                LinkedList<String> value = datos.get(key);
+                valores_inicio.put(key.toString().replaceAll("\\s", ""), value);
+
+            }
+
+        }
+
+        for (String key : valores_inicio.keySet()) {
+            LinkedList<String> value = valores_inicio.get(key);
+            textareavariables.setText("variable:" + key + " Valor:" + value);
+
+        }
+
+
+    }//GEN-LAST:event_btnvariablesActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1146,6 +1478,8 @@ public class Frame extends javax.swing.JFrame {
     private javax.swing.JButton btnreiniciar;
     private javax.swing.JButton btnvariables;
     private javax.swing.JButton btnverificar;
+    private javax.swing.JComboBox<String> cbocomportamiento;
+    private javax.swing.JLabel etiresultado;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -1155,6 +1489,7 @@ public class Frame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
@@ -1170,12 +1505,14 @@ public class Frame extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JLabel lbllineaañadir;
     private javax.swing.JLabel lblrestantes;
     private javax.swing.JTextArea linesCode;
     private javax.swing.JTable tabladatos;
+    private javax.swing.JTextArea textareavariables;
     private javax.swing.JTextField txtcaptura;
     // End of variables declaration//GEN-END:variables
 

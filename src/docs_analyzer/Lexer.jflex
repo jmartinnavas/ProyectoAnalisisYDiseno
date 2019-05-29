@@ -112,6 +112,7 @@ identificador = {letra}({letra}|{digito})*
 
 <YYINITIAL> ":"     { System.out.println("Token correcto: "+yytext()+"puntos"); showResult += "Token correcto: " +yytext()+" Linea: " + (yyline+1) + " columna: "+ (yycolumn+1) + " \n"; return new Symbol(Symbols.dos_puntos, yycolumn, yyline, yytext()); }
 <YYINITIAL> "--"     { System.out.println("Token correcto: "+yytext()+"lambda"); showResult += "Token correcto: " +yytext()+" Linea: " + (yyline+1) + " columna: "+ (yycolumn+1) + " \n"; return new Symbol(Symbols.lambda, yycolumn, yyline, yytext()); }
+<YYINITIAL> "END WHILE"     { System.out.println("Token correcto: "+yytext()+"end_while"); showResult += "Token correcto: " +yytext()+" Linea: " + (yyline+1) + " columna: "+ (yycolumn+1) + " \n"; return new Symbol(Symbols.end_while, yycolumn, yyline, yytext()); }
 
 
 

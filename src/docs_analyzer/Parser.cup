@@ -111,6 +111,10 @@ INICIO ::=   procedure id:nombrep parentesis_abierto ARGUMENTO parentesis_cerrad
                 {:result += "\n Pseudocodigo Ejecutado Correctamente :) !!! "   ; result2="true"; :} 
             | procedure id parentesis_abierto ARGUMENTO parentesis_cerrado  llave_abierta INSTRUCCIONES1 llave_cerrada
                 {:result += "\n Pseudocodigo Ejecutado Correctamente :) !!! "   ; result2="true"; :} 
+
+
+
+
             | function TIPODATO id parentesis_abierto ARGUMENTO parentesis_cerrado DEFVARS llave_abierta INSTRUCCIONES1 llave_cerrada
   {:result += "\n Pseudocodigo Ejecutado Correctamente :) !!! "   ; result2="true"; :} 
             | function TIPODATO id parentesis_abierto ARGUMENTO parentesis_cerrado  llave_abierta INSTRUCCIONES1 llave_cerrada
@@ -131,7 +135,7 @@ INICIO ::=   procedure id:nombrep parentesis_abierto ARGUMENTO parentesis_cerrad
  
 
 MAIN ::=  principal llave_abierta | id parentesis_abierto | VECTOR | EXP_NUMERICA
-         | coma  | parentesis_cerrado | EXP_INICIO |TIPODATO VAR | llave_cerrada ;
+         | coma  | parentesis_cerrado | EXP_INICIO |TIPODATO VAR | llave_cerrada | IMPRIMIR  ;
 
 EXP_INICIO ::= id:nn {: temporal3+= nn  ;:} | letra:nn {: temporal3+= nn  ;:} ;  
 EXP_NUMERICA ::= digito | entero | decimal ; 
@@ -180,7 +184,8 @@ DEFVAR ::= TIPODATO VARS ;
 
 VARS ::= VARS VAR |  VAR ; 
 
-VAR ::= id | letra | id asignacion EXPRESION_REG| letra asignacion EXPRESION_REG | MATRIZ | VECTOR ;
+VAR ::= id | letra | id asignacion EXPRESION_REG| 
+        letra asignacion EXPRESION_REG | MATRIZ | VECTOR | id asignacion id parentesis_abierto;
 
 
 EXPRESION_REG ::= digito | numero | entero | id | letra ;
@@ -206,7 +211,7 @@ VARIABLES ::=  EXP_INICIO asignacion EXP_NUMERICA | EXP_INICIO asignacion EXP_IN
                |  EXP_INICIO asignacion  VECTOR
                  |   VECTOR ; 
 
-IMPRIMIR ::= imprimir comilla_abierta id comilla_cerrada; 
+IMPRIMIR ::= imprimir comilla_abierta id comilla_cerrada | imprimir  id ; 
 
 CICLO ::= ciclo_for parentesis_abierto EXP_INICIO asignacion EXP_NUMERICA hasta EXPRESION_REG parentesis_cerrado hacer INSTRUCCIONES1 end_for |
         ciclo_for parentesis_abierto EXP_INICIO asignacion EXP_NUMERICA hasta EXPRESION_REG OPERADOR_MATEMATICO EXPRESION_REG  parentesis_cerrado hacer INSTRUCCIONES1 end_for |

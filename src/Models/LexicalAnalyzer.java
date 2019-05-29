@@ -77,14 +77,14 @@ public class LexicalAnalyzer implements java_cup.runtime.Scanner {
     "\2\25\1\51\2\0\2\25\1\0\1\25\1\52\2\25"+
     "\1\0\1\25\2\53\1\54\1\55\1\0\4\25\1\0"+
     "\2\56\1\25\2\0\2\25\1\0\2\25\1\57\2\60"+
-    "\1\0\1\61\1\25\1\61\3\25\2\0\1\25\2\0"+
+    "\1\0\1\61\1\25\1\61\3\25\3\0\1\25\2\0"+
     "\2\25\2\62\1\0\1\25\1\0\3\25\1\63\1\0"+
-    "\1\64\1\25\1\65\1\66\1\65\1\66\1\0\1\25"+
-    "\1\0\3\25\1\67\1\70\2\71\1\0\2\25\1\72"+
-    "\2\73\1\74";
+    "\1\64\1\0\1\25\1\65\1\66\1\65\1\66\1\0"+
+    "\1\25\1\0\3\25\1\67\1\0\1\70\2\71\1\0"+
+    "\2\25\1\72\1\0\2\73\1\74\1\75";
 
   private static int [] zzUnpackAction() {
-    int [] result = new int[183];
+    int [] result = new int[188];
     int offset = 0;
     offset = zzUnpackAction(ZZ_ACTION_PACKED_0, offset, result);
     return result;
@@ -127,14 +127,15 @@ public class LexicalAnalyzer implements java_cup.runtime.Scanner {
     "\0\u0d68\0\u0d94\0\u0dc0\0\54\0\204\0\u0dec\0\u0e18\0\u0e44"+
     "\0\u0e70\0\u0e9c\0\u0ec8\0\u0ef4\0\u0f20\0\204\0\54\0\204"+
     "\0\u0f4c\0\54\0\u0f78\0\204\0\u0fa4\0\u0fd0\0\u0ffc\0\u1028"+
-    "\0\u1054\0\u1080\0\u10ac\0\u10d8\0\u1104\0\u1130\0\54\0\204"+
-    "\0\u115c\0\u1188\0\u11b4\0\u11e0\0\u120c\0\u1238\0\204\0\u1264"+
-    "\0\54\0\u1290\0\54\0\54\0\204\0\204\0\u12bc\0\u12e8"+
-    "\0\u1314\0\u1340\0\u136c\0\u1398\0\54\0\204\0\54\0\204"+
-    "\0\u13c4\0\u13f0\0\u141c\0\204\0\54\0\204\0\204";
+    "\0\u1054\0\u1080\0\u10ac\0\u10d8\0\u1104\0\u1130\0\u115c\0\54"+
+    "\0\204\0\u1188\0\u11b4\0\u11e0\0\u120c\0\u1238\0\u1264\0\204"+
+    "\0\u1290\0\54\0\u12bc\0\u12e8\0\54\0\54\0\204\0\204"+
+    "\0\u1314\0\u1340\0\u136c\0\u1398\0\u13c4\0\u13f0\0\54\0\u141c"+
+    "\0\204\0\54\0\204\0\u1448\0\u1474\0\u14a0\0\204\0\u14cc"+
+    "\0\54\0\204\0\204\0\54";
 
   private static int [] zzUnpackRowMap() {
-    int [] result = new int[183];
+    int [] result = new int[188];
     int offset = 0;
     offset = zzUnpackRowMap(ZZ_ROWMAP_PACKED_0, offset, result);
     return result;
@@ -257,48 +258,49 @@ public class LexicalAnalyzer implements java_cup.runtime.Scanner {
     "\13\0\2\52\1\0\5\52\1\0\3\52\1\216\6\52"+
     "\1\0\3\52\11\0\1\52\13\0\2\52\1\0\5\52"+
     "\1\0\10\52\1\217\1\52\1\0\3\52\11\0\1\52"+
-    "\16\0\1\220\4\0\2\221\42\0\2\52\1\0\5\52"+
-    "\1\0\4\52\1\222\5\52\1\0\3\52\11\0\1\52"+
-    "\20\0\1\223\54\0\1\224\45\0\2\52\1\0\2\52"+
-    "\1\225\2\52\1\0\12\52\1\0\3\52\11\0\1\52"+
-    "\13\0\2\52\1\0\3\52\1\226\1\52\1\0\12\52"+
-    "\1\0\3\52\11\0\1\52\30\0\1\227\36\0\2\52"+
-    "\1\0\5\52\1\0\4\52\1\230\5\52\1\0\3\52"+
-    "\11\0\1\52\13\0\2\52\1\0\5\52\1\231\1\232"+
-    "\11\52\1\0\3\52\11\0\1\52\23\0\2\233\42\0"+
-    "\2\52\1\0\5\52\1\233\1\234\11\52\1\0\3\52"+
-    "\11\0\1\52\13\0\2\52\1\0\5\52\1\0\5\52"+
-    "\1\235\4\52\1\0\3\52\11\0\1\52\13\0\2\52"+
-    "\1\0\2\52\1\236\2\52\1\0\12\52\1\0\3\52"+
-    "\11\0\1\52\13\0\2\52\1\0\4\52\1\237\1\0"+
-    "\12\52\1\0\3\52\11\0\1\52\25\0\1\240\44\0"+
-    "\1\241\50\0\2\52\1\0\5\52\1\0\10\52\1\242"+
-    "\1\52\1\0\3\52\11\0\1\52\40\0\1\243\50\0"+
-    "\1\244\31\0\2\52\1\0\5\52\1\0\12\52\1\0"+
-    "\1\52\1\245\1\52\11\0\1\52\13\0\2\52\1\0"+
-    "\5\52\1\0\11\52\1\246\1\0\3\52\11\0\1\52"+
-    "\25\0\1\247\41\0\2\52\1\0\5\52\1\0\1\52"+
-    "\1\250\10\52\1\0\3\52\11\0\1\52\26\0\1\251"+
-    "\40\0\2\52\1\0\5\52\1\0\2\52\1\252\7\52"+
-    "\1\0\3\52\11\0\1\52\13\0\2\52\1\0\1\52"+
-    "\1\253\3\52\1\0\12\52\1\0\3\52\11\0\1\52"+
-    "\13\0\2\52\1\0\5\52\1\0\10\52\1\254\1\52"+
-    "\1\0\3\52\11\0\1\52\27\0\1\255\37\0\2\52"+
-    "\1\0\2\52\1\256\2\52\1\0\12\52\1\0\3\52"+
-    "\11\0\1\52\20\0\1\257\46\0\2\52\1\0\2\52"+
-    "\1\260\2\52\1\0\12\52\1\0\3\52\11\0\1\52"+
-    "\34\0\1\261\32\0\2\52\1\0\5\52\1\0\10\52"+
-    "\1\262\1\52\1\0\3\52\11\0\1\52\13\0\2\52"+
-    "\1\0\5\52\1\0\3\52\1\263\6\52\1\0\3\52"+
-    "\11\0\1\52\13\0\2\52\1\0\5\52\1\0\3\52"+
-    "\1\264\6\52\1\0\3\52\11\0\1\52\33\0\1\265"+
-    "\33\0\2\52\1\0\5\52\1\0\7\52\1\266\2\52"+
+    "\16\0\1\220\4\0\2\221\14\0\1\222\25\0\2\52"+
+    "\1\0\5\52\1\0\4\52\1\223\5\52\1\0\3\52"+
+    "\11\0\1\52\20\0\1\224\54\0\1\225\45\0\2\52"+
+    "\1\0\2\52\1\226\2\52\1\0\12\52\1\0\3\52"+
+    "\11\0\1\52\13\0\2\52\1\0\3\52\1\227\1\52"+
+    "\1\0\12\52\1\0\3\52\11\0\1\52\30\0\1\230"+
+    "\36\0\2\52\1\0\5\52\1\0\4\52\1\231\5\52"+
     "\1\0\3\52\11\0\1\52\13\0\2\52\1\0\5\52"+
-    "\1\0\4\52\1\267\5\52\1\0\3\52\11\0\1\52"+
-    "\12\0";
+    "\1\232\1\233\11\52\1\0\3\52\11\0\1\52\23\0"+
+    "\2\234\42\0\2\52\1\0\5\52\1\234\1\235\11\52"+
+    "\1\0\3\52\11\0\1\52\13\0\2\52\1\0\5\52"+
+    "\1\0\5\52\1\236\4\52\1\0\3\52\11\0\1\52"+
+    "\13\0\2\52\1\0\2\52\1\237\2\52\1\0\12\52"+
+    "\1\0\3\52\11\0\1\52\13\0\2\52\1\0\4\52"+
+    "\1\240\1\0\12\52\1\0\3\52\11\0\1\52\25\0"+
+    "\1\241\44\0\1\242\72\0\1\243\31\0\2\52\1\0"+
+    "\5\52\1\0\10\52\1\244\1\52\1\0\3\52\11\0"+
+    "\1\52\40\0\1\245\50\0\1\246\31\0\2\52\1\0"+
+    "\5\52\1\0\12\52\1\0\1\52\1\247\1\52\11\0"+
+    "\1\52\13\0\2\52\1\0\5\52\1\0\11\52\1\250"+
+    "\1\0\3\52\11\0\1\52\25\0\1\251\41\0\2\52"+
+    "\1\0\5\52\1\0\1\52\1\252\10\52\1\0\3\52"+
+    "\11\0\1\52\26\0\1\253\40\0\2\52\1\0\5\52"+
+    "\1\0\2\52\1\254\7\52\1\0\3\52\11\0\1\52"+
+    "\13\0\2\52\1\0\1\52\1\255\3\52\1\0\12\52"+
+    "\1\0\3\52\11\0\1\52\13\0\2\52\1\0\5\52"+
+    "\1\0\10\52\1\256\1\52\1\0\3\52\11\0\1\52"+
+    "\27\0\1\257\47\0\2\260\42\0\2\52\1\0\2\52"+
+    "\1\261\2\52\1\0\12\52\1\0\3\52\11\0\1\52"+
+    "\20\0\1\262\46\0\2\52\1\0\2\52\1\263\2\52"+
+    "\1\0\12\52\1\0\3\52\11\0\1\52\34\0\1\264"+
+    "\32\0\2\52\1\0\5\52\1\0\10\52\1\265\1\52"+
+    "\1\0\3\52\11\0\1\52\13\0\2\52\1\0\5\52"+
+    "\1\0\3\52\1\266\6\52\1\0\3\52\11\0\1\52"+
+    "\13\0\2\52\1\0\5\52\1\0\3\52\1\267\6\52"+
+    "\1\0\3\52\11\0\1\52\33\0\1\270\53\0\1\271"+
+    "\33\0\2\52\1\0\5\52\1\0\7\52\1\272\2\52"+
+    "\1\0\3\52\11\0\1\52\13\0\2\52\1\0\5\52"+
+    "\1\0\4\52\1\273\5\52\1\0\3\52\11\0\1\52"+
+    "\30\0\1\274\35\0";
 
   private static int [] zzUnpackTrans() {
-    int [] result = new int[5192];
+    int [] result = new int[5368];
     int offset = 0;
     offset = zzUnpackTrans(ZZ_TRANS_PACKED_0, offset, result);
     return result;
@@ -342,13 +344,13 @@ public class LexicalAnalyzer implements java_cup.runtime.Scanner {
     "\5\1\1\0\3\1\2\0\2\1\1\0\4\1\1\0"+
     "\1\1\1\11\3\1\1\0\4\1\1\0\1\11\2\1"+
     "\2\0\2\1\1\0\3\1\1\11\1\1\1\0\1\11"+
-    "\5\1\2\0\1\1\2\0\2\1\1\11\1\1\1\0"+
-    "\1\1\1\0\4\1\1\0\1\11\1\1\2\11\2\1"+
-    "\1\0\1\1\1\0\3\1\1\11\1\1\1\11\1\1"+
-    "\1\0\3\1\1\11\2\1";
+    "\5\1\3\0\1\1\2\0\2\1\1\11\1\1\1\0"+
+    "\1\1\1\0\4\1\1\0\1\11\1\0\1\1\2\11"+
+    "\2\1\1\0\1\1\1\0\3\1\1\11\1\0\1\1"+
+    "\1\11\1\1\1\0\3\1\1\0\1\11\2\1\1\11";
 
   private static int [] zzUnpackAttribute() {
-    int [] result = new int[183];
+    int [] result = new int[188];
     int offset = 0;
     offset = zzUnpackAttribute(ZZ_ATTRIBUTE_PACKED_0, offset, result);
     return result;
@@ -799,243 +801,247 @@ public String showResult = "";
           case 1: 
             { System.out.println("\nError Lexico: "+yytext()+" Linea: "+yyline+" Columna: "+yycolumn); showResult += "\n Error Lexico: " + yytext() + " Linea: " + (yyline+1)  + " Columna: " + (yycolumn+1) + "\n";
             }
-          case 61: break;
+          case 62: break;
           case 2: 
             { System.out.println("Token "+yytext()+" digito"); showResult += "Token correcto: " +yytext()+" Linea: " + (yyline+1) + " columna: "+ (yycolumn+1) + " \n"; return new Symbol(Symbols.digito, yycolumn, yyline, yytext());
             }
-          case 62: break;
+          case 63: break;
           case 3: 
             { System.out.println("Token "+yytext()+" letra"); showResult += "Token correcto: " +yytext()+" Linea: " + (yyline+1) + " columna: "+ (yycolumn+1) + " \n"; return new Symbol(Symbols.letra, yycolumn, yyline, yytext());
             }
-          case 63: break;
+          case 64: break;
           case 4: 
             { /* Espacios en blanco, se ignoran */
             }
-          case 64: break;
+          case 65: break;
           case 5: 
             { System.out.println("Token correcto: "+yytext()+" suma"); showResult += "Token correcto: " +yytext()+" Linea: " + (yyline+1) + " columna: "+ (yycolumn+1) + " \n"; return new Symbol(Symbols.suma, yycolumn, yyline, yytext());
             }
-          case 65: break;
+          case 66: break;
           case 6: 
             { System.out.println("Token correcto: "+yytext()+" resta"); showResult += "Token correcto: " +yytext()+" Linea: " + (yyline+1) + " columna: "+ (yycolumn+1) + " \n"; return new Symbol(Symbols.resta, yycolumn, yyline, yytext());
             }
-          case 66: break;
+          case 67: break;
           case 7: 
             { System.out.println("Token correcto: "+yytext()+" multiplicacion"); showResult += "Token correcto: " +yytext()+" Linea: " + (yyline+1) + " columna: "+ (yycolumn+1) + " \n"; return new Symbol(Symbols.multiplicacion, yycolumn, yyline, yytext());
             }
-          case 67: break;
+          case 68: break;
           case 8: 
             { System.out.println("Token correcto: "+yytext()+" division"); showResult += "Token correcto: " +yytext()+" Linea: " + (yyline+1) + " columna: "+ (yycolumn+1) + " \n"; return new Symbol(Symbols.division, yycolumn, yyline, yytext());
             }
-          case 68: break;
+          case 69: break;
           case 9: 
             { System.out.println("Token correcto: "+yytext()+" potencia"); showResult += "Token correcto: " +yytext()+" Linea: " + (yyline+1) + " columna: "+ (yycolumn+1) + " \n"; return new Symbol(Symbols.potencia, yycolumn, yyline, yytext());
             }
-          case 69: break;
+          case 70: break;
           case 10: 
             { System.out.println("Token correcto: "+yytext()+" menor"); showResult += "Token correcto: " +yytext()+" Linea: " + (yyline+1) + " columna: "+ (yycolumn+1) + " \n"; return new Symbol(Symbols.menor, yycolumn, yyline, yytext());
             }
-          case 70: break;
+          case 71: break;
           case 11: 
             { System.out.println("Token correcto: "+yytext()+" mayor"); showResult += "Token correcto: " +yytext()+" Linea: " + (yyline+1) + " columna: "+ (yycolumn+1) + " \n"; return new Symbol(Symbols.mayor, yycolumn, yyline, yytext());
             }
-          case 71: break;
+          case 72: break;
           case 12: 
             { System.out.println("Token correcto: "+yytext()+" parentesisabre"); showResult += "Token correcto: " +yytext()+" Linea: " + (yyline+1) + " columna: "+ (yycolumn+1) + " \n"; return new Symbol(Symbols.parentesis_abierto, yycolumn, yyline, yytext());
             }
-          case 72: break;
+          case 73: break;
           case 13: 
             { System.out.println("Token correcto: "+yytext()+" parentesiscierra"); showResult += "Token correcto: " +yytext()+" Linea: " + (yyline+1) + " columna: "+ (yycolumn+1) + " \n"; return new Symbol(Symbols.parentesis_cerrado, yycolumn, yyline, yytext());
             }
-          case 73: break;
+          case 74: break;
           case 14: 
             { System.out.println("Token correcto: "+yytext()+" llaveabre"); showResult += "Token correcto: " +yytext()+" Linea: " + (yyline+1) + " columna: "+ (yycolumn+1) + " \n"; return new Symbol(Symbols.llave_abierta, yycolumn, yyline, yytext());
             }
-          case 74: break;
+          case 75: break;
           case 15: 
             { System.out.println("Token correcto: "+yytext()+" llavecierra"); showResult += "Token correcto: " +yytext()+" Linea: " + (yyline+1) + " columna: "+ (yycolumn+1) + " \n"; return new Symbol(Symbols.llave_cerrada, yycolumn, yyline, yytext());
             }
-          case 75: break;
+          case 76: break;
           case 16: 
             { System.out.println("Token correcto: "+yytext()+" corcheteabre"); showResult += "Token correcto: " +yytext()+" Linea: " + (yyline+1) + " columna: "+ (yycolumn+1) + " \n"; return new Symbol(Symbols.corchete_abierto, yycolumn, yyline, yytext());
             }
-          case 76: break;
+          case 77: break;
           case 17: 
             { System.out.println("Token correcto: "+yytext()+" corchetecierra"); showResult += "Token correcto: " +yytext()+" Linea: " + (yyline+1) + " columna: "+ (yycolumn+1) + " \n"; return new Symbol(Symbols.corchete_cerrado, yycolumn, yyline, yytext());
             }
-          case 77: break;
+          case 78: break;
           case 18: 
             { System.out.println("Token correcto: "+yytext()+" coma"); showResult += "Token correcto: " +yytext()+" Linea: " + (yyline+1) + " columna: "+ (yycolumn+1) + " \n"; return new Symbol(Symbols.coma, yycolumn, yyline, yytext());
             }
-          case 78: break;
+          case 79: break;
           case 19: 
             { System.out.println("Token correcto: "+yytext()+"puntos"); showResult += "Token correcto: " +yytext()+" Linea: " + (yyline+1) + " columna: "+ (yycolumn+1) + " \n"; return new Symbol(Symbols.dos_puntos, yycolumn, yyline, yytext());
             }
-          case 79: break;
+          case 80: break;
           case 20: 
             { System.out.println("Token "+yytext()+" enero"); showResult += "Token correcto: " +yytext()+" Linea: " + (yyline+1) + " columna: "+ (yycolumn+1) + " \n"; return new Symbol(Symbols.entero, yycolumn, yyline, yytext());
             }
-          case 80: break;
+          case 81: break;
           case 21: 
             { System.out.println("Token "+yytext()+" id"); showResult += "Token correcto: " +yytext()+" Linea: " + (yyline+1) + " columna: "+ (yycolumn+1) + " \n"; return new Symbol(Symbols.id, yycolumn, yyline, yytext());
             }
-          case 81: break;
+          case 82: break;
           case 22: 
             { System.out.println("Token correcto: "+yytext()+" hasta"); showResult += "Token correcto: " +yytext()+" Linea: " + (yyline+1) + " columna: "+ (yycolumn+1) + " \n"; return new Symbol(Symbols.hasta, yycolumn, yyline, yytext());
             }
-          case 82: break;
+          case 83: break;
           case 23: 
             { System.out.println("Token correcto: "+yytext()+" condicional_if"); showResult += "Token correcto: " +yytext()+" Linea: " + (yyline+1) + " columna: "+ (yycolumn+1) + " \n"; return new Symbol(Symbols.condicional_if, yycolumn, yyline, yytext());
             }
-          case 83: break;
+          case 84: break;
           case 24: 
             { System.out.println("Token correcto: "+yytext()+" parametro_entrada"); showResult += "Token correcto: " +yytext()+" Linea: " + (yyline+1) + " columna: "+ (yycolumn+1) + " \n"; return new Symbol(Symbols.parametro_entrada, yycolumn, yyline, yytext());
             }
-          case 84: break;
+          case 85: break;
           case 25: 
             { System.out.println("Token correcto: "+yytext()+" parametro_entada_salida"); showResult += "Token correcto: " +yytext()+" Linea: " + (yyline+1) + " columna: "+ (yycolumn+1) + " \n"; return new Symbol(Symbols.parametro_entada_salida, yycolumn, yyline, yytext());
             }
-          case 85: break;
+          case 86: break;
           case 26: 
             { System.out.println("Token correcto: "+yytext()+" parametro_salida"); showResult += "Token correcto: " +yytext()+" Linea: " + (yyline+1) + " columna: "+ (yycolumn+1) + " \n"; return new Symbol(Symbols.parametro_salida, yycolumn, yyline, yytext());
             }
-          case 86: break;
+          case 87: break;
           case 27: 
             { System.out.println("Token correcto: "+yytext()+" o logico"); showResult += "Token correcto: " +yytext()+" Linea: " + (yyline+1) + " columna: "+ (yycolumn+1) + " \n"; return new Symbol(Symbols.or, yycolumn, yyline, yytext());
             }
-          case 87: break;
+          case 88: break;
           case 28: 
             { System.out.println("Token correcto: "+yytext()+" hacer"); showResult += "Token correcto: " +yytext()+" Linea: " + (yyline+1) + " columna: "+ (yycolumn+1) + " \n"; return new Symbol(Symbols.hacer, yycolumn, yyline, yytext());
             }
-          case 88: break;
+          case 89: break;
           case 29: 
             { System.out.println("Token correcto: "+yytext()+"lambda"); showResult += "Token correcto: " +yytext()+" Linea: " + (yyline+1) + " columna: "+ (yycolumn+1) + " \n"; return new Symbol(Symbols.lambda, yycolumn, yyline, yytext());
             }
-          case 89: break;
+          case 90: break;
           case 30: 
             { System.out.println("Token correcto: "+yytext()+" asignacion"); showResult += "Token correcto: " +yytext()+" Linea: " + (yyline+1) + " columna: "+ (yycolumn+1) + " \n"; return new Symbol(Symbols.asignacion, yycolumn, yyline, yytext());
             }
-          case 90: break;
+          case 91: break;
           case 31: 
             { System.out.println("Token correcto: "+yytext()+" comilla_abierta"); showResult += "Token correcto: " +yytext()+" Linea: " + (yyline+1) + " columna: "+ (yycolumn+1) + " \n"; return new Symbol(Symbols.comilla_abierta, yycolumn, yyline, yytext());
             }
-          case 91: break;
+          case 92: break;
           case 32: 
             { System.out.println("Token correcto: "+yytext()+" diferente"); showResult += "Token correcto: " +yytext()+" Linea: " + (yyline+1) + " columna: "+ (yycolumn+1) + " \n"; return new Symbol(Symbols.diferente, yycolumn, yyline, yytext());
             }
-          case 92: break;
+          case 93: break;
           case 33: 
             { System.out.println("Token correcto: "+yytext()+" menor igual"); showResult += "Token correcto: " +yytext()+" Linea: " + (yyline+1) + " columna: "+ (yycolumn+1) + " \n"; return new Symbol(Symbols.menor_igual, yycolumn, yyline, yytext());
             }
-          case 93: break;
+          case 94: break;
           case 34: 
             { System.out.println("Token correcto: "+yytext()+" comilla_cerrada"); showResult += "Token correcto: " +yytext()+" Linea: " + (yyline+1) + " columna: "+ (yycolumn+1) + " \n"; return new Symbol(Symbols.comilla_cerrada, yycolumn, yyline, yytext());
             }
-          case 94: break;
+          case 95: break;
           case 35: 
             { System.out.println("Token correcto: "+yytext()+" mayor igual"); showResult += "Token correcto: " +yytext()+" Linea: " + (yyline+1) + " columna: "+ (yycolumn+1) + " \n"; return new Symbol(Symbols.mayor_igual, yycolumn, yyline, yytext());
             }
-          case 95: break;
+          case 96: break;
           case 36: 
             { System.out.println("Token correcto: "+yytext()+" comparacion"); showResult += "Token correcto: " +yytext()+" Linea: " + (yyline+1) + " columna: "+ (yycolumn+1) + " \n"; return new Symbol(Symbols.comparacion, yycolumn, yyline, yytext());
             }
-          case 96: break;
+          case 97: break;
           case 37: 
             { System.out.println("Token "+yytext()+" numero"); showResult += "Token correcto: " +yytext()+" Linea: " + (yyline+1) + " columna: "+ (yycolumn+1) + " \n"; return new Symbol(Symbols.numero, yycolumn, yyline, yytext());
             }
-          case 97: break;
+          case 98: break;
           case 38: 
             { System.out.println("Token correcto: "+yytext()+" ciclo_for"); showResult += "Token correcto: " +yytext()+" Linea: " + (yyline+1) + " columna: "+ (yycolumn+1) + " \n"; return new Symbol(Symbols.ciclo_for, yycolumn, yyline, yytext());
             }
-          case 98: break;
+          case 99: break;
           case 39: 
             { System.out.println("Token correcto: "+yytext()+" no logico"); showResult += "Token correcto: " +yytext()+" Linea: " + (yyline+1) + " columna: "+ (yycolumn+1) + " \n"; return new Symbol(Symbols.not, yycolumn, yyline, yytext());
             }
-          case 99: break;
+          case 100: break;
           case 40: 
             { System.out.println("Token correcto: "+yytext()+" int"); showResult += "Token correcto: " +yytext()+" Linea: " + (yyline+1) + " columna: "+ (yycolumn+1) + " \n"; return new Symbol(Symbols.int_type, yycolumn, yyline, yytext());
             }
-          case 100: break;
+          case 101: break;
           case 41: 
             { System.out.println("Token correcto: "+yytext()+" y logico"); showResult += "Token correcto: " +yytext()+" Linea: " + (yyline+1) + " columna: "+ (yycolumn+1) + " \n"; return new Symbol(Symbols.and, yycolumn, yyline, yytext());
             }
-          case 101: break;
+          case 102: break;
           case 42: 
             { System.out.println("Token correcto: "+yytext()+" modulo"); showResult += "Token correcto: " +yytext()+" Linea: " + (yyline+1) + " columna: "+ (yycolumn+1) + " \n"; return new Symbol(Symbols.modulo, yycolumn, yyline, yytext());
             }
-          case 102: break;
+          case 103: break;
           case 43: 
             { System.out.println("Token correcto: "+yytext()+" end case"); showResult += "Token correcto: " +yytext()+" Linea: " + (yyline+1) + " columna: "+ (yycolumn+1) + " \n"; return new Symbol(Symbols.caso, yycolumn, yyline, yytext());
             }
-          case 103: break;
+          case 104: break;
           case 44: 
             { System.out.println("Token correcto: "+yytext()+" char"); showResult += "Token correcto: " +yytext()+" Linea: " + (yyline+1) + " columna: "+ (yycolumn+1) + " \n"; return new Symbol(Symbols.char_type, yycolumn, yyline, yytext());
             }
-          case 104: break;
+          case 105: break;
           case 45: 
             { System.out.println("Token correcto: "+yytext()+" then"); showResult += "Token correcto: " +yytext()+" Linea: " + (yyline+1) + " columna: "+ (yycolumn+1) + " \n"; return new Symbol(Symbols.then, yycolumn, yyline, yytext());
             }
-          case 105: break;
+          case 106: break;
           case 46: 
             { System.out.println("Token correcto: "+yytext()+" else"); showResult += "Token correcto: " +yytext()+" Linea: " + (yyline+1) + " columna: "+ (yycolumn+1) + " \n"; return new Symbol(Symbols.sino, yycolumn, yyline, yytext());
             }
-          case 106: break;
+          case 107: break;
           case 47: 
             { System.out.println("Token correcto: "+yytext()+" float"); showResult += "Token correcto: " +yytext()+" Linea: " + (yyline+1) + " columna: "+ (yycolumn+1) + " \n"; return new Symbol(Symbols.float_type, yycolumn, yyline, yytext());
             }
-          case 107: break;
+          case 108: break;
           case 48: 
             { System.out.println("Token correcto: "+yytext()+" condicional_until"); showResult += "Token correcto: " +yytext()+" Linea: " + (yyline+1) + " columna: "+ (yycolumn+1) + " \n"; return new Symbol(Symbols.condicional_until, yycolumn, yyline, yytext());
             }
-          case 108: break;
+          case 109: break;
           case 49: 
             { System.out.println("Token correcto: "+yytext()+" imprimir"); showResult += "Token correcto: " +yytext()+" Linea: " + (yyline+1) + " columna: "+ (yycolumn+1) + " \n"; return new Symbol(Symbols.imprimir, yycolumn, yyline, yytext());
             }
-          case 109: break;
+          case 110: break;
           case 50: 
             { System.out.println("Token correcto: "+yytext()+" ciclo_while"); showResult += "Token correcto: " +yytext()+" Linea: " + (yyline+1) + " columna: "+ (yycolumn+1) + " \n"; return new Symbol(Symbols.ciclo_while, yycolumn, yyline, yytext());
             }
-          case 110: break;
+          case 111: break;
           case 51: 
             { System.out.println("Token correcto: "+yytext()+" ciclo_repeat"); showResult += "Token correcto: " +yytext()+" Linea: " + (yyline+1) + " columna: "+ (yycolumn+1) + " \n"; return new Symbol(Symbols.ciclo_repeat, yycolumn, yyline, yytext());
             }
-          case 111: break;
+          case 112: break;
           case 52: 
             { System.out.println("Token correcto: "+yytext()+" end if"); showResult += "Token correcto: " +yytext()+" Linea: " + (yyline+1) + " columna: "+ (yycolumn+1) + " \n"; return new Symbol(Symbols.end_if, yycolumn, yyline, yytext());
             }
-          case 112: break;
+          case 113: break;
           case 53: 
             { System.out.println("Token correcto: "+yytext()+" string"); showResult += "Token correcto: " +yytext()+" Linea: " + (yyline+1) + " columna: "+ (yycolumn+1) + " \n"; return new Symbol(Symbols.string_type, yycolumn, yyline, yytext());
             }
-          case 113: break;
+          case 114: break;
           case 54: 
             { System.out.println("Token correcto: "+yytext()+" condicional_switch"); showResult += "Token correcto: " +yytext()+" Linea: " + (yyline+1) + " columna: "+ (yycolumn+1) + " \n"; return new Symbol(Symbols.condicional_switch, yycolumn, yyline, yytext());
             }
-          case 114: break;
+          case 115: break;
           case 55: 
             { System.out.println("Token correcto: "+yytext()+" end for"); showResult += "Token correcto: " +yytext()+" Linea: " + (yyline+1) + " columna: "+ (yycolumn+1) + " \n"; return new Symbol(Symbols.end_for, yycolumn, yyline, yytext());
             }
-          case 115: break;
+          case 116: break;
           case 56: 
             { System.out.println("Token correcto: "+yytext()+" boolean_type"); showResult += "Token correcto: " +yytext()+" Linea: " + (yyline+1) + " columna: "+ (yycolumn+1) + " \n"; return new Symbol(Symbols.boolean_type, yycolumn, yyline, yytext());
             }
-          case 116: break;
+          case 117: break;
           case 57: 
             { System.out.println("Token correcto: "+yytext()+" function"); showResult += "Token correcto: " +yytext()+" Linea: " + (yyline+1) + " columna: "+ (yycolumn+1) + " \n"; return new Symbol(Symbols.function, yycolumn, yyline, yytext());
             }
-          case 117: break;
+          case 118: break;
           case 58: 
             { System.out.println("Token correcto: "+yytext()+"retorno"); showResult += "Token correcto: " +yytext()+" Linea: " + (yyline+1) + " columna: "+ (yycolumn+1) + " \n"; return new Symbol(Symbols.retorno, yycolumn, yyline, yytext());
             }
-          case 118: break;
+          case 119: break;
           case 59: 
             { System.out.println("Token correcto: "+yytext()+"principal"); showResult += "Token correcto: " +yytext()+" Linea: " + (yyline+1) + " columna: "+ (yycolumn+1) + " \n"; return new Symbol(Symbols.principal, yycolumn, yyline, yytext());
             }
-          case 119: break;
+          case 120: break;
           case 60: 
             { System.out.println("Token correcto: "+yytext()+" procedure"); showResult += "Token correcto: " +yytext()+" Linea: " + (yyline+1) + " columna: "+ (yycolumn+1) + " \n"; return new Symbol(Symbols.procedure, yycolumn, yyline, yytext());
             }
-          case 120: break;
+          case 121: break;
+          case 61: 
+            { System.out.println("Token correcto: "+yytext()+"end_while"); showResult += "Token correcto: " +yytext()+" Linea: " + (yyline+1) + " columna: "+ (yycolumn+1) + " \n"; return new Symbol(Symbols.end_while, yycolumn, yyline, yytext());
+            }
+          case 122: break;
           default:
             zzScanError(ZZ_NO_MATCH);
         }
