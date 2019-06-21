@@ -60,6 +60,7 @@ public class Symbols {
   public static final int and = 35;
   public static final int condicional_until = 17;
   public static final int parametro_salida = 10;
+  public static final int breakpoint = 63;
   public static final int principal = 62;
   public static final int lambda = 58;
   public static final int comilla_cerrada = 54;
@@ -134,7 +135,8 @@ public class Symbols {
   "imprimir",
   "decimal",
   "retorno",
-  "principal"
+  "principal",
+  "breakpoint"
   };
 }
 

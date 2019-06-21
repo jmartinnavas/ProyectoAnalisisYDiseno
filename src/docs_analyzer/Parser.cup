@@ -81,7 +81,7 @@ terminal  suma , resta , multiplicacion , division , potencia , menor  , mayor ,
 terminal mayor_igual ,  modulo , diferente , or , and , not ,  asignacion , parentesis_abierto ;
 terminal parentesis_cerrado , llave_abierta , llave_cerrada , corchete_abierto , corchete_cerrado , coma , hasta , hacer  ;
 terminal  down_to  , digito , letra , entero , numero , id , comilla_abierta , comilla_cerrada, end_for ;
-terminal dos_puntos, end_while, lambda , imprimir , decimal , retorno , principal ;
+terminal dos_puntos, end_while, lambda , imprimir , decimal , retorno , principal , breakpoint;
 
 
 
@@ -207,23 +207,42 @@ LLAMADO ::=  llave_abierta multiplicacion  id parentesis_abierto ELEMENTO  paren
 
 
 
-VARIABLES ::=  EXP_INICIO asignacion EXP_NUMERICA | EXP_INICIO asignacion EXP_INICIO
-               |  EXP_INICIO asignacion  VECTOR
-                 |   VECTOR ; 
+VARIABLES ::=  EXP_INICIO asignacion EXP_NUMERICA | 
+               EXP_INICIO asignacion EXP_INICIO |  
+               EXP_INICIO asignacion  VECTOR |
+               VECTOR |
 
-IMPRIMIR ::= imprimir comilla_abierta id comilla_cerrada | imprimir  id ; 
+             breakpoint  EXP_INICIO asignacion EXP_NUMERICA | 
+             breakpoint  EXP_INICIO asignacion EXP_INICIO |  
+             breakpoint EXP_INICIO asignacion  VECTOR |
+             breakpoint VECTOR ;
+
+IMPRIMIR ::= imprimir comilla_abierta id comilla_cerrada | imprimir  id | 
+          breakpoint  imprimir comilla_abierta id comilla_cerrada |breakpoint imprimir  id ; 
 
 CICLO ::= ciclo_for parentesis_abierto EXP_INICIO asignacion EXP_NUMERICA hasta EXPRESION_REG parentesis_cerrado hacer INSTRUCCIONES1 end_for |
         ciclo_for parentesis_abierto EXP_INICIO asignacion EXP_NUMERICA hasta EXPRESION_REG OPERADOR_MATEMATICO EXPRESION_REG  parentesis_cerrado hacer INSTRUCCIONES1 end_for |
         ciclo_for parentesis_abierto EXP_INICIO asignacion EXP_INICIO hasta EXPRESION_REG parentesis_cerrado hacer INSTRUCCIONES1 end_for |
         ciclo_for parentesis_abierto EXP_INICIO asignacion EXP_NUMERICA down_to EXPRESION_REG parentesis_cerrado hacer INSTRUCCIONES1 end_for |
         ciclo_while parentesis_abierto CONDICION parentesis_cerrado hacer INSTRUCCIONES1 end_while |
-        ciclo_repeat INSTRUCCIONES1 condicional_until parentesis_abierto CONDICION parentesis_cerrado ;
+        ciclo_repeat INSTRUCCIONES1 condicional_until parentesis_abierto CONDICION parentesis_cerrado |
+
+      breakpoint  ciclo_for parentesis_abierto EXP_INICIO asignacion EXP_NUMERICA hasta EXPRESION_REG parentesis_cerrado hacer INSTRUCCIONES1 end_for |
+      breakpoint  ciclo_for parentesis_abierto EXP_INICIO asignacion EXP_NUMERICA hasta EXPRESION_REG OPERADOR_MATEMATICO EXPRESION_REG  parentesis_cerrado hacer INSTRUCCIONES1 end_for |
+      breakpoint  ciclo_for parentesis_abierto EXP_INICIO asignacion EXP_INICIO hasta EXPRESION_REG parentesis_cerrado hacer INSTRUCCIONES1 end_for |
+      breakpoint  ciclo_for parentesis_abierto EXP_INICIO asignacion EXP_NUMERICA down_to EXPRESION_REG parentesis_cerrado hacer INSTRUCCIONES1 end_for |
+      breakpoint  ciclo_while parentesis_abierto CONDICION parentesis_cerrado hacer INSTRUCCIONES1 end_while |
+      breakpoint  ciclo_repeat INSTRUCCIONES1 condicional_until parentesis_abierto CONDICION parentesis_cerrado ;
 
 CONDICIONAL ::= condicional_if parentesis_abierto CONDICION11 parentesis_cerrado then INSTRUCCIONES1 end_if 
 		|condicional_if parentesis_abierto CONDICION11 parentesis_cerrado then INSTRUCCIONES1 sino INSTRUCCIONES1 end_if 
 		| condicional_switch id caso id dos_puntos INSTRUCCIONES1 caso
-                |caso id INSTRUCCIONES1 ;
+                |caso id INSTRUCCIONES1  |
+
+               breakpoint condicional_if parentesis_abierto CONDICION11 parentesis_cerrado then INSTRUCCIONES1 end_if 
+		|breakpoint condicional_if parentesis_abierto CONDICION11 parentesis_cerrado then INSTRUCCIONES1 sino INSTRUCCIONES1 end_if 
+		|breakpoint condicional_switch id caso id dos_puntos INSTRUCCIONES1 caso
+                |breakpoint caso id INSTRUCCIONES1 ;
 
 CONDICION11 ::= CONDICION | CONDICION CONDICION11 ; 
 
@@ -236,9 +255,11 @@ CONDICION ::=    parentesis_abierto EXPRESION_REG OPERADOR_LOGICO EXPRESION_REG 
 
 OPEMATES ::= EXP_INICIO asignacion EXPRESION_REG OPERADOR_MATEMATICO EXPRESION_REG 
             | EXP_INICIO asignacion EXPRESION_REG OPERADOR_MATEMATICO EXPRESION_REG OPERADOR_MATEMATICO EXPRESION_REG 
-            | EXP_INICIO asignacion EXPRESION_REG OPERADOR_MATEMATICO EXPRESION_REG OPERADOR_MATEMATICO EXPRESION_REG OPERADOR_MATEMATICO EXPRESION_REG ;
+            | EXP_INICIO asignacion EXPRESION_REG OPERADOR_MATEMATICO EXPRESION_REG OPERADOR_MATEMATICO EXPRESION_REG OPERADOR_MATEMATICO EXPRESION_REG |
            
-     
+   breakpoint  EXP_INICIO asignacion EXPRESION_REG OPERADOR_MATEMATICO EXPRESION_REG 
+            |breakpoint EXP_INICIO asignacion EXPRESION_REG OPERADOR_MATEMATICO EXPRESION_REG OPERADOR_MATEMATICO EXPRESION_REG 
+            |breakpoint EXP_INICIO asignacion EXPRESION_REG OPERADOR_MATEMATICO EXPRESION_REG OPERADOR_MATEMATICO EXPRESION_REG OPERADOR_MATEMATICO EXPRESION_REG ;
 /*---------------
 E ::= E suma T | E resta T | T  ;
 T ::= T multiplicacion F | T division F | F ;
