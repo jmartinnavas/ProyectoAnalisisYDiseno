@@ -38,7 +38,9 @@ public class Frame extends javax.swing.JFrame {
     LinkedHashMap<String, String> mapa = new LinkedHashMap<>();
     int secuencia = 1;
     DefaultTableModel dtm = new DefaultTableModel();
+
     LinkedList<String> respuestas = new LinkedList<>();
+     LinkedList<String> respuestas2 = new LinkedList<>();
     String traduccion = "";
     //RowsRenderer r = new RowsRenderer();
     frmarbol framearbol;
@@ -70,10 +72,12 @@ public class Frame extends javax.swing.JFrame {
         btnverificar.setEnabled(false);
         btncalcular.setEnabled(false);
         txtcaptura.setEnabled(false);
+        btnlineaxlinea.setEnabled(false);
         btnenviaratabla.setEnabled(false);
         btnreiniciar.setEnabled(false);
         lblrestantes.setText("" + restantes);
         framearbol = new frmarbol();
+        dtm.isCellEditable(1, 2);
 
         //tablaauxiliar.setEnabled(false);
         //tabladatos.setDefaultRenderer(Object.class, r);
@@ -105,6 +109,7 @@ public class Frame extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         btnvariables = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
+        btnlineaxlinea = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tabladatos = new javax.swing.JTable();
         jPanel4 = new javax.swing.JPanel();
@@ -241,7 +246,7 @@ public class Frame extends javax.swing.JFrame {
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addGap(232, 232, 232)
                 .addComponent(jLabel1)
-                .addContainerGap(286, Short.MAX_VALUE))
+                .addContainerGap(317, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -274,7 +279,7 @@ public class Frame extends javax.swing.JFrame {
                             .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, 157, Short.MAX_VALUE)
                             .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -312,6 +317,13 @@ public class Frame extends javax.swing.JFrame {
         );
 
         jPanel3.setBackground(new java.awt.Color(204, 204, 204));
+
+        btnlineaxlinea.setText("Analisis Linea a Linea");
+        btnlineaxlinea.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnlineaxlineaActionPerformed(evt);
+            }
+        });
 
         tabladatos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -440,28 +452,10 @@ public class Frame extends javax.swing.JFrame {
                 .addComponent(jScrollPane1)
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lblrestantes, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(212, 212, 212))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(btnreiniciar))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                        .addGap(91, 91, 91)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(btncalcular, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(Comprobar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnverificar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lbllineaañadir, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtcaptura, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnenviaratabla))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(39, 39, 39)
                         .addComponent(etiresultado, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -471,7 +465,9 @@ public class Frame extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(203, 203, 203)
-                        .addComponent(jLabel4))
+                        .addComponent(jLabel4)
+                        .addGap(18, 18, 18)
+                        .addComponent(lblrestantes, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabel6)
@@ -480,6 +476,27 @@ public class Frame extends javax.swing.JFrame {
                         .addGap(108, 108, 108)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 296, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addGap(91, 91, 91)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btncalcular, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Comprobar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnverificar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel5)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lbllineaañadir, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtcaptura, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnenviaratabla)
+                        .addGap(117, 117, 117))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(154, 154, 154)
+                        .addComponent(btnlineaxlinea)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -491,7 +508,7 @@ public class Frame extends javax.swing.JFrame {
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel4))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                    .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(12, 12, 12)
                         .addComponent(lblrestantes, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(20, 20, 20)
@@ -520,8 +537,9 @@ public class Frame extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(etiresultado, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(47, 47, 47))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(btnlineaxlinea)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap())))
         );
@@ -980,6 +998,130 @@ public class Frame extends javax.swing.JFrame {
             //System.out.println( dtm.getValueAt(i, 0));
         }
     }
+    
+     public void complejidad2() {
+        int caso = 0;
+        boolean banderaciclo1 = false;
+        boolean banderaciclo2 = false;
+        String fila;
+        for (int i = 0; i < mapa.size(); i++) {
+
+            String cadena = "";
+            cadena = (String) dtm.getValueAt(i, 0);
+            String[] cadenita = cadena.split("-");
+
+            //lineas que no afectan el comportamiento 
+            if ((cadenita[1].equals("cabecera") || cadenita[1].equals("otro")
+                    || cadenita[1].equals("final"))) {
+
+                dtm.setValueAt((Object) "---", i, 2);
+                respuestas2.add("---");
+                //tabladatos.setBackground(Color.GREEN);
+                //asignaciones y declaraciones que no estan adentro de ciclos   
+            } else if (cadenita[1].equals("LlamadoRecursivo")) {
+                dtm.setValueAt((Object) "na", i, 2);
+                respuestas2.add("na");
+            } else if ((cadenita[1].equals("asignacion") || cadenita[1].equals("declaracion")
+                    || cadenita[1].equals("imprimir") || cadenita[1].equals("retorno")
+                    || cadenita[1].equals("condicional")) && !banderaciclo1) {
+
+                dtm.setValueAt((Object) "c", i, 2);
+                respuestas2.add("c");
+            } // es un solo ciclo 
+            else if (cadenita[1].equals("ciclo") && !siguiente1("ciclo", i)) {
+                banderaciclo1 = true;
+                int ob = i + 1;
+                String[] cadenafor = mapa.get(ob + "-ciclo").split(" ");
+                if (cadenafor[4].equals("1") && cadenafor[6].equals("n") && (dtm.getValueAt(i, 2) == null)) {
+                    dtm.setValueAt((Object) "n+1", i, 2);
+                    respuestas2.add("n+1");
+                    caso = 1;
+
+                } else if (cadenafor[4].equals("1") && cadenafor[6].equals("n-1") && (dtm.getValueAt(i, 2) == null)) {
+                    dtm.setValueAt((Object) "n", i, 2);
+                    respuestas2.add("n");
+                    caso = 2;
+
+                }
+
+            } // declaraciones, asiganciones, condicionaes, print que esten dentro de 1 ciclo
+            else if ((cadenita[1].equals("asignacion") || cadenita[1].equals("declaracion")
+                    || cadenita[1].equals("imprimir") || cadenita[1].equals("retorno")
+                    || cadenita[1].equals("condicional")) && banderaciclo1 && !banderaciclo2) {
+                if (caso == 1) {
+                    dtm.setValueAt((Object) "n", i, 2);
+                    respuestas2.add("n");
+                } else if (caso == 2) {
+                    dtm.setValueAt((Object) "n-1", i, 2);
+                    respuestas2.add("n-1");
+                }
+
+            } else if (cadenita[1].equals("finalif")) {
+                dtm.setValueAt((Object) "---", i, 2);
+                respuestas2.add("---");
+            } else if (cadenita[1].equals("finalfor") && !siguiente1("finalfor", i)) {
+                banderaciclo1 = false;
+                dtm.setValueAt((Object) "---", i, 2);
+                respuestas2.add("---");
+            } else if (cadenita[1].equals("finalfor") && siguiente1("finalfor", i)) {
+                banderaciclo1 = false;
+                banderaciclo2 = false;
+                dtm.setValueAt((Object) "---", i, 2);
+                respuestas2.add("---");
+            } //es un ciclo for anidado
+            else if (cadenita[1].equals("ciclo") && siguiente1("ciclo", i)) {
+                banderaciclo1 = true;
+                banderaciclo2 = true;
+                int ob = i + 1;
+                int ob2 = i + 2;
+                String[] cadenafor1 = mapa.get(ob + "-ciclo").split(" ");
+                String[] cadenafor2 = mapa.get(ob2 + "-ciclo").split(" ");
+                if ((cadenafor1[4].equals("1") && cadenafor1[6].equals("n")) && (cadenafor2[4].equals("1") && cadenafor2[6].equals("n"))) {
+                    dtm.setValueAt((Object) "n+1", i, 2);
+                    dtm.setValueAt((Object) "n+n^2", i + 1, 2);
+                    respuestas2.add("n+1");
+                    respuestas2.add("n+n^2");
+                    caso = 3;
+
+                } else if ((cadenafor1[4].equals("1") && cadenafor1[6].equals("n")) && (cadenafor2[4].equals("1") && cadenafor2[6].equals("i"))) {
+                    dtm.setValueAt((Object) "n+1", i, 2);
+                    dtm.setValueAt((Object) "n^2", i + 1, 2);
+                    respuestas2.add("n+1");
+                    respuestas2.add("n^2");
+                    caso = 4;
+                } else if ((cadenafor1[4].equals("1") && cadenafor1[6].equals("n-1")) && (cadenafor2[4].equals("1") && cadenafor2[6].equals("n-1"))) {
+                    dtm.setValueAt((Object) "n", i, 2);
+                    dtm.setValueAt((Object) "n^2-n", i + 1, 2);
+                    respuestas2.add("n");
+                    respuestas2.add("n^2-n");
+                    caso = 5;
+                }
+            } // declaraciones, asiganciones, condicionaes, print que esten dentro de un for anidado
+            else if ((cadenita[1].equals("asignacion") || cadenita[1].equals("declaracion")
+                    || cadenita[1].equals("imprimir") || cadenita[1].equals("retorno")
+                    || cadenita[1].equals("condicional")) && banderaciclo1 && banderaciclo2) {
+                switch (caso) {
+                    case 3:
+                        dtm.setValueAt((Object) "n^2", i, 2);
+                        respuestas2.add("n^2");
+                        break;
+                    case 4:
+                        dtm.setValueAt((Object) "n^2-1", i, 2);
+                        respuestas2.add("n^2-1");
+                        break;
+                    case 5:
+                        dtm.setValueAt((Object) "n^2-1", i, 2);
+                        respuestas2.add("n^2-1");
+                        break;
+                    default:
+                        break;
+                }
+
+            }
+
+            //System.out.println( dtm.getValueAt(i, 0));
+        }
+    }
 
     //es un doble for anidado ? 
     public boolean siguiente1(String llave, int i) {
@@ -1163,6 +1305,7 @@ public class Frame extends javax.swing.JFrame {
             if (syntactic.result2 == "true") {
                 extraerLineas(data);
                 btncomplejidad.setEnabled(true);
+               
 
             }
             System.out.println("-----------------PSEUDOCODIGO--------------------------------------");
@@ -1237,6 +1380,7 @@ public class Frame extends javax.swing.JFrame {
         txtcaptura.setEnabled(true);
         btnenviaratabla.setEnabled(true);
         btnreiniciar.setEnabled(true);
+        btnlineaxlinea.setEnabled(true);
         complejidad();
         pintarOcultar();
         System.out.println("lista respuestas: " + respuestas.size());
@@ -1247,7 +1391,7 @@ public class Frame extends javax.swing.JFrame {
 //BOTON VERIFICAR INTENTO
     private void btnverificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnverificarActionPerformed
 
-        System.out.println("lista resp" + respuestas);
+        System.out.println("La respuestas correctas son: " + respuestas);
 
         verificarRespuestas();
 
@@ -1410,7 +1554,7 @@ public class Frame extends javax.swing.JFrame {
     private void btnvariablesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnvariablesActionPerformed
         // TODO add your handling code here:
         LinkedList<String[]> variables = new LinkedList<>();
-        System.out.println("la traduccion es "+traduccion);
+        System.out.println("la traduccion es " + traduccion);
         variables = iniciales(traduccion);
         HashMap<String, LinkedList<String>> datos = new HashMap<>();
         HashMap<String, LinkedList<String>> valores_inicio = new HashMap<>();
@@ -1432,6 +1576,16 @@ public class Frame extends javax.swing.JFrame {
 
 
     }//GEN-LAST:event_btnvariablesActionPerformed
+
+    private void btnlineaxlineaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnlineaxlineaActionPerformed
+        // TODO add your handling code here:
+        //complejidad2();
+        AnalisisLineaALinea newframe = new AnalisisLineaALinea(mapa,respuestas);
+        newframe.tarea.setText(Code.getText());
+        newframe.setVisible(true);
+       
+
+    }//GEN-LAST:event_btnlineaxlineaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1475,6 +1629,7 @@ public class Frame extends javax.swing.JFrame {
     private javax.swing.JButton btncalcular;
     private javax.swing.JButton btncomplejidad;
     private javax.swing.JButton btnenviaratabla;
+    private javax.swing.JButton btnlineaxlinea;
     private javax.swing.JButton btnreiniciar;
     private javax.swing.JButton btnvariables;
     private javax.swing.JButton btnverificar;
