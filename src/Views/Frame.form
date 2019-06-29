@@ -163,6 +163,7 @@
                               <Component id="jButton1" alignment="0" max="32767" attributes="0"/>
                               <Component id="btncomplejidad" max="32767" attributes="0"/>
                               <Component id="btnvariables" max="32767" attributes="0"/>
+                              <Component id="btnPasoApaso" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -189,6 +190,8 @@
                           <Component id="btncomplejidad" min="-2" pref="41" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="btnvariables" min="-2" pref="40" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+                          <Component id="btnPasoApaso" min="-2" pref="41" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -394,6 +397,14 @@
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnvariablesActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="btnPasoApaso">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Paso a Paso"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnPasoApasoActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>

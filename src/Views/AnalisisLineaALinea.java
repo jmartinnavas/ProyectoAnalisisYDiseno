@@ -250,6 +250,7 @@ public class AnalisisLineaALinea extends javax.swing.JFrame {
 
     int linea = 0;
 
+    
     private void btnverificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnverificarActionPerformed
 
         if (textocosto.getText().equals(respuestas.get(linea))) {

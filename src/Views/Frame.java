@@ -40,7 +40,7 @@ public class Frame extends javax.swing.JFrame {
     DefaultTableModel dtm = new DefaultTableModel();
 
     LinkedList<String> respuestas = new LinkedList<>();
-     LinkedList<String> respuestas2 = new LinkedList<>();
+    LinkedList<String> respuestas2 = new LinkedList<>();
     String traduccion = "";
     //RowsRenderer r = new RowsRenderer();
     frmarbol framearbol;
@@ -73,6 +73,7 @@ public class Frame extends javax.swing.JFrame {
         btncalcular.setEnabled(false);
         txtcaptura.setEnabled(false);
         btnlineaxlinea.setEnabled(false);
+        btnPasoApaso.setEnabled(false);
         btnenviaratabla.setEnabled(false);
         btnreiniciar.setEnabled(false);
         lblrestantes.setText("" + restantes);
@@ -108,6 +109,7 @@ public class Frame extends javax.swing.JFrame {
         jPanel5 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         btnvariables = new javax.swing.JButton();
+        btnPasoApaso = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         btnlineaxlinea = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -263,6 +265,13 @@ public class Frame extends javax.swing.JFrame {
             }
         });
 
+        btnPasoApaso.setText("Paso a Paso");
+        btnPasoApaso.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPasoApasoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -284,7 +293,8 @@ public class Frame extends javax.swing.JFrame {
                             .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btncomplejidad, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnvariables, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(btnvariables, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnPasoApaso, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
@@ -305,7 +315,9 @@ public class Frame extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btncomplejidad, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnvariables, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btnvariables, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(21, 21, 21)
+                        .addComponent(btnPasoApaso, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 441, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -998,8 +1010,8 @@ public class Frame extends javax.swing.JFrame {
             //System.out.println( dtm.getValueAt(i, 0));
         }
     }
-    
-     public void complejidad2() {
+
+    public void complejidad2() {
         int caso = 0;
         boolean banderaciclo1 = false;
         boolean banderaciclo2 = false;
@@ -1305,7 +1317,6 @@ public class Frame extends javax.swing.JFrame {
             if (syntactic.result2 == "true") {
                 extraerLineas(data);
                 btncomplejidad.setEnabled(true);
-               
 
             }
             System.out.println("-----------------PSEUDOCODIGO--------------------------------------");
@@ -1381,6 +1392,7 @@ public class Frame extends javax.swing.JFrame {
         btnenviaratabla.setEnabled(true);
         btnreiniciar.setEnabled(true);
         btnlineaxlinea.setEnabled(true);
+        btnPasoApaso.setEnabled(true);
         complejidad();
         pintarOcultar();
         System.out.println("lista respuestas: " + respuestas.size());
@@ -1580,12 +1592,19 @@ public class Frame extends javax.swing.JFrame {
     private void btnlineaxlineaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnlineaxlineaActionPerformed
         // TODO add your handling code here:
         //complejidad2();
-        AnalisisLineaALinea newframe = new AnalisisLineaALinea(mapa,respuestas);
+        AnalisisLineaALinea newframe = new AnalisisLineaALinea(mapa, respuestas);
         newframe.tarea.setText(Code.getText());
         newframe.setVisible(true);
-       
+
 
     }//GEN-LAST:event_btnlineaxlineaActionPerformed
+
+    private void btnPasoApasoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPasoApasoActionPerformed
+        // TODO add your handling code here:
+        Seguimiento newframe = new Seguimiento(mapa, respuestas);
+        newframe.tarea.setText(Code.getText());
+        newframe.setVisible(true);
+    }//GEN-LAST:event_btnPasoApasoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1626,6 +1645,7 @@ public class Frame extends javax.swing.JFrame {
     private javax.swing.JTextArea Code;
     private javax.swing.JButton Comprobar;
     private javax.swing.JTextArea TextSyntactic;
+    private javax.swing.JButton btnPasoApaso;
     private javax.swing.JButton btncalcular;
     private javax.swing.JButton btncomplejidad;
     private javax.swing.JButton btnenviaratabla;
